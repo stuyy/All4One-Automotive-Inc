@@ -1,21 +1,22 @@
 <div>
-    <mat-vertical-stepper linear #stepper>
-        <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
-            <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your name</ng-template>
+    <mat-vertical-stepper  #stepper>
+
+        <mat-step [stepControl]="fullName" errorMessage="Name is required.">
+            <form [formGroup]="fullName">
+            <ng-template matStepLabel>Your Name</ng-template>
             <mat-form-field>
-                <input matInput placeholder="Last name, First name" name="firstName" formControlName="firstCtrl" required>
+                <input matInput name="fullName" placeholder="Please enter your name" formControlName="fullName" required>
             </mat-form-field>
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-            <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-step [stepControl]="emailAddress" errorMessage="Email Address is required.">
+            <form [formGroup]="emailAddress">
+            <ng-template matStepLabel>Email Address</ng-template>
             <mat-form-field>
-                <input matInput placeholder="Address" name="lastName" formControlName="secondCtrl" required>
+                <input matInput placeholder="Email Address" name="lastName" formControlName="emailAddress" required>
             </mat-form-field>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
@@ -23,13 +24,53 @@
             </div>
             </form>
         </mat-step>
+        <mat-step [stepControl]="phoneNumber" errorMessage="Please enter your phone number">
+            <form [formGroup]="phoneNumber">
+                <ng-template matStepLabel>Phone Number</ng-template>
+                <mat-form-field>
+                    <input matInput placeholder="Phone Number" name="phoneNumber" type="text" formControlName="phoneNumber" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="attachments" errorMessage="Upload a Resume/CV">
+            <form [formGroup]="attachments">
+                <ng-template matStepLabel>Resume/CV</ng-template>
+                <mat-form-field>
+                    <ngx-mat-file-input #removableInput formControlName="attachments" [accept]="'.pdf, .docx'" placeholder="Upload Resume/CV"></ngx-mat-file-input>
+                    <button mat-icon-button matSuffix *ngIf="!removableInput.empty" (click)="removableInput.clear($event)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="comments">
+            <form [formGroup]="comments" class="comments-form">
+                <ng-template matStepLabel>Comments</ng-template>
+                <mat-form-field>
+                    <textarea matInput placeholder="Briefly tell us why you'd like to work at All 4 One Automotives Inc. or paste a cover letter." name="comments" type="text" formControlName="comments"></textarea>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+                
+            </form>
+        </mat-step>
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            You are now done.
+            <ng-template matStepLabel>Finish</ng-template>
             <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button>Submit</button>
             </div>
         </mat-step>
     </mat-vertical-stepper>
+
 </div>

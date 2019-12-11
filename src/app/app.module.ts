@@ -18,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { CareersComponent } from './components/careers/careers.component';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CareersApplicationFormComponent } from './components/careers-application-form/careers-application-form.component';
-
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,8 @@ import { CareersApplicationFormComponent } from './components/careers-applicatio
     MatIconModule,
     MatButtonModule,
     MatStepperModule,
+    MaterialFileInputModule,
+    TextFieldModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
     }),
