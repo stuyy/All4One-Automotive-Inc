@@ -1,0 +1,46 @@
+mat-sidenav {
+    width: 250px;
+    background-color: gray;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+mat-sidenav-container {
+    height: 100%;
+    
+}
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+.top-content {
+    height: 95vh;
+    background-image: 
+        linear-gradient(
+            rgba(0, 0, 0, .5), 
+            rgba(0,0,0,.5)), 
+        url('/assets/nyc_compressed.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.welcome-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.welcome-header-text {
+    font-size: 48px;
+    font-weight: bold;
+}
+.welcome-header-address {
+    font-size: 26px;
+    margin: 0 auto;
+    text-align: center;
+}
