@@ -55,4 +55,17 @@ mat-card-subtitle {
 
 .welcome-header-card {
     margin-top: 20px;
+    padding: 0px;   
+}
+
+.welcome-header-card mat-card-title {
+    padding: 15px 20px;
+}
+
+.welcome-header-card mat-card-subtitle {
+    padding: 0px 20px 0px 20px;
+}
+
+.welcome-header-card mat-card-actions {
+    padding: 5px 20px;
 }

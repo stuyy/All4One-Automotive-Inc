@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 interface Route {
   name,
@@ -13,7 +12,7 @@ interface Route {
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
+  constructor() {
 
   }
   public links: Array<Route>= [

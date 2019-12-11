@@ -4,7 +4,6 @@
       <button mat-flat-button [autofocus]="false" (click)="sidenav.toggle()" class="close-btn-icon">
         <mat-icon>close</mat-icon>
       </button>
-      <h2 class="menu-text">Menu</h2>
     </div>
     <ul class="side-navbar">
       <li *ngFor="let link of links" [routerLinkActive]="['active-route']">
@@ -22,7 +21,7 @@
         </button>
         <span class="example-fill-remaining-space"></span>
       </mat-toolbar>
-    <app-home></app-home>
+      <router-outlet></router-outlet>
+      
   </mat-sidenav-content>
 </mat-sidenav-container>
-<router-outlet></router-outlet>

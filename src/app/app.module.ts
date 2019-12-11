@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatStepperModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,12 +15,18 @@ import { MatCardModule } from '@angular/material/card';
 import { AgmCoreModule } from '@agm/core';
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CareersComponent } from './components/careers/careers.component';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { CareersApplicationFormComponent } from './components/careers-application-form/careers-application-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    CareersComponent,
+    CareersApplicationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +35,18 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatCheckboxModule,
     FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatStepperModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
-    })
+    }),
+    CdkStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
