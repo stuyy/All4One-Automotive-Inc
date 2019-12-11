@@ -15,6 +15,9 @@ mat-sidenav-container {
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
 }
+agm-map {
+    height: 250px;
+}
 
 .top-content {
     height: 95vh;
@@ -43,4 +46,8 @@ mat-sidenav-container {
     font-size: 26px;
     margin: 0 auto;
     text-align: center;
+}
+
+.welcome-header-card {
+    margin-top: 20px;
 }

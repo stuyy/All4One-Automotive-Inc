@@ -9,7 +9,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatCardModule } from '@angular/material/card';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatCheckboxModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

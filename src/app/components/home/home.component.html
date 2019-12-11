@@ -19,9 +19,18 @@
             <span class="welcome-header-address" id="address">
             </span>
 
-        <div class="contact-card">
-                <h3>Request a Service</h3>
-            </div>
+        <mat-card [@openCard]="isOpen ? 'open' : 'closed'" class="welcome-header-card" color="warn">
+            <mat-card-title>Contact Us!</mat-card-title>
+            <mat-card-subtitle>
+                479 S Pearl St, Albany, NY 12202
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+                (518) 275-0100
+            </mat-card-subtitle>
+            <agm-map [latitude]="lat" [longitude]="lon" [zoom]=15>
+                <agm-marker [latitude]="lat" [longitude]="lon" [label]="'M'"></agm-marker>
+            </agm-map>
+        </mat-card>
         </div>
     </div>
     
