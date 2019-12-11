@@ -1,22 +1,29 @@
-mat-sidenav {
-    width: 250px;
-    background-color: gray;
-}
 * {
     padding: 0;
     margin: 0;
 }
-mat-sidenav-container {
-    height: 100%;
-    
-}
 .example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
 }
 agm-map {
     height: 250px;
+}
+nav span {
+    padding: 10px;
+}
+mat-icon {
+    vertical-align: middle;
+    font-size: 22px !important;
+}
+mat-card-subtitle {
+    font-size: 20px;
+}
+.menu-button {
+
+}
+.menu-button mat-icon {
+    font-size: 32px !important;
+    margin-left: -8px !important;
 }
 
 .top-content {
@@ -30,14 +37,12 @@ agm-map {
     background-repeat: no-repeat;
     position: relative;
 }
-
 .welcome-section {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .welcome-header-text {
     font-size: 48px;
     font-weight: bold;

@@ -1,12 +1,27 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side">
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Careers</li>
+<mat-sidenav-container class="example-container" [hasBackdrop]="true">
+  <mat-sidenav #sidenav mode="over">
+    <div class="menu-top">
+      <button mat-flat-button [autofocus]="false" (click)="sidenav.toggle()" class="close-btn-icon">
+        <mat-icon>close</mat-icon>
+      </button>
+      <h2 class="menu-text">Menu</h2>
+    </div>
+    <ul class="side-navbar">
+      <li *ngFor="let link of links" [routerLinkActive]="['active-route']">
+        <a [routerLink]="link.url">
+          {{link.name}}
+        </a>
+      </li>
     </ul>
+
   </mat-sidenav>
   <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-fill-remaining-space"></span>
+      </mat-toolbar>
     <app-home></app-home>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+.menu-text {
+    text-align: center;
+    padding: 18px 0;
+}
+mat-sidenav {
+    width: 230px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.side-navbar {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0;
+    font-family: 'Hind';
+    font-size: 20px;
+    text-align: left;
+}
+.side-navbar li {
+    padding: 18px;
+}
+
+.side-navbar li:hover {
+    cursor: pointer;
+    color: black;
+}
+.active-route {
+    color: white;
+    background-color: gray;
+}
+.menu-top {
+    display: flex;
+}

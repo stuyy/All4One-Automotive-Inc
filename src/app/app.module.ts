@@ -9,12 +9,17 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { AgmCoreModule } from '@agm/core';
+import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,8 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
+    MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
     })

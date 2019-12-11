@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
       stringsElement: '#typed-strings',
       autoInsertCss: true,
       cursorChar: '|',
-      typeSpeed: 25,
+      typeSpeed: 0,
       onComplete: (self : any) => {
         self.cursor.remove();
         this.initAddressTyping();
@@ -58,11 +58,12 @@ export class HomeComponent implements OnInit {
       stringsElement: '#address-string',
       autoInsertCss: true,
       cursorChar: '|',
-      typeSpeed: 25,
+      typeSpeed: 0,
+      startDelay: 1000,
       onComplete: (self : any) => {
         setTimeout(() => {
           this.toggle();
-        }, 100)
+        }, 700)
       }
     })
   }
