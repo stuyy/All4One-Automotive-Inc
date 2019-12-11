@@ -1,11 +1,4 @@
 <div>
-    <mat-toolbar>
-        <span>All 4 One Automotive Inc.</span>
-        <span class="example-fill-remaining-space"></span>
-        <span>Home</span>
-        <span>About</span>
-        <span>Careers</span>
-    </mat-toolbar>
     <div class="top-content">
         <div id="address-string" style="display: none;">
             <p>479 S Pearl St, Albany, NY 12202</p>
@@ -18,20 +11,21 @@
             <br/>
             <span class="welcome-header-address" id="address">
             </span>
-
         <mat-card [@openCard]="isOpen ? 'open' : 'closed'" class="welcome-header-card" color="warn">
             <mat-card-title>Contact Us!</mat-card-title>
             <mat-card-subtitle>
                 479 S Pearl St, Albany, NY 12202
             </mat-card-subtitle>
             <mat-card-subtitle>
-                (518) 275-0100
+                <mat-icon>phone</mat-icon>
+                <span>(518) 275-0100</span>
             </mat-card-subtitle>
-            <agm-map [latitude]="lat" [longitude]="lon" [zoom]=15>
-                <agm-marker [latitude]="lat" [longitude]="lon" [label]="'M'"></agm-marker>
-            </agm-map>
+            <!-- Google Maps Component Goes Here-->
+            <app-google-maps></app-google-maps>
         </mat-card>
         </div>
     </div>
-    
+    <section class="middle-content">
+        
+    </section>
 </div>
