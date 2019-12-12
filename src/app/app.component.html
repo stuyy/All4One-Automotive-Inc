@@ -6,7 +6,7 @@
       </button>
     </div>
     <ul class="side-navbar">
-      <li *ngFor="let link of links" [routerLinkActive]="['active-route']">
+      <li *ngFor="let link of links" [ngClass]="{'active-route' : currentPath === link.url }">
         <a [routerLink]="link.url">
           {{link.name}}
         </a>

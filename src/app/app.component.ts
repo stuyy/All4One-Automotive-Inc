@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Route {
   name,
@@ -11,9 +12,14 @@ interface Route {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public currentPath: string = '';
 
-  constructor() {
-
+  constructor(private router: Router) {
+    router.events.subscribe((url : any) => {
+      this.currentPath = router.url;
+      console.log(this.currentPath);
+    }, err => console.log(err),
+    () => console.log("Done."))
   }
   public links: Array<Route>= [
     {
