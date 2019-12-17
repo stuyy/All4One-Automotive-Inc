@@ -15,10 +15,12 @@ import {
   animations: [
     trigger('openCard', [
       state('closed', style({
-        opacity: 0
+        opacity: 0,
+        visibility: 'hidden',
       })),
       state('open', style({
-        opacity: 1
+        opacity: 1,
+        visibility: 'visible'
       })),
       transition('open => closed', [
         animate('.5s')
@@ -47,7 +49,10 @@ export class HomeComponent implements OnInit {
       cursorChar: '|',
       typeSpeed: 50,
       onComplete: (self : any) => {
-        setTimeout(() => { this.toggle(); }, 700)
+        setTimeout(() => { 
+          this.toggle(); 
+          self.cursor.remove();
+        }, 700)
         // this.initAddressTyping();
       }
     });

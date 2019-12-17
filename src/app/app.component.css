@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+@import url('https://fonts.googleapis.com/css?family=ABeeZee&display=swap');
 .menu-text {
     text-align: center;
     padding: 18px 0;
@@ -21,6 +22,7 @@ a {
     font-family: 'Hind';
     font-size: 20px;
     text-align: left;
+    font-family: 'ABeeZee';
 }
 .side-navbar li {
     padding: 18px;
@@ -36,4 +38,5 @@ a {
 }
 .menu-top {
     display: flex;
+    padding: 16px;
 }

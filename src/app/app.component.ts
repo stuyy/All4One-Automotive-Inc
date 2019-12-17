@@ -13,7 +13,6 @@ interface Route {
 })
 export class AppComponent {
   public currentPath: string = '';
-
   constructor(private router: Router) {
     router.events.subscribe((url : any) => {
       this.currentPath = router.url;

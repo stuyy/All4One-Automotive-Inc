@@ -1,18 +1,15 @@
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
-  <mat-sidenav #sidenav mode="over">
+  <mat-sidenav #sidenav mode="side">
     <div class="menu-top">
       <button mat-flat-button [autofocus]="false" (click)="sidenav.toggle()" class="close-btn-icon">
         <mat-icon>close</mat-icon>
       </button>
     </div>
     <ul class="side-navbar">
-      <li *ngFor="let link of links" [ngClass]="{'active-route' : currentPath === link.url }">
-        <a [routerLink]="link.url">
-          {{link.name}}
-        </a>
+      <li *ngFor="let link of links" [ngClass]="{'active-route' : currentPath === link.url }" (click)="sidenav.close()">
+        <a [routerLink]="link.url">{{link.name}}</a>
       </li>
     </ul>
-
   </mat-sidenav>
   <mat-sidenav-content>
       <mat-toolbar>
@@ -22,6 +19,5 @@
         <span class="example-fill-remaining-space"></span>
       </mat-toolbar>
       <router-outlet></router-outlet>
-      
   </mat-sidenav-content>
 </mat-sidenav-container>

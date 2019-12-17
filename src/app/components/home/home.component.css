@@ -18,9 +18,6 @@ mat-icon {
 mat-card-subtitle {
     font-size: 20px;
 }
-.menu-button {
-
-}
 .menu-button mat-icon {
     font-size: 32px !important;
     margin-left: -8px !important;
@@ -36,6 +33,7 @@ mat-card-subtitle {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    background-attachment: fixed;
 }
 .welcome-section {
     position: absolute;
@@ -46,6 +44,7 @@ mat-card-subtitle {
 .welcome-header-text {
     font-size: 48px;
     font-weight: bold;
+    font-family: 'ABeeZee';
 }
 .welcome-header-address {
     font-size: 26px;
@@ -56,6 +55,8 @@ mat-card-subtitle {
 .welcome-header-card {
     margin-top: 20px;
     padding: 0px;   
+    font-family: 'ABeeZee';
+    background-color: #D81E5B;
 }
 
 .welcome-header-card mat-card-title {
@@ -68,4 +69,22 @@ mat-card-subtitle {
 
 .welcome-header-card mat-card-actions {
     padding: 5px 20px;
+}
+
+.middle-content {
+    height: 50vh;
+    font-family: 'ABeeZee';
+}
+footer {
+    display: flex;
+}
+
+.truck {
+    background: linear-gradient(
+        rgba(0, 0, 0, .5), 
+        rgba(0,0,0,.5)), 
+        url('/assets/a41truck.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
 }
