@@ -10,38 +10,104 @@
         <div class="welcome-section">
             <span class="welcome-header-text" id="company-header"></span>
             <br/>
-        <mat-card [@openCard]="isOpen ? 'open' : 'closed'" class="welcome-header-card" color="warn">
-            <mat-card-title>479 South Pearl Street</mat-card-title>
-            <mat-card-subtitle>
-                Albany, NY, 12202
-            </mat-card-subtitle>
-            <!-- Google Maps Component Goes Here-->
-            <app-google-maps></app-google-maps>
-            <mat-card-actions>
-                <button mat-icon-button>
-                    <a href="tel:+15182750100">
-                        <mat-icon>phone</mat-icon>
-                    </a>
-                </button>
-            </mat-card-actions>
-        </mat-card>
+            <mat-card [@openCard]="isOpen ? 'open' : 'closed'" class="welcome-header-card" color="warn">
+                <mat-card-title>479 South Pearl Street</mat-card-title>
+                <mat-card-subtitle>
+                    Albany, NY, 12202
+                </mat-card-subtitle>
+                <!-- Google Maps Component Goes Here-->
+                <app-google-maps></app-google-maps>
+                <mat-card-actions>
+                    <button mat-icon-button>
+                        <a href="tel:+15182750100">
+                            <i class="fas fa-phone-volume fa-2x"></i>
+                        </a>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
-    <section class="middle-content">
-        <div class="truck">
-            <h1>24/7 Towing Service</h1>
-            
+    <section class="about">
+        <article class="about-intro">
+            <h1 class="about-title">All 4 One Automotives</h1>
+            <p>All 4 One Automotives Inc. has earned its high-ratings in towing and roadside assistance covering all of Albany, NY. We provide 24/7 services, lock-outs, fuel delivery, tire changes, private property vehicle removal, junk car removal, and many more! Fair pricing and helpful service is what you will encounter when you choose All 4 One Automotives Inc. We want to make the process of getting your car serviced simple and stress-free. Our tow trucks provide high-quality service and quick turnaround. We also offer many preventative towing options. Your safety and satisfaction is our highest priority. Please feel free to contact us any time with questions regarding our towing services and Junk Car services!</p>
+        </article>
+        <div class="gallery">
+            <div class="image-parent">
+                <div class="img-child-div truck-bg"></div>
+            </div>
+            <div class="image-parent">
+                <div class="img-child-div truck-bg-two"></div>
+            </div>
+            <div class="image-parent">
+                <div class="img-child-div shop-bg"></div>
+            </div>
+            <div class="image-parent">
+                <div class="img-child-div shop-bg-two"></div>
+            </div>
+            <div class="image-parent">
+                <div class="img-child-div bg-three"></div>
+            </div>
+            <div class="image-parent">
+                <div class="img-child-div bg-paint"></div>
+            </div>
         </div>
     </section>
     <footer>
-        <section>
-            
-        </section>
-        <section>
-
-        </section>
-        <section>
-
-        </section>
+        <div class="footer-content">
+            <section class="hours">
+                <span class="location-name">Business Hours</span>
+                <ul class="hours-list">
+                    <li class="list-element-flex">
+                        <span>Monday</span>
+                        <span>8AM-6PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Tuesday</span>
+                        <span>8AM-6PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Wednesday</span>
+                        <span>8AM-6PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Thursday</span>
+                        <span>8AM-6PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Friday</span>
+                        <span>8AM-6PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Saturday</span>
+                        <span>9AM-4PM</span>
+                    </li>
+                    <li class="list-element-flex">
+                        <span>Sunday</span>
+                        <span>CLOSED</span>
+                    </li>
+                </ul>
+            </section>
+            <section class="contact-info">
+                <ul class="list">
+                    <li><span class="location-name"><i class="fas fa-map-marker-alt"></i> Albany</span></li>
+                    <li class="location-info">479 South Pearl Street</li>
+                    <li class="location-info">Albany, NY 12202</li>
+                    <li class="number-info">(518) 275-0100</li>
+                </ul>
+            </section>
+            <section class="icons">
+                <span class="connect-title">Connect With Us</span>
+                <br>
+                <a href="https://www.facebook.com/all4oneautomotiveinc"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter-square"></i></a>
+                <a href="http://snapchat.com">
+                <i class="fab fa-snapchat-square"></i></a>
+                <a href="https://www.instagram.com/all4oneautomotive/"><i class="fab fa-instagram"></i></a>
+            </section>
+        </div>
+        <div class="footer-text">
+            <span>All 4 One Automotive Inc. 2019</span>
+        </div>
     </footer>
 </div>

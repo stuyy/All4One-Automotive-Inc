@@ -26,20 +26,8 @@ export class AppComponent {
       url: '/'
     },
     {
-      name: 'About',
-      url: '/about'
-    },
-    {
       name: 'Careers',
       url: '/careers'
-    },
-    {
-      name: 'Services',
-      url: '/services'
-    },
-    {
-      name: 'Contact',
-      url: '/contact'
     }
   ];
 }

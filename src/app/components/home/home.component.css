@@ -1,6 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 * {
     padding: 0;
     margin: 0;
+    
+    font-family: 'Raleway';
+}
+ul {
+    list-style-type: none;
 }
 .example-fill-remaining-space {
     flex: 1 1 auto;
@@ -24,16 +31,17 @@ mat-card-subtitle {
 }
 
 .top-content {
-    height: 95vh;
+    min-height: 95vh;
     background-image: 
         linear-gradient(
-            rgba(0, 0, 0, .5), 
-            rgba(0,0,0,.5)), 
-        url('/assets/nyc_compressed.jpg');
+            rgba(0, 0, 0, .9), 
+            rgba(0,0,0,.3)), 
+        url('../../../assets/bay.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
     background-attachment: fixed;
+    overflow: hidden;
 }
 .welcome-section {
     position: absolute;
@@ -75,16 +83,211 @@ mat-card-subtitle {
     height: 50vh;
     font-family: 'ABeeZee';
 }
-footer {
-    display: flex;
-}
-
 .truck {
     background: linear-gradient(
         rgba(0, 0, 0, .5), 
         rgba(0,0,0,.5)), 
-        url('/assets/a41truck.jpg');
+        url('../../../assets/bay.jpg');
     background-size: cover;
-    background-position: center;
-    height: 90vh;
+    background-attachment: fixed;
+    height: 60vh;
+}
+
+.middle-block {
+    background-color: #3D3B30;
+    min-height: 15vh;
+    text-align: center;
+    padding: 50px;
+}
+.middle-block h1 {
+    font-size: 48px;
+    text-align: center;
+}
+.middle-block p {
+    padding: 25px;
+}
+
+.quote-button {
+    padding: 10px 25px;
+}
+
+.about {
+    min-height: 100vh;
+    background-color: #C64191;
+}
+.about-title {
+    font-size: 58px;
+    padding: 10px 0;
+}
+.about p {
+    font-size: 24px;
+}
+.about-intro {
+    text-align: center;
+    padding: 85px;
+}
+footer {
+    padding-top: 55px;
+    background-color: #323031;
+    min-height: 20vh;
+    text-align: center;
+    font-size: 26px;box-sizing: border-box;
+}
+.hours {
+    width: 15%;
+}
+.hours-list {
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.list {
+    line-height: 1.1em;
+}
+.list-element-flex {
+    display: flex;
+    justify-content: space-around;
+    padding: 2px;
+}
+.location-name {
+    color: #C64191;
+    font-weight: bold;
+}
+.location-info, .number-info {
+    font-size: 20px;
+}
+.number-info {
+    color: #C64191;
+}
+.contact-info {
+    width: 15%;
+    text-align: center;
+}
+.icons {
+    width: 15%;
+    color: #C64191;
+}
+.icons i {
+    padding: 5px;
+    font-size: 54px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.image-parent {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+    transition: all .5s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.img-child-div {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1s;
+}
+
+.image-parent:hover .img-child-div {
+    transform: scale(1.2);
+}
+.truck-bg {
+    background-image: url('../../../assets/truck2.jpg')
+}
+.truck-bg-two {
+    background-image: url('../../../assets/truck3.jpg')
+}
+.shop-bg {
+    background-image: url('../../../assets/shop_2.jpg')
+}
+.shop-bg-two {
+    background-image: url('../../../assets/shop_1.jpg')
+}
+.bg-three {
+    background-image: url('../../../assets/a41truck.jpg')
+}
+.bg-paint {
+    background-image: url('../../../assets/paint.jpg');
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.footer-text {
+    margin: 50px 0px;
+}
+.connect-title {
+    font-size: 26px;
+    font-weight: bold;
+}
+@media (max-width: 1536px) {
+    .gallery {
+        grid-template-columns: auto auto;
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+    .hours {
+        width: 30%;
+        margin: 0 auto;
+    }
+    .contact-info, .icons {
+        width: 100%;
+        padding: 30px;
+    }
+}
+@media (max-width: 1000px) {
+    .image-parent {
+        height: 400px;
+    }
+}
+@media (max-width: 850px) {
+    .gallery {
+        grid-template-columns: auto;
+    }
+    .image-parent {
+        height: 600px;
+    }
+    .welcome-section {
+        width: 80%;
+        text-align: center;
+    }
+    app-google-maps agm-map {
+        height: 600px;
+    }
+    .about p {
+        font-size: 20px;
+    }
+    .hours {
+        width: 80%;
+    }
+}
+@media (max-width: 550px) {
+    .image-parent {
+        height: 400px;
+    }
+    .about-title {
+        font-size: 38px;
+        padding: 10px 0;
+    }
+    .about p {
+        font-size: 20px;
+    }
+    .about-intro {
+        text-align: center;
+        padding: 25px;
+    }
+}
+@media (min-width: 1700px) {
+    .about-intro {
+        width: 1700px;
+        margin: 0 auto;
+    }
 }

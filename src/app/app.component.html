@@ -12,12 +12,12 @@
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-      <mat-toolbar>
-        <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="example-fill-remaining-space"></span>
-      </mat-toolbar>
-      <router-outlet></router-outlet>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-fill-remaining-space"></span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
