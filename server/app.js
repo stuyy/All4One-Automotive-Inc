@@ -16,10 +16,14 @@ const local = require('./strategies/local');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+app.use(cors({
+    origin: ['http://localhost:4200/login', 'localhost:4200/login', 'localhost:4200/', 'http://localhost:4200'],
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(cors());
 
 app.use(session({
     secret: 'keyboard cat',
