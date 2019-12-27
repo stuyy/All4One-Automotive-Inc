@@ -253,19 +253,27 @@ footer {
         height: 400px;
     }
 }
-@media (max-width: 850px) {
-    .gallery {
-        grid-template-columns: auto;
-    }
-    .image-parent {
-        height: 600px;
-    }
+@media (max-width: 1166px) {
     .welcome-section {
-        width: 80%;
+        width: 70%;
         text-align: center;
+    }
+    .welcome-section .welcome-header-text {
+        
+    }
+    .welcome-header-card {
+        text-align: left;
+    }
+}
+@media (max-width: 850px) {
+    .welcome-section {
+        width: 88%;
     }
     app-google-maps agm-map {
         height: 600px;
+    }
+    .about-intro {
+        padding: 30px;
     }
     .about p {
         font-size: 20px;
