@@ -19,11 +19,13 @@ import { CareersComponent } from './components/careers/careers.component';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CareersApplicationFormComponent } from './components/careers-application-form/careers-application-form.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import {TextFieldModule} from '@angular/cdk/text-field';
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { QuillEditorComponent } from './components/quill-editor/quill-editor.component';
+import { QuillModule } from 'ngx-quill'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { DialogOverviewComponent } from './components/dialog-overview/dialog-ove
     CareersComponent,
     CareersApplicationFormComponent,
     LoginComponent,
-    DialogOverviewComponent
+    DialogOverviewComponent,
+    DashboardComponent,
+    QuillEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,22 @@ import { DialogOverviewComponent } from './components/dialog-overview/dialog-ove
     HttpClientModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    QuillModule.forRoot({
+      modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [{ 'header': 1 }, { 'header': 2 }],    
+          [{ 'list': 'ordered'}, { 'list': 'bullet' }], 
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+          [{ 'align': [] }],
+          ['clean'],                         
+          ['link', 'image', 'video']       
+        ]
+      }
+    })
+    
   ],
   providers: [],
   bootstrap: [AppComponent], 
