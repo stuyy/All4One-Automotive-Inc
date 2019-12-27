@@ -113,7 +113,7 @@ mat-card-subtitle {
 
 .about {
     min-height: 100vh;
-    background-color: #C64191;
+    background-color: #C2185B;
 }
 .about-title {
     font-size: 58px;
@@ -149,14 +149,14 @@ footer {
     padding: 2px;
 }
 .location-name {
-    color: #C64191;
+    color: #C2185B;
     font-weight: bold;
 }
 .location-info, .number-info {
     font-size: 20px;
 }
 .number-info {
-    color: #C64191;
+    color: #C2185B;
 }
 .contact-info {
     width: 15%;
@@ -164,7 +164,7 @@ footer {
 }
 .icons {
     width: 15%;
-    color: #C64191;
+    color: #C2185B;
 }
 .icons i {
     padding: 5px;
@@ -208,12 +208,12 @@ footer {
     background-image: url('../../../assets/shop_1.jpg')
 }
 .bg-three {
-    background-image: url('../../../assets/a41truck.jpg')
+    background-image: url('../../../assets/a41truck.jpg');
+    background-position-x: 50%;
 }
 .bg-paint {
     background-image: url('../../../assets/paint.jpg');
 }
-
 .footer-content {
     display: flex;
     justify-content: space-around;
@@ -226,6 +226,11 @@ footer {
 .connect-title {
     font-size: 26px;
     font-weight: bold;
+}
+@media (max-height: 637px) {
+    .top-content {
+        min-height: 150vh;
+    }
 }
 @media (max-width: 1536px) {
     .gallery {
@@ -271,7 +276,7 @@ footer {
 }
 @media (max-width: 550px) {
     .image-parent {
-        height: 400px;
+        height: 250px;
     }
     .about-title {
         font-size: 38px;
@@ -282,7 +287,13 @@ footer {
     }
     .about-intro {
         text-align: center;
-        padding: 25px;
+        padding: 15px;
+    }
+    .gallery {
+        grid-template-columns: auto auto;
+    }
+    .welcome-section {
+        width: 100%;
     }
 }
 @media (min-width: 1700px) {
