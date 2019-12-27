@@ -1,0 +1,30 @@
+.mat-form-field {
+    width: 100%;
+}
+form {
+    padding: 20px;
+}
+::ng-deep .ql-toolbar.ql-snow {
+    background-color: white;
+}
+
+::ng-deep .ql-editor {
+    
+    min-height: 250px;
+}
+
+::ng-deep quill-editor {
+    width: 50%;
+}
+.quill-editor-preview {
+    padding: 20px;
+}
+
+::ng-deep quill-view {
+    width: 50%;
+    min-height: 0;
+}
+
+::ng-deep quill-view.ql-editor {
+    min-height: 0px;
+}

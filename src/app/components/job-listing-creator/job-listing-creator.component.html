@@ -1,0 +1,23 @@
+<div>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput [(ngModel)]="jobTitle" name="title" (focusout)="updateJobTitle()">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Application Deadline" (dateInput)="updateDate()" [(ngModel)]="jobDate" name="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+    
+    <section class="quill-editor-preview">
+        <quill-editor [(ngModel)]="jobTokens.description" (onEditorChanged)="updatePreview()"></quill-editor>
+
+        <button color="accent" mat-raised-button (click)="submit()">Create Job Listing</button>
+        <!-- <quill-view [content]="jobListingPreview" format="text" theme="snow">
+        </quill-view>-->
+    </section> 
+</div>
+    
+    
