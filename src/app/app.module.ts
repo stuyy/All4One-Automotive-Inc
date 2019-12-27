@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -20,6 +20,9 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CareersApplicationFormComponent } from './components/careers-application-form/careers-application-form.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     HomeComponent,
     GoogleMapsComponent,
     CareersComponent,
-    CareersApplicationFormComponent
+    CareersApplicationFormComponent,
+    LoginComponent,
+    DialogOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +54,16 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
     }),
-    CdkStepperModule
+    CdkStepperModule,
+    HttpClientModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+  entryComponents: [
+    DialogOverviewComponent
+  ]
 })
 export class AppModule { }
