@@ -1,3 +1,6 @@
+* {
+    overflow: hidden;
+}
 .login-form .mat-form-field  {
     width: 450px !important;
     display: block !important;
@@ -7,9 +10,49 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    transition: position .5s;
 }
 
 .login-form button {
     width: 100%;
+}
+
+.spinner {
+    margin: 0 auto;
+    margin-top: 275px;
+    transition: margin-top .5s;
+}
+
+@media (max-height: 1300px) {
+    .spinner {
+        margin-top: 200px;
+    }
+}
+@media (max-height: 1200px) {
+    .spinner {
+        margin-top: 120px;
+    }
+}
+
+@media (max-height: 800px) {
+    .spinner {
+        margin-top: 50px;
+    }
+    .login-form {
+        position: unset;
+        top: unset;
+        left: unset;
+        transform: unset;
+        width: 50%;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+    .login-form button {
+
+    }
+    .login-form .mat-form-field {
+        width: 100% !important;
+    }
 }

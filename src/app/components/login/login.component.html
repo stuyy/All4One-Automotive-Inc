@@ -1,13 +1,14 @@
 <div>
-    <form class="login-form">
+    <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
+    <form class="login-form" *ngIf="!loading">
         <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
-            <input matInput type="text" name="username">
+            <input matInput type="text" name="username" [(ngModel)]="username" [disabled]="loading">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput type="password" name="password">
+            <input matInput type="password" name="password" [(ngModel)]="password" [disabled]="loading">
         </mat-form-field>
-        <button mat-raised-button>Login <mat-icon>send</mat-icon></button>
+        <button mat-raised-button (click)="login()">Login <mat-icon>send</mat-icon></button>
     </form>
 </div>
