@@ -1,7 +1,14 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
-<div mat-dialog-content [innerHTML]="data.message">
-  
-</div>
+
+<div *ngIf="data.message; then messageTemplate else other"></div>
+<ng-template #messageTemplate>
+  <div mat-dialog-content [innerHTML]="data.message"></div>
+</ng-template>
+<ng-template #other>
+  <div mat-dialog-content>
+    <ng-container *ngComponentOutlet="data.component"></ng-container>
+  </div>
+</ng-template>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">OK</button>
 </div>

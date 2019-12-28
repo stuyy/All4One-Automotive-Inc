@@ -1,6 +1,15 @@
 <div class="job-editor">
     <app-job-listing-creator></app-job-listing-creator>
 </div>
-<div>
-    <h1>Hello</h1>
-</div>
+<mat-card>
+    <mat-card-title>
+        <h1>Dashboard</h1>
+    </mat-card-title>
+    <mat-card-content>
+        <button mat-button [matMenuTriggerFor]="dashboardMenu">Jobs</button>
+        <mat-menu #dashboardMenu="matMenu">
+            <button mat-menu-item (click)="openJobEditorModal()">Create Job Listing</button>
+            <button mat-menu-item>View Job Listings</button>
+        </mat-menu>
+    </mat-card-content>
+</mat-card>

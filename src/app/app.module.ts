@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -67,6 +67,7 @@ import { JobListingCreatorComponent } from './components/job-listing-creator/job
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMenuModule,
     QuillModule.forRoot({
       modules: {
         toolbar: [
@@ -87,7 +88,8 @@ import { JobListingCreatorComponent } from './components/job-listing-creator/job
   providers: [],
   bootstrap: [AppComponent], 
   entryComponents: [
-    DialogOverviewComponent
+    DialogOverviewComponent,
+    JobListingCreatorComponent
   ]
 })
 export class AppModule { }

@@ -50,11 +50,18 @@ export class JobListingCreatorComponent implements OnInit {
       this.jobListingForm.get('jobDescription').errors) {
         throw new Error("Field Errors.")
       }
-      this.backendService.postJobListing(this.jobTokens)
-      .subscribe((res : any) => console.log(res), err => {
-        console.log(err)
-        this.router.navigate(['/'])
-      });
+      else {
+        this.backendService.postJobListing({
+          jobTitle: this.jobListingForm.get('jobTitle').value,
+          jobDeadline: this.jobListingForm.get('jobDeadline').value,
+          jobDescription: this.jobListingForm.get('jobDescription').value
+        })
+        .subscribe((res : any) => console.log(res), 
+        err => {
+          if(err.status === 403)
+            this.router.navigate(['/'])
+        });
+      }
     }
     catch(err) {
       console.log(err);
