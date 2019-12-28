@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Error</h1>
-<div mat-dialog-content>
-  <p>You've entered an invalid username and/or password.</p>
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content [innerHTML]="data.message">
+  
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">OK</button>

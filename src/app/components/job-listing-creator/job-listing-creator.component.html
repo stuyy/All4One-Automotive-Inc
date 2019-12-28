@@ -12,7 +12,7 @@
         </mat-form-field>
         <quill-editor formControlName="jobDescription" (onEditorChanged)="updatePreview()"></quill-editor>
         <button color="accent" mat-raised-button (click)="submit()">Create Job Listing</button>
-        <button color="accent" mat-raised-button>View Preview</button>
+        <button color="accent" mat-raised-button (click)="displayPreviewModal()">View Preview</button>
     </form>
     <section class="quill-editor-preview">
         <!-- <quill-view [content]="jobListingPreview" format="text" theme="snow">

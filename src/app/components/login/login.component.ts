@@ -41,7 +41,11 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.dialog.open(DialogOverviewComponent, {
             height: '200px',
-            width: '400px'
+            width: '400px',
+            data: {
+              title: 'Error',
+              message: `<p>You entered an invalid Username and/or Password.</p>`
+            }
           });
           this.username.enable();
           this.password.enable();

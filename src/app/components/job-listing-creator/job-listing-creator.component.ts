@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
+import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 interface Job {
   title: string;
   description: string;
@@ -14,7 +17,6 @@ interface Job {
 })
 export class JobListingCreatorComponent implements OnInit {
 
-  public input: string = '';
   public jobTitle: string = '';
   public jobTokens: Job = {
     title: '',
@@ -32,7 +34,8 @@ export class JobListingCreatorComponent implements OnInit {
 
   constructor(
     private backendService : BackendService, 
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog, private scrollOptions: ScrollStrategyOptions) {
     
   }
   ngOnInit() {
@@ -59,5 +62,14 @@ export class JobListingCreatorComponent implements OnInit {
   updatePreview() {
     this.jobListingPreview = this.jobTokens.title + '\n' + this.jobTokens.deadline + '\n' + this.jobTokens.description;
   }
-
+  displayPreviewModal() {
+    this.dialog.open(DialogOverviewComponent, {
+      height: 'auto',
+      width: 'auto',
+      data: {
+        title: 'Job Listing Preview',
+        message: this.jobListingForm.get('jobDescription').value
+      }
+    })
+  }
 }

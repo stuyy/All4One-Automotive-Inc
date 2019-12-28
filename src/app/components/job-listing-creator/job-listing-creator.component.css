@@ -28,3 +28,7 @@ form {
 ::ng-deep quill-view.ql-editor {
     min-height: 0px;
 }
+
+::ng-deep .mat-dialog-content {
+    word-wrap: break-word;
+}
