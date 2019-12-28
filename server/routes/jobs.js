@@ -34,4 +34,19 @@ router.post('/create', async (req, res) => {
  
 });
 
+router.get('/listings', async (req, res) => {
+    console.log(req.user)
+    if(req.user && req.user.type === 'admin') {
+        let jobs = await JobListing
+            .find()
+            .sort({ _id: -1 })
+            .limit(10)
+            .catch(err => res.status(500).json({ error: err }));
+        if(jobs) {
+            console.log(jobs);
+            res.json(jobs)
+        }
+    }
+    else res.status(403);
+})
 module.exports = router;
