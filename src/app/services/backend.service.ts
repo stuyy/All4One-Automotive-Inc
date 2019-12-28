@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { JobListing } from '../models/JobListing';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +25,9 @@ export class BackendService {
   public postJobListing(job) : Observable<any> {
     return this.isAuthorized().pipe(
       mergeMap(v => this.http.post('http://localhost:3450/jobs/create', job, { withCredentials: true })));
+  }
+  public fetchJobListing() : Observable<Array<JobListing>> {
+    return this.isAuthorized().pipe(
+      mergeMap(v => this.http.get<Array<JobListing>>('http://localhost:3450/jobs/listings', { withCredentials: true })));
   }
 }
