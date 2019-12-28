@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { Router } from '@angular/router';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 interface Job {
   title: string;
   description: string;
@@ -24,10 +24,17 @@ export class JobListingCreatorComponent implements OnInit {
   public jobDate: Date;
   public jobListingPreview: string = '';
 
-  constructor(private backendService : BackendService, private router: Router) {
+  // public jobListingForm = new FormGroup({
+  //   jobTitle: new FormControl('', Validators.maxLength(50)),
+  //   jobDeadline: new FormControl('', Validators.required),
+  //   jobDescription: new FormControl('', Validators.required)
+  // });
+
+  constructor(
+    private backendService : BackendService, 
+    private router: Router) {
     
   }
-
   ngOnInit() {
     this.backendService.isAuthorized()
       .subscribe(
@@ -35,7 +42,6 @@ export class JobListingCreatorComponent implements OnInit {
         err => console.log(err));
   }
   submit() {
-    console.log(this.jobTokens);
     this.backendService.postJobListing(this.jobTokens)
     .subscribe((res : any) => console.log(res), err => {
       console.log(err)

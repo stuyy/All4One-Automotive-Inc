@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -24,8 +24,10 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogOverviewComponent } from './components/dialog-overview/dialog-overview.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { QuillEditorComponent } from './components/quill-editor/quill-editor.component';
 import { QuillModule } from 'ngx-quill'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { JobListingCreatorComponent } from './components/job-listing-creator/job-listing-creator.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,7 @@ import { QuillModule } from 'ngx-quill'
     LoginComponent,
     DialogOverviewComponent,
     DashboardComponent,
-    QuillEditorComponent
+    JobListingCreatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,8 @@ import { QuillModule } from 'ngx-quill'
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     QuillModule.forRoot({
       modules: {
         toolbar: [
@@ -75,7 +79,8 @@ import { QuillModule } from 'ngx-quill'
           ['clean'],                         
           ['link', 'image', 'video']       
         ]
-      }
+      },
+      placeholder: 'Job Description'
     })
     
   ],

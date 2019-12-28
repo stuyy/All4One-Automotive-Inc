@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-
+    this.backendService.isAuthorized().subscribe((res => this.router.navigate(['/dashboard'])))
   }
   login() {
     if(!this.username.errors && !this.password.errors) {
@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       })
       .subscribe((response : any) => {
         this.loading = false;
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
+        location.reload();
       },
       err => {
         setTimeout(() => {
