@@ -1,0 +1,6 @@
+<div>
+    <h1>Most Recent Jobs</h1>
+    <ng-container *ngIf="loaded">
+        <app-job-listing *ngFor="let job of jobListings" [jobListing]="job"></app-job-listing>
+    </ng-container>
+</div>
