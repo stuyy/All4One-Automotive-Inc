@@ -27,6 +27,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { QuillModule } from 'ngx-quill'
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JobListingCreatorComponent } from './components/job-listing-creator/job-listing-creator.component';
+import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
+import { JobListingComponent } from './components/job-listing/job-listing.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { JobListingCreatorComponent } from './components/job-listing-creator/job
     DialogOverviewComponent,
     DashboardComponent,
     JobListingCreatorComponent,
+    JobsPageComponent,
+    JobListingComponent,
   ],
   imports: [
     BrowserModule,

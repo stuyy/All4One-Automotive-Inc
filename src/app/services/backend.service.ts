@@ -12,7 +12,6 @@ export class BackendService {
   constructor(private http: HttpClient) { 
     
   }
-
   public login(data) : Observable<any> {
     return this.http.post<any>(`${environment.host}/auth/login`, data, {
       responseType: 'json',

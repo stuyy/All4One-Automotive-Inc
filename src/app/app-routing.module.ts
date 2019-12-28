@@ -4,6 +4,7 @@ import { CareersComponent } from './components/careers/careers.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'jobs',
+    component: JobsPageComponent
+  },
+  {
+    path: 'jobs/:id',
+    component: JobsPageComponent
   }
 ];
 

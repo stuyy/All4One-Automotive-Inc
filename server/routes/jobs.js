@@ -34,8 +34,21 @@ router.post('/create', async (req, res) => {
  
 });
 
+router.get('/listings/:id', async (req, res) => {
+    if(req.user && req.user.type === 'admin') {
+        if(req.params.id) {
+            console.log(req.params.id);
+            let jobs = await JobListing.findById(req.params.id)
+                .catch(err => console.log(err));
+            if(jobs) {
+                res.json([jobs]);
+            }
+        }
+    }
+    else res.status(403);
+});
+
 router.get('/listings', async (req, res) => {
-    console.log(req.user)
     if(req.user && req.user.type === 'admin') {
         let jobs = await JobListing
             .find()
@@ -48,5 +61,5 @@ router.get('/listings', async (req, res) => {
         }
     }
     else res.status(403);
-})
+});
 module.exports = router;

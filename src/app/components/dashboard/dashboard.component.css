@@ -1,9 +1,14 @@
-.job-editor {
-    width: 50% !important;
+.mat-card .mat-button {
+    padding: 5px 12px;
+    font-size: 22px;
 }
 
-@media (max-width: 1200px) {
-    .job-editor {
-        width: 100% !important;
-    }
+.dashboard {
+    width: 100% !important;
+    margin: 20px;
+}
+
+.dashboard-flexbox {
+    display: flex;
+    padding: 20px;
 }

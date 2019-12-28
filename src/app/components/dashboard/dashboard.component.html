@@ -1,15 +1,26 @@
-<div class="job-editor">
-    <app-job-listing-creator></app-job-listing-creator>
+<div>
+    <div class="dashboard-flexbox">
+        <mat-card class="dashboard">
+            <mat-card-content>
+                <button mat-button [matMenuTriggerFor]="dashboardMenu">Jobs</button>
+                <mat-menu #dashboardMenu="matMenu">
+                    <button mat-menu-item (click)="openJobEditorModal()">Create Job Listing</button>
+                    <button mat-menu-item>View Job Listings</button>
+                    <button mat-menu-item>Edit Job Listings</button>
+                </mat-menu>
+                <button mat-button [matMenuTriggerFor]="settingsMenu">Settings</button>
+                <mat-menu #settingsMenu="matMenu">
+                    <button mat-menu-item>Change Password</button>
+                </mat-menu>
+            </mat-card-content>
+            <mat-card-content>
+                
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="dashboard">
+            <mat-card-content>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
-<mat-card>
-    <mat-card-title>
-        <h1>Dashboard</h1>
-    </mat-card-title>
-    <mat-card-content>
-        <button mat-button [matMenuTriggerFor]="dashboardMenu">Jobs</button>
-        <mat-menu #dashboardMenu="matMenu">
-            <button mat-menu-item (click)="openJobEditorModal()">Create Job Listing</button>
-            <button mat-menu-item>View Job Listings</button>
-        </mat-menu>
-    </mat-card-content>
-</mat-card>

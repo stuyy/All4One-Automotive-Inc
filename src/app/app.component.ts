@@ -13,7 +13,7 @@ interface Route {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public name: string; 
+  public name: string;
   public currentPath: string = '';
   public links: Array<Route> = [
     {
@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
     {
       name: 'Careers',
       url: '/careers'
+    },
+    {
+      name: 'Jobs',
+      url: '/jobs'
     }
   ];
   private authorizedRoutes: Array<Route> = [
@@ -44,7 +48,6 @@ export class AppComponent implements OnInit {
     
     router.events.subscribe((url : any) => {
       this.currentPath = router.url;
-      console.log(this.currentPath);
     }, err => console.log(err),
     () => console.log("Done."))
   }

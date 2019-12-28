@@ -12,8 +12,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  private username: FormControl = new FormControl('', [Validators.required])
-  private password: FormControl = new FormControl('', [Validators.required]);
+  public username: FormControl = new FormControl('', [Validators.required])
+  public password: FormControl = new FormControl('', [Validators.required]);
   public loading: boolean = false;
   constructor(private backendService: BackendService,
     private router: Router,

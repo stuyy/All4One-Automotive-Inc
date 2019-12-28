@@ -9,6 +9,8 @@
     <ng-container *ngComponentOutlet="data.component"></ng-container>
   </div>
 </ng-template>
+<quill-view *ngIf="data.quillTemplate" [content]="data.quillTemplate" format="text" theme="snow">
+</quill-view>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">OK</button>
 </div>
