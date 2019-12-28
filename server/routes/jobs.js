@@ -5,7 +5,6 @@ const JobListing = require('../models/JobListing');
  * Create Job Listings
  */
 router.post('/create', async (req, res) => {
-
     // Check if the person making POST request is authorized.
     if(req.user && req.user.type === 'admin') {
         let { jobTitle, jobDeadline, jobDescription } = req.body;
@@ -30,36 +29,30 @@ router.post('/create', async (req, res) => {
         }
     }
     else
-        res.status(403);
- 
+        res.send(403);
 });
-
 router.get('/listings/:id', async (req, res) => {
-    if(req.user && req.user.type === 'admin') {
-        if(req.params.id) {
-            console.log(req.params.id);
-            let jobs = await JobListing.findById(req.params.id)
-                .catch(err => console.log(err));
-            if(jobs) {
-                res.json([jobs]);
-            }
+    if(req.params.id) {
+        console.log(req.params.id);
+        let jobs = await JobListing.findById(req.params.id)
+            .catch(err => console.log(err));
+        if(jobs) {
+            res.json([jobs]);
         }
     }
-    else res.status(403);
+    else res.send(403);
 });
 
 router.get('/listings', async (req, res) => {
-    if(req.user && req.user.type === 'admin') {
-        let jobs = await JobListing
-            .find()
-            .sort({ _id: -1 })
-            .limit(10)
-            .catch(err => res.status(500).json({ error: err }));
-        if(jobs) {
-            console.log(jobs);
-            res.json(jobs)
-        }
+    let jobs = await JobListing
+        .find()
+        .sort({ _id: -1 })
+        .limit(10)
+        .catch(err => res.status(500).json({ error: err }));
+    if(jobs) {
+        console.log(jobs);
+        res.json(jobs)
     }
-    else res.status(403);
+    else res.send(403);
 });
 module.exports = router;
