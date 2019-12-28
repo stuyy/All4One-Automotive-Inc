@@ -3,31 +3,41 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { JobListing } from '../models/JobListing';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class BackendService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+  }
 
   public login(data) : Observable<any> {
-    return this.http.post<any>('http://localhost:3450/auth/login', data, {
+    return this.http.post<any>(`${environment.host}/auth/login`, data, {
       responseType: 'json',
       withCredentials: true
     });
   }
   public isAuthorized() : Observable<any> {
-    return this.http.get<any>('http://localhost:3450/auth/authenticated', {
+    return this.http.get<any>(`${environment.host}/auth/authenticated`, {
       withCredentials: true
     });
   }
   
   public postJobListing(job) : Observable<any> {
     return this.isAuthorized().pipe(
-      mergeMap(v => this.http.post('http://localhost:3450/jobs/create', job, { withCredentials: true })));
+      mergeMap(v => this.http.post(`${environment.host}/jobs/create`, job, { withCredentials: true })));
   }
-  public fetchJobListing() : Observable<Array<JobListing>> {
-    return this.isAuthorized().pipe(
-      mergeMap(v => this.http.get<Array<JobListing>>('http://localhost:3450/jobs/listings', { withCredentials: true })));
+  public fetchJobListing(id?) : Observable<Array<JobListing>> {
+    if(id) {
+      return this.isAuthorized().pipe(
+        mergeMap(v => this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/${id}`, { withCredentials: true })));
+    }
+    else {
+      return this.isAuthorized().pipe(
+        mergeMap(v => this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/`, { withCredentials: true })));
+    }
+    
   }
 }
