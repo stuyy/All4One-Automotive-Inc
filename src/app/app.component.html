@@ -17,6 +17,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <span class="example-fill-remaining-space"></span>
+      <span *ngIf="name">Welcome back, {{name}}</span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

@@ -13,6 +13,7 @@ interface Route {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  public name: string; 
   public currentPath: string = '';
   public links: Array<Route> = [
     {
@@ -52,6 +53,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.service.isAuthorized().subscribe((data : any) => {
+    this.name = data.name;
       this.links = this.links.concat(this.authorizedRoutes);
     }, err => console.log(err), () => {
       console.log("Done.");

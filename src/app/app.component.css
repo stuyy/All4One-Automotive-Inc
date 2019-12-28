@@ -41,3 +41,7 @@ a {
     display: flex;
     padding: 16px;
 }
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}

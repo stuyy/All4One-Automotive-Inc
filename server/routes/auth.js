@@ -16,7 +16,7 @@ router.get('/login', (req, res) => res.send(req.session));
 router.get('/authenticated', (req, res) => {
     console.log("Hello!");
     console.log(req.user);
-    if(req.user) res.status(200).json({ status: 200 });
+    if(req.user) res.status(200).json({ status: 200, name: req.user.username });
     else res.status(403).json({ status: 403 });
 })
 module.exports = router;
