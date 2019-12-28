@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
-import { ScrollStrategyOptions } from '@angular/cdk/overlay';
 interface Job {
   title: string;
   description: string;
@@ -27,7 +26,7 @@ export class JobListingCreatorComponent implements OnInit {
   public jobListingPreview: string = '';
 
   public jobListingForm = new FormGroup({
-    jobTitle: new FormControl('', Validators.maxLength(50)),
+    jobTitle: new FormControl('', [Validators.maxLength(50), Validators.required]),
     jobDeadline: new FormControl('', Validators.required),
     jobDescription: new FormControl('', Validators.required)
   });
@@ -35,7 +34,7 @@ export class JobListingCreatorComponent implements OnInit {
   constructor(
     private backendService : BackendService, 
     private router: Router,
-    public dialog: MatDialog, private scrollOptions: ScrollStrategyOptions) {
+    public dialog: MatDialog) {
     
   }
   ngOnInit() {
@@ -45,11 +44,21 @@ export class JobListingCreatorComponent implements OnInit {
         err => console.log(err));
   }
   submit() {
-    this.backendService.postJobListing(this.jobTokens)
-    .subscribe((res : any) => console.log(res), err => {
-      console.log(err)
-      this.router.navigate(['/'])
-    });
+    try {
+      if(this.jobListingForm.get('jobTitle').errors || 
+      this.jobListingForm.get('jobDeadline').errors || 
+      this.jobListingForm.get('jobDescription').errors) {
+        throw new Error("Field Errors.")
+      }
+      this.backendService.postJobListing(this.jobTokens)
+      .subscribe((res : any) => console.log(res), err => {
+        console.log(err)
+        this.router.navigate(['/'])
+      });
+    }
+    catch(err) {
+      console.log(err);
+    }
   }
   updateJobTitle() {
     this.jobTokens.title= '<h1><u>' + this.jobTitle + '</u></h1>';
@@ -71,5 +80,15 @@ export class JobListingCreatorComponent implements OnInit {
         message: this.jobListingForm.get('jobDescription').value
       }
     })
+  }
+  /* Getting Error Messages */
+  getTitleError() {
+    return this.jobListingForm.get('jobTitle').errors ? 'Job Title cannot be blank!' : '';
+  }
+  getDeadlineError() {
+    return this.jobListingForm.get('jobDeadline').errors ? 'Job Deadline cannot be blank!' : '';
+  }
+  getDescriptionError() {
+    return this.jobListingForm.get('jobDescription').errors ? 'Job Description cannot be blank!' : '';
   }
 }

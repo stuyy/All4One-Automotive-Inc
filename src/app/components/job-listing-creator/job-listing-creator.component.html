@@ -3,14 +3,17 @@
         <mat-form-field appearance="outline">
             <mat-label>Job Title</mat-label>
             <input type="text" matInput name="title" formControlName="jobTitle">
+            <mat-error *ngIf="jobListingForm.get('jobTitle').errors">{{getTitleError()}}</mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Application Deadline</mat-label>
             <input matInput [matDatepicker]="datePicker" formControlName="jobDeadline" name="deadline">
             <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
             <mat-datepicker #datePicker></mat-datepicker>
+            <mat-error *ngIf="jobListingForm.get('jobDeadline').errors">{{getDeadlineError()}}</mat-error>
         </mat-form-field>
         <quill-editor formControlName="jobDescription" (onEditorChanged)="updatePreview()"></quill-editor>
+        <mat-error *ngIf="jobListingForm.get('jobDescription').errors">{{getDescriptionError()}}</mat-error>
         <button color="accent" mat-raised-button (click)="submit()">Create Job Listing</button>
         <button color="accent" mat-raised-button (click)="displayPreviewModal()">View Preview</button>
     </form>
@@ -19,5 +22,4 @@
         </quill-view>-->
     </section> 
 </div>
-    
     
