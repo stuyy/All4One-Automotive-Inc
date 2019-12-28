@@ -20,7 +20,7 @@ export class BackendService {
       withCredentials: true
     });
   }
-
+  
   public postJobListing(job) : Observable<any> {
     return this.isAuthorized().pipe(
       mergeMap(v => this.http.post('http://localhost:3450/jobs/create', job, { withCredentials: true })));
