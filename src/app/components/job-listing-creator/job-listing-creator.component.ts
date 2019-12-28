@@ -24,11 +24,11 @@ export class JobListingCreatorComponent implements OnInit {
   public jobDate: Date;
   public jobListingPreview: string = '';
 
-  // public jobListingForm = new FormGroup({
-  //   jobTitle: new FormControl('', Validators.maxLength(50)),
-  //   jobDeadline: new FormControl('', Validators.required),
-  //   jobDescription: new FormControl('', Validators.required)
-  // });
+  public jobListingForm = new FormGroup({
+    jobTitle: new FormControl('', Validators.maxLength(50)),
+    jobDeadline: new FormControl('', Validators.required),
+    jobDescription: new FormControl('', Validators.required)
+  });
 
   constructor(
     private backendService : BackendService, 
