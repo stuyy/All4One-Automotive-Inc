@@ -14,6 +14,8 @@ router.get('/unauthorized', (req, res) => res.send(403));
 router.get('/login', (req, res) => res.send(req.session));
 
 router.get('/authenticated', (req, res) => {
+    console.log("Hello!");
+    console.log(req.user);
     if(req.user) res.status(200).json({ status: 200 });
     else res.status(403).json({ status: 403 });
 })
