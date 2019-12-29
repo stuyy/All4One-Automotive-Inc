@@ -1,18 +1,4 @@
 <div>
-    <mat-card>
-        <mat-card-title>Change Your Password</mat-card-title>
-        <form [formGroup]="passwordChangeForm">
-            <mat-form-field>
-                <mat-label>New Password</mat-label>
-                <input type="password" matInput formControlName="newPassword">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Confirm New Password</mat-label>
-                <input type="password" matInput formControlName="confirmNewPassword">
-            </mat-form-field>
-            <button mat-raised-button (click)="updatePassword()">Update Password</button>
-        </form>
-    </mat-card>
+    <app-password-change-form></app-password-change-form>
     <app-account-creator-form></app-account-creator-form>
-    
 </div>

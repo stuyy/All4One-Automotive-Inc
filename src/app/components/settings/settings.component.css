@@ -1,7 +1,11 @@
-form .mat-form-field {
-    display: block;
+div {
+    display: flex;
+    margin: 50px;
 }
 
-.radio-button {
-    margin: 5px;
+app-account-creator-form {
+    width: 90%;
+}
+app-password-change-form {
+    width: 90%;
 }
