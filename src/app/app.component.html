@@ -6,8 +6,8 @@
       </button>
     </div>
     <ul class="side-navbar">
-      <li *ngFor="let link of links" [ngClass]="{'active-route' : currentPath === link.url }" (click)="sidenav.close()">
-        <a [routerLink]="link.url">{{link.name}}</a>
+      <li *ngFor="let link of links" [routerLink]="link.url" [ngClass]="{'active-route' : currentPath === link.url }" (click)="sidenav.close()">
+        {{link.name}}
       </li>
     </ul>
   </mat-sidenav>

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       })
       .subscribe((response : any) => {
         this.loading = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
         location.reload();
       },
       err => {

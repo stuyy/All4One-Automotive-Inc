@@ -1,36 +1,38 @@
-<mat-card>
-    <mat-card-title>Create User Accounts</mat-card-title>
-    <mat-card-subtitle>
-        Create Administrative accounts or regular accounts
-    </mat-card-subtitle>
-    <mat-card-content>
-        <form [formGroup]="newAccountForm">
-            <mat-radio-group formControlName="type">
-                <mat-radio-button class="radio-button" value="user">User</mat-radio-button>
-                <mat-radio-button class="radio-button" value="admin">Admin</mat-radio-button>
-            </mat-radio-group>
-            <mat-form-field>
-                <mat-label>Username</mat-label>
-                <input type="text" matInput formControlName="username">
-                <mat-error>{{getUsernameError()}}</mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="email">
-                <mat-error>{{getEmailError()}}</mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Password</mat-label>
-                <input type="password" matInput [formControl]="password" name="password">
-                <mat-error>{{getPasswordError()}}</mat-error>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Confirm</mat-label>
-                <input type="password" matInput [formControl]="confirm" name="confirm">
-                <mat-error>{{getConfirmError()}}</mat-error>
-            </mat-form-field>
-            <button mat-button (click)="createUserAccount()" [disabled]="loading">Create Account</button>
-        </form>
-        <mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
-    </mat-card-content>
-</mat-card>
+<div>
+    <mat-card>
+        <mat-card-title>Create User Accounts</mat-card-title>
+        <mat-card-subtitle>
+            Create Administrative accounts or regular accounts
+        </mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="newAccountForm">
+                <mat-radio-group formControlName="type">
+                    <mat-radio-button class="radio-button" value="user">User</mat-radio-button>
+                    <mat-radio-button class="radio-button" value="admin">Admin</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field>
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput formControlName="username">
+                    <mat-error>{{getUsernameError()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email">
+                    <mat-error>{{getEmailError()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput [formControl]="password" name="password">
+                    <mat-error>{{getPasswordError()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Confirm</mat-label>
+                    <input type="password" matInput [formControl]="confirm" name="confirm">
+                    <mat-error>{{getConfirmError()}}</mat-error>
+                </mat-form-field>
+                <button mat-button (click)="createUserAccount()" [disabled]="loading">Create Account</button>
+            </form>
+            <mat-progress-bar mode="buffer" *ngIf="loading"></mat-progress-bar>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -38,9 +38,11 @@ app.use(passport.session());
 const careers = require('./routes/careers');
 const auth = require('./routes/auth');
 const jobs = require('./routes/jobs');
+const account = require('./routes/account');
 
 app.use('/careers', careers);
 app.use('/auth', auth);
 app.use('/jobs', jobs);
+app.use('/account', account);
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));

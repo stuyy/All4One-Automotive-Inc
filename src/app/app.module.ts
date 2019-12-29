@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -29,6 +29,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { JobListingCreatorComponent } from './components/job-listing-creator/job-listing-creator.component';
 import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
 import { JobListingComponent } from './components/job-listing/job-listing.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AccountCreatorFormComponent } from './components/account-creator-form/account-creator-form.component';
+import { PasswordChangeFormComponent } from './components/password-change-form/password-change-form.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { JobListingComponent } from './components/job-listing/job-listing.compon
     JobListingCreatorComponent,
     JobsPageComponent,
     JobListingComponent,
+    LogoutComponent,
+    SettingsComponent,
+    AccountCreatorFormComponent,
+    PasswordChangeFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +77,11 @@ import { JobListingComponent } from './components/job-listing/job-listing.compon
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatSnackBarModule,
     QuillModule.forRoot({
       modules: {
         toolbar: [
