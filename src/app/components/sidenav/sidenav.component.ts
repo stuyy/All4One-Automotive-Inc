@@ -49,4 +49,7 @@ export class SidenavComponent implements OnInit {
     console.log("Sidenav was injected.")
     this.sidenavService.setSidenav(this.sidenav);
   }
+  closeSidenav() {
+    this.sidenavService.close();
+  }
 }

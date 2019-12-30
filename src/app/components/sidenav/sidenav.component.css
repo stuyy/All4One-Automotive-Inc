@@ -29,3 +29,8 @@ a {
     background-color: #D81E5B;
     transition: all .2s;
 }
+
+.menu-top {
+    display: flex;
+    padding: 15px;
+}
