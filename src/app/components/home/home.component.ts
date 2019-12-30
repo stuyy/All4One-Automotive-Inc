@@ -74,5 +74,6 @@ export class HomeComponent implements OnInit {
   }
   toggle() {
     this.isOpen = !this.isOpen;
+    document.querySelector('.hidden').classList.toggle('hidden')
   }
 }
