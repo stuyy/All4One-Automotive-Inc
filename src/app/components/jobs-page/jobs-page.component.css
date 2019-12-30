@@ -1,4 +1,17 @@
 div {
     margin-top: 50px;
+}
+.title {
     text-align: center;
+}
+.job-listing {
+    padding: 20px;
+}
+.job-titles {
+    text-align: left;
+    padding: 10px;
+}
+
+app-careers-application-form {
+
 }

@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class JobsPageComponent implements OnInit {
 
   public loaded: boolean = false;
-  public jobListings: Array<JobListing>
+  public jobListings: Array<JobListing>;
+  public displayJobApplication: boolean = false;
+  public jobListing: JobListing;
   constructor(
     private backendService: BackendService,
     private route: ActivatedRoute
@@ -32,7 +34,12 @@ export class JobsPageComponent implements OnInit {
         this.backendService.fetchJobListing(id)
           .subscribe((data : Array<JobListing>) => {
             this.jobListings = data;
-          })
+            this.displayJobApplication = true;
+            this.jobListing = this.jobListings[0];
+            console.log('Hello???');
+            console.log(this.jobListing)
+            console.log(this.displayJobApplication)
+          }, err => console.log(err));
       }
     })
   }

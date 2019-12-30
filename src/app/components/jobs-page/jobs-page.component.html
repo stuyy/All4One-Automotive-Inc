@@ -1,6 +1,20 @@
-<div>
-    <h1>Most Recent Jobs</h1>
-    <ng-container *ngIf="loaded">
-        <app-job-listing *ngFor="let job of jobListings" [jobListing]="job"></app-job-listing>
-    </ng-container>
+<div class="wrapper">
+    <div class="title">
+        <h1>Most Recent Jobs</h1>
+    </div>
+    <div>
+        <ng-container *ngIf="loaded && !displayJobApplication">
+            <app-job-listing *ngFor="let job of jobListings" [jobListing]="job"></app-job-listing>
+        </ng-container>
+        <div *ngIf="displayJobApplication">
+            <section class="job-listing">
+                <section class="job-titles">
+                    <h1>{{jobListing.jobTitle}}</h1>
+                    <h1>Deadline: {{jobListing.postedOn | date }}</h1>
+                </section>
+                <quill-view [content]="jobListing.jobDescription" format="text" theme="snow"></quill-view>
+            </section>
+            <app-careers-application-form></app-careers-application-form>
+        </div>
+    </div>
 </div>
