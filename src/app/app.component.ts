@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendService } from './services/backend.service';
+import { MatSidenav } from '@angular/material';
+import { SidenavService } from './services/sidenav.service';
 
 interface Route {
   name,
@@ -16,43 +18,21 @@ export class AppComponent implements OnInit {
   public name: string;
   public currentPath: string = '';
   public links: Array<Route> = [
-    {
-      name: 'Home',
-      url: '/'
-    },
-    {
-      name: 'Careers',
-      url: '/careers'
-    },
-    {
-      name: 'Jobs',
-      url: '/jobs'
-    }
+    { name: 'Home', url: '/' },
+    { name: 'Careers', url: '/careers' },
+    { name: 'Jobs', url: '/jobs' }
   ];
   private authorizedRoutes: Array<Route> = [
-    {
-      name: 'Dashboard',
-      url: '/dashboard'
-    },
-    {
-      name: 'Settings',
-      url: '/settings'
-    },
-    {
-      name: 'Logout',
-      url: '/logout'
-    }
+    { name: 'Dashboard', url: '/dashboard' },
+    { name: 'Settings', url: '/settings' },
+    { name: 'Logout', url: '/logout'}
   ]
   constructor(private router: Router,
     private service: BackendService) {
-    
     router.events.subscribe((url : any) => {
       this.currentPath = router.url;
     }, err => console.log(err),
     () => console.log("Done."))
-  }
-  ngOnChanges() {
-    console.log("Something changed")
   }
   ngOnInit() {
     this.service.isAuthorized().subscribe((data : any) => {
