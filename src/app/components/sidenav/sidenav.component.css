@@ -1,0 +1,31 @@
+mat-sidenav {
+    background-color: #3A3335;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.side-navbar {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0;
+    font-size: 20px;
+    text-align: left;
+    font-family: 'ABeeZee';
+}
+.side-navbar li {
+    padding: 18px;
+}
+
+.side-navbar li:hover {
+    cursor: pointer;
+    color: red;
+}
+.active-route {
+    color: white;
+    background-color: #D81E5B;
+    transition: all .2s;
+}

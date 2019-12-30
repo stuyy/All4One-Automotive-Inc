@@ -33,6 +33,9 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { AccountCreatorFormComponent } from './components/account-creator-form/account-creator-form.component';
 import { PasswordChangeFormComponent } from './components/password-change-form/password-change-form.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidenavService } from './services/sidenav.service';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { PasswordChangeFormComponent } from './components/password-change-form/p
     SettingsComponent,
     AccountCreatorFormComponent,
     PasswordChangeFormComponent,
+    NavbarComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +104,7 @@ import { PasswordChangeFormComponent } from './components/password-change-form/p
     })
     
   ],
-  providers: [],
+  providers: [SidenavService],
   bootstrap: [AppComponent], 
   entryComponents: [
     DialogOverviewComponent,

@@ -1,0 +1,12 @@
+<mat-sidenav #side mode="over">
+    <div class="menu-top">
+        <button mat-flat-button [autofocus]="false" (click)="sidenav.toggle()" class="close-btn-icon">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <ul class="side-navbar">
+        <li *ngFor="let route of routes" [routerLink]="route.url" [ngClass]="{'active-route' : currentPath === route.url }">
+            {{route.name}}
+        </li>
+    </ul>
+</mat-sidenav>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
@@ -11,6 +11,8 @@ import { NewUser } from '../components/settings/settings.component';
 export class BackendService {
 
   public isAuthenticated: boolean = false;
+  public events: EventEmitter<any> = new EventEmitter();
+
   constructor(private http: HttpClient) { 
     
   }
@@ -31,15 +33,14 @@ export class BackendService {
   }
   public fetchJobListing(id?) : Observable<Array<JobListing>> {
     if(id) {
-      return this.isAuthorized().pipe(
-        mergeMap(v => this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/${id}`, { withCredentials: true })));
+      return this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/${id}`);
     }
     else {
-      return this.isAuthorized().pipe(
-        mergeMap(v => this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/`, { withCredentials: true })));
+      return this.http.get<Array<JobListing>>(`${environment.host}/jobs/listings/`);
     }
   }
   public logout() : Observable<any> {
+    this.events.emit('logout')
     return this.http.get(`${environment.host}/auth/logout`, { withCredentials: true });
   }
   public createUserAccount(user : NewUser) : Observable<any> {
