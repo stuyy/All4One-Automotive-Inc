@@ -9,7 +9,7 @@ import { EventEmitter } from 'protractor';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
+  
 
   constructor(private service: BackendService,
     private router: Router) { }

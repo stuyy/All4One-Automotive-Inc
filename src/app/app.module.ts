@@ -36,6 +36,7 @@ import { PasswordChangeFormComponent } from './components/password-change-form/p
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavService } from './services/sidenav.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { JobListingDialogComponent } from './components/job-listing-dialog/job-listing-dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     PasswordChangeFormComponent,
     NavbarComponent,
     SidenavComponent,
+    JobListingDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
   bootstrap: [AppComponent], 
   entryComponents: [
     DialogOverviewComponent,
-    JobListingCreatorComponent
+    JobListingCreatorComponent,
+    JobListingDialogComponent
   ]
 })
 export class AppModule { }

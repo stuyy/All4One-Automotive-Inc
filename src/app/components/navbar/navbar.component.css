@@ -4,8 +4,11 @@
 .fill {
     flex: 1 1 auto;
 }
+nav {
+    
+}
 nav span {
-    padding: 12px;
+    padding: 22px;
     transition: color .5s;
     cursor: pointer;
 }
@@ -25,10 +28,15 @@ app-sidenav {
     position: absolute;
     left: 0;
 }
-
+.mat-toolbar {
+    padding-right: 0 !important;
+}
 .active-route {
     color: pink;
-    transition: all .2s;
+    background-color: #303030;
+    transition: color 1s;
+    transition: background-color 1s;
+    padding: 22px;
 }
 @media (max-width: 1250px) {
     #menuIcon {
