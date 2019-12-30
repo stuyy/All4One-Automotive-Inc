@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, RouterLink } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { take  } from 'rxjs/operators';
 import { BackendService } from '../services/backend.service';
 
 @Injectable({
@@ -14,12 +14,12 @@ export class AuthGuard implements CanActivate {
   async canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<any>  {
-      let b = this.auth.isAuthorized().pipe(take(1))
       try {
-        let c = await b.toPromise();
+        await this.auth.isAuthorized().toPromise();
         return true;
       }
-      catch(err) {
+      catch (err) {
+        console.log(err);
         this.router.navigate(['/'])
         return false;
       }
