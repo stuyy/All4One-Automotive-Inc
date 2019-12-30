@@ -1,0 +1,58 @@
+.mat-toolbar {
+    font-family: 'ABeeZee'
+}
+.fill {
+    flex: 1 1 auto;
+}
+nav span {
+    padding: 12px;
+    transition: color .5s;
+    cursor: pointer;
+}
+nav span:hover {
+    color: red;
+}
+
+#menuIcon {
+    display: none;
+}
+
+#fill-one {
+    display: none;
+}
+
+app-sidenav {
+    position: absolute;
+    left: 0;
+}
+
+.active-route {
+    color: pink;
+    transition: all .2s;
+}
+@media (max-width: 1250px) {
+    #menuIcon {
+        display: block;
+    }
+    nav {
+        display: none;
+    }
+    #fill-one {
+        display: block;
+    }
+    #fill-two {
+        display: none;
+    }
+    app-sidenav {
+        left: 0;
+        transition: left .5s;
+    }
+}
+
+@media (min-width: 1250px) {
+    app-sidenav {
+        position: absolute;
+        left: -250px;
+        transition: left .5s;
+    }
+}

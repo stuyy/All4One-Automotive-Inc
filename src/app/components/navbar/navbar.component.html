@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="menu-button" (click)="toggleSidenav()" id="menuIcon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="fill" id="fill-one"></span>
+    <span *ngIf="isAuthorized">Welcome Back, {{name}}!</span>
+    <span class="fill" id="fill-two"></span>
+    <nav>
+        <span *ngFor="let route of routes">
+            <a [routerLink]="route.url" [ngClass]="{'active-route' : currentPath === route.url }">{{route.name}}</a>
+        </span>
+    </nav>
+</mat-toolbar>
+<app-sidenav></app-sidenav>
