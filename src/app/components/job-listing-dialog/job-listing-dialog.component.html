@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<h3 id="jobId">{{data.id}}</h3>
+<div mat-dialog-content>
+    <quill-view [content]="data.quillTemplate" format="text" theme="snow">
+    </quill-view>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button (click)="apply()">Apply For This Job</button>
+</div>
