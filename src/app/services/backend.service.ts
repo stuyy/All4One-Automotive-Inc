@@ -10,6 +10,7 @@ import { NewUser } from '../components/settings/settings.component';
 })
 export class BackendService {
 
+  public isAuthenticated: boolean = false;
   constructor(private http: HttpClient) { 
     
   }

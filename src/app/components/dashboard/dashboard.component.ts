@@ -18,14 +18,8 @@ export class DashboardComponent implements OnInit {
     private dialog: MatDialog) {
     
   }
-
   ngOnInit() {
-    this.backendService.isAuthorized()
-      .subscribe(
-        (res : any) => {
-          
-        }, 
-        err => this.router.navigate(['/']));
+   
   }
   openJobEditorModal() {
     this.dialog.open(DialogOverviewComponent, {
