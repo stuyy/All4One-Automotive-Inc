@@ -1,21 +1,29 @@
 <div>
-    <mat-vertical-stepper  #stepper>
+    <mat-vertical-stepper  #stepper [linear]="true">
         <mat-step [stepControl]="fullName" errorMessage="Name is required.">
             <form [formGroup]="fullName">
             <ng-template matStepLabel>Your Name</ng-template>
-            <mat-form-field>
-                <input matInput name="fullName" placeholder="Please enter your name" formControlName="fullName" required>
-            </mat-form-field>
+            <div class="form-fields">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput name="fullName" formControlName="firstName" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput name="fullName" formControlName="lastName" required>
+                </mat-form-field>
+            </div>
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="emailAddress" errorMessage="Email Address is required.">
-            <form [formGroup]="emailAddress">
+        <mat-step [stepControl]="email" errorMessage="Email Address is required.">
+            <form [formGroup]="email">
             <ng-template matStepLabel>Email Address</ng-template>
             <mat-form-field>
-                <input matInput placeholder="Email Address" name="lastName" formControlName="emailAddress" required>
+                <input matInput placeholder="Email Address" name="lastName" formControlName="email" required>
+                <mat-error *ngIf="email.invalid">{{getEmailError()}}</mat-error>
             </mat-form-field>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
@@ -28,10 +36,11 @@
                 <ng-template matStepLabel>Phone Number</ng-template>
                 <mat-form-field>
                     <input matInput placeholder="Phone Number" name="phoneNumber" type="text" formControlName="phoneNumber" required>
+                    <mat-error>Please enter a phone number with the format ###-###-####</mat-error>
                 </mat-form-field>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperNext (click)="validatePhoneNumber()">Next</button>
                 </div>
             </form>
         </mat-step>
@@ -60,16 +69,14 @@
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
                 </div>
-                
             </form>
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Finish</ng-template>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
-                <button mat-button>Submit</button>
+                <button mat-button (click)="apply()">Submit</button>
             </div>
         </mat-step>
     </mat-vertical-stepper>
-
 </div>
