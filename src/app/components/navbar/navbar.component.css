@@ -32,17 +32,55 @@ app-sidenav {
     padding-right: 0 !important;
 }
 .active-route {
-    color: pink;
-    background-color: #303030;
+    color: red;
     transition: color 1s;
     transition: background-color 1s;
+}
+
+
+.toolbar-row-one {
+    min-height: 130px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.icons {
+    display: flex;
+    justify-content: flex-end;
+}
+.icons i {
+    font-size: 38px;
+    padding-right: 12px;
+}
+
+.nav-list-links ul li {
     padding: 22px;
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,1);
+    z-index: 1;
+}
+.dropdown-content li {
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.second {
+    display: flex;
+    flex-direction: column-reverse;
 }
 @media (max-width: 1250px) {
     #menuIcon {
         display: block;
     }
-    nav {
+    .second {
         display: none;
     }
     #fill-one {
@@ -54,6 +92,12 @@ app-sidenav {
     app-sidenav {
         left: 0;
         transition: left .5s;
+    }
+    .icons {
+        display: none;
+    }
+    .toolbar-row-one {
+        justify-content: space-between;
     }
 }
 

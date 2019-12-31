@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <button mat-icon-button class="menu-button" (click)="toggleSidenav()" id="menuIcon">
         <mat-icon>menu</mat-icon>
     </button>
@@ -10,5 +10,39 @@
             <a [routerLink]="route.url" [ngClass]="{'active-route' : currentPath === route.url }">{{route.name}}</a>
         </span>
     </nav>
+</mat-toolbar>
+<app-sidenav></app-sidenav> -->
+<mat-toolbar>
+    <mat-toolbar-row class="toolbar-row-one">
+        <button mat-icon-button class="menu-button" (click)="toggleSidenav()" id="menuIcon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div>
+            <img src="assets/logo.png" alt="logo" width=250>
+        </div>
+        <div class="second">
+            <div class="nav-list-links">
+                <nav>
+                    <div class="dropdown" *ngFor="let route of routes">
+                        <span>
+                            <a [routerLink]="route.url" [ngClass]="{'active-route' : currentPath === route.url }">{{route.name}}</a>
+                        </span>
+                        <ul *ngIf="route.childRoutes" class="dropdown-content">
+                            <li *ngFor="let childRoute of route.childRoutes">
+                                {{childRoute.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="icons">
+                <a href="https://www.facebook.com/all4oneautomotiveinc"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter-square"></i></a>
+                <a href="http://snapchat.com">
+                <i class="fab fa-snapchat-square"></i></a>
+                <a href="https://www.instagram.com/all4oneautomotive/"><i class="fab fa-instagram"></i></a> 
+            </div>
+        </div>
+    </mat-toolbar-row>
 </mat-toolbar>
 <app-sidenav></app-sidenav>
