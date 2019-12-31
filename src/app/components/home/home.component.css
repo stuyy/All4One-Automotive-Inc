@@ -7,6 +7,30 @@
 ul {
     list-style-type: none;
 }
+nav ul li {
+    display: inline;
+    padding: 25px;
+    line-height: 5rem;
+}
+nav {
+    display: flex;
+    justify-content: center;
+}
+.nav-link-icons {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 32px;
+    padding: 25px;
+}
+.nav-list-links {
+    padding: 10px;
+}
+.nav-link-icons a {
+    padding: 3px;
+}
+.top-side-nav {
+
+}
 .example-fill-remaining-space {
     flex: 1 1 auto;
 }
@@ -110,12 +134,6 @@ mat-card-subtitle {
 
 .quote-button {
     padding: 10px 25px;
-}
-.hidden {
-    position: absolute;
-    opacity: 0;
-    top: -3500px;
-    transition: top 50s;
 }
 .show {
     top: 0;
