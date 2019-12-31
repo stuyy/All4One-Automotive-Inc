@@ -14,7 +14,7 @@
                 </section>
                 <quill-view [content]="jobListing.jobDescription" format="text" theme="snow"></quill-view>
             </section>
-            <app-careers-application-form></app-careers-application-form>
+            <app-careers-application-form [jobId]="jobListing._id"></app-careers-application-form>
         </div>
     </div>
 </div>

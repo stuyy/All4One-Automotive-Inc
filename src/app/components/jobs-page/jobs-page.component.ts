@@ -36,12 +36,9 @@ export class JobsPageComponent implements OnInit {
             this.jobListings = data;
             this.displayJobApplication = true;
             this.jobListing = this.jobListings[0];
-            console.log('Hello???');
-            console.log(this.jobListing)
-            console.log(this.displayJobApplication)
           }, err => console.log(err));
       }
-    })
+    });
   }
 
 }
