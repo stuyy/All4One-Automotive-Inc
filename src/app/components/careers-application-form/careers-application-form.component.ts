@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
@@ -12,8 +12,9 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 })
 export class CareersApplicationFormComponent implements OnInit {
 
+  @Input() jobId: string;
   fullName: FormGroup;
-  emailAddress: FormGroup;
+  email: FormGroup;
   phoneNumber: FormGroup;
   attachments: FormGroup;
   comments: FormGroup;
@@ -21,13 +22,14 @@ export class CareersApplicationFormComponent implements OnInit {
 
   ngOnInit() {
     this.fullName = this._formBuilder.group({
-      fullName: ['', Validators.required]
+      firstName: ['', [Validators.required]],
+      lastName: ['', Validators.required]
     });
-    this.emailAddress = this._formBuilder.group({
-      emailAddress: ['', Validators.required]
+    this.email = this._formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
     });
     this.phoneNumber = this._formBuilder.group({
-      phoneNumber: ['', Validators.required]
+      phoneNumber: ['', [Validators.required, this.validatePhoneNumber]]
     });
     this.attachments = this._formBuilder.group({
       attachments: ['', Validators.required]
@@ -36,5 +38,16 @@ export class CareersApplicationFormComponent implements OnInit {
       comments: ['', Validators.required]
     })
   }
-
+  apply() {
+    console.log(this.jobId)
+  }
+  getEmailError() {
+    return this.email.get('email').errors.required ? 'Please enter an e-mail address' : this.email.get('email').errors.email ? 'Please enter a valid email' : '';
+  }
+  validatePhoneNumber(phone: FormGroup) {
+    let phoneNumber : string = phone.value;
+    let regex = new RegExp(/([0-9]{3}-){2}[0-9]{4}/);
+    console.log(phoneNumber.match(regex))
+    return regex.test(phoneNumber) ? null : { invalidPhoneNumber: true }
+  }
 }
