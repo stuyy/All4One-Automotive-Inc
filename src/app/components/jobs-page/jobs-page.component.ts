@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { JobListing } from 'src/app/models/JobListing';
 import { ActivatedRoute } from '@angular/router';
+import { JobService } from 'src/app/services/job.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-jobs-page',
@@ -14,11 +16,23 @@ export class JobsPageComponent implements OnInit {
   public jobListings: Array<JobListing>;
   public displayJobApplication: boolean = false;
   public jobListing: JobListing;
+  public auth: boolean = false;
+  public accountType: string;
   constructor(
     private backendService: BackendService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private jobService: JobService,
+    private snackbar: MatSnackBar
   ) { 
-
+    this.jobService.getJobEvents().subscribe(event => {
+      console.log(event);
+      if(event.name === 'jobDelete') {
+        this.jobListings = this.jobListings.filter(job => job._id !== event.id);
+        this.snackbar.open('Job deleted', 'close', {
+          duration: 5000
+        })
+      }
+    })
   }
 
   ngOnInit() {
@@ -39,6 +53,12 @@ export class JobsPageComponent implements OnInit {
           }, err => console.log(err));
       }
     });
+
+    this.backendService.isAuthorized().subscribe((res) => {
+      console.log(res)
+      this.auth = true;
+      this.accountType = res.type;
+    }, err => this.auth = false)
   }
 
 }
