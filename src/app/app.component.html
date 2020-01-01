@@ -20,7 +20,9 @@
       <span class="example-fill-remaining-space"></span>
       <span *ngIf="name">Welcome back, {{name}}</span>
     </mat-toolbar> -->
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
+    <div [@routeAnimations]="prepareRoute(outlet)">
+      <app-navbar></app-navbar>
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

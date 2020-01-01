@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { BackendService } from './services/backend.service';
-import { MatSidenav } from '@angular/material';
-import { SidenavService } from './services/sidenav.service';
+import { slideInAnimation } from './animations/animations';
 
 interface Route {
   name,
@@ -12,7 +11,10 @@ interface Route {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class AppComponent implements OnInit {
   public name: string;
@@ -42,5 +44,7 @@ export class AppComponent implements OnInit {
       console.log("Done.");
     });
   }
-  
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }
