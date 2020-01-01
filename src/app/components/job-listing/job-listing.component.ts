@@ -12,6 +12,7 @@ import { JobListingDialogComponent } from '../job-listing-dialog/job-listing-dia
 export class JobListingComponent implements OnInit {
 
   @Input() jobListing: JobListing;
+  @Input() accountType: string;
   constructor(private dialog: MatDialog) {
     
   }
@@ -20,7 +21,6 @@ export class JobListingComponent implements OnInit {
     
   }
   displayJob() {
-    console.log(this.jobListing._id);
     this.dialog.open(JobListingDialogComponent, {
       data: {
         title: this.jobListing.jobTitle,
@@ -30,5 +30,10 @@ export class JobListingComponent implements OnInit {
       width: '90%'
     })
   }
+  deleteJob() {
 
+  }
+  archiveJob() {
+    
+  }
 }

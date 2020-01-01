@@ -3,6 +3,16 @@
         <h1 (click)="displayJob()" class="job-click">
             {{jobListing.jobTitle}}
         </h1>
-        <h3>Posted on: {{jobListing.postedOn | date}}</h3>
+        <aside>
+            <h3>Posted on: {{jobListing.postedOn | date}}</h3>
+            <div>
+                <button mat-icon-button (click)="deleteJob()">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button (click)="archiveJob()">
+                    <mat-icon>check</mat-icon>
+                </button>
+            </div>
+        </aside>
     </header>
 </section>
