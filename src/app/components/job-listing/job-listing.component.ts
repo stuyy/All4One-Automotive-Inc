@@ -3,6 +3,7 @@ import { JobListing } from 'src/app/models/JobListing';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
 import { JobListingDialogComponent } from '../job-listing-dialog/job-listing-dialog.component';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-job-listing',
@@ -13,7 +14,7 @@ export class JobListingComponent implements OnInit {
 
   @Input() jobListing: JobListing;
   @Input() accountType: string;
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private jobService: JobService) {
     
   }
 
@@ -31,9 +32,15 @@ export class JobListingComponent implements OnInit {
     })
   }
   deleteJob() {
-
+    this.jobService.deleteJob(this.jobListing._id)
+      .subscribe((res : any) => {
+        console.log(res);
+      }, err => console.log(err));
   }
   archiveJob() {
-    
+    this.jobService.archiveJob(this.jobListing._id)
+      .subscribe((res : any) => {
+        console.log(res);
+      }, err => console.log(err));
   }
 }
