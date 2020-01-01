@@ -2,36 +2,73 @@
 const router = module.exports = require('express').Router();
 const ServiceRequest = require('../models/ServiceRequest');
 const MailTransporter = require('../utils/MailTransporter');
+const { check, validationResult } = require('express-validator');
 
 router.get('/', (req, res) => {
     res.send(200);
 }); 
 
-router.post('/', async (req, res) => {
-    let { name, phoneNumber, email, type } = req.body;
-    let transport = new MailTransporter();
-    let htmlTemplate = getEmailTemplate(name, phoneNumber, email, type);
-    try {
-        let mail = await transport.sendMail({
-            receiver: process.env.GMAIL_USER,
-            sender: process.env.EMAIL_USER,
-            subject: `Service Request from ${name}`,
-            html: htmlTemplate
+router.post('/', [
+    check('phoneNumber').custom((value, { req }) => {
+        let phoneRegExp = new RegExp(/^([0-9]{3}-){2}[0-9]{4}$/);
+        if(!phoneRegExp.test(value))
+            throw new Error("Invalid Phone Number.")
+        else return true;
+    }),
+    check('email').isEmail()
+],
+async (req, res) => {
+    if(req.session.requested) {
+        res.status(429).json({
+            error: 429,
+            message: "You're sending too many requests. Try again in 10 minutes."
         });
-        let service = new ServiceRequest({
-            serviceType: type,
-            name,
-            email,
-            phoneNumber
-        });
-        await service.save();
-        res.status(201).json({success: true, msg: "Success", data: service });
+        return;
     }
-    catch(err) {
-        res.status(500).json({ error: 500, msg: "Something went wrong, please try again."})
+    let errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        console.log(errors)
+        res.status(422).json({
+            error: 422,
+            msg: "The server cannot process the sent entity."
+        });
+        return;
+    }
+    else {
+        let { name, phoneNumber, email, type } = req.body;
+        let transport = new MailTransporter();
+        let htmlTemplate = getEmailTemplate(name, phoneNumber, email, type);
+        try {
+            let mail = await transport.sendMail({
+                receiver: process.env.GMAIL_USER,
+                sender: process.env.EMAIL_USER,
+                subject: `Service Request from ${name}`,
+                html: htmlTemplate
+            });
+            let service = new ServiceRequest({
+                serviceType: type,
+                name,
+                email,
+                phoneNumber
+            });
+            await service.save();
+            req.session.requested = true;
+            console.log("Success. Request saved.")
+            res.status(201).json({success: true, msg: "Success", data: service });
+            setTimeout(() => {
+                req.session.destroy();
+                console.log("Session destroyed.");
+            }, 10000)
+        }
+        catch(err) {
+            res.status(500).json({ error: 500, msg: "Something went wrong, please try again."})
+        }
     }
 });
 
+router.post('/a', (req, res) => {
+    
+})
 function getEmailTemplate(name, phoneNumber, email, type) {
     return `
     <html>
