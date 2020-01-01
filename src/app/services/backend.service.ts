@@ -52,4 +52,7 @@ export class BackendService {
       mergeMap(v => this.http.put(`${environment.host}/account/password/update`,data, { withCredentials: true }))
     )
   }
+  public requestService(data) {
+    return this.http.post(`${environment.host}/services`, data, { withCredentials: true });
+  }
 }
