@@ -35,14 +35,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const careers = require('./routes/careers');
-const auth = require('./routes/auth');
-const jobs = require('./routes/jobs');
-const account = require('./routes/account');
-
-app.use('/careers', careers);
-app.use('/auth', auth);
-app.use('/jobs', jobs);
-app.use('/account', account);
+require('./RouteHandler').bind(app)();
 
 app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));
