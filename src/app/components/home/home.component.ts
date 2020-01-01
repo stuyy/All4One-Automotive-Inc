@@ -8,6 +8,9 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { MatDialog } from '@angular/material';
+import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
+import { ServiceRequestFormComponent } from '../service-request-form/service-request-form.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -38,7 +41,7 @@ export class HomeComponent implements OnInit {
   public isOpen: boolean = false;
   public lat: Number = 42.6363995;
   public lon: Number = -73.7614378;
-  constructor() { 
+  constructor(private dialog: MatDialog) { 
 
   }
 
@@ -53,26 +56,15 @@ export class HomeComponent implements OnInit {
           this.toggle(); 
           self.cursor.remove();
         }, 700)
-        // this.initAddressTyping();
       }
     });
   }
-
-  initAddressTyping() {
-    let y = new Typed('#address', {
-      stringsElement: '#address-string',
-      autoInsertCss: true,
-      cursorChar: '|',
-      typeSpeed: 0,
-      startDelay: 1000,
-      onComplete: (self : any) => {
-        setTimeout(() => {
-          this.toggle();
-        }, 700)
-      }
-    })
-  }
   toggle() {
     this.isOpen = !this.isOpen;
+  }
+  requestService() {
+    this.dialog.open(DialogOverviewComponent, {
+      data: { component: ServiceRequestFormComponent, noShowButton: true }
+    })
   }
 }
