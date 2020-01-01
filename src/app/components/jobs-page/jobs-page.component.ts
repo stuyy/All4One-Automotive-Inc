@@ -26,7 +26,6 @@ export class JobsPageComponent implements OnInit {
     private snackbar: MatSnackBar
   ) { 
     this.jobService.getJobEvents().subscribe(event => {
-      console.log(event);
       if(event.name === 'jobDelete') {
         this.jobListingsMap.delete(event.id);
         this.snackbar.open('Job deleted', 'close', {

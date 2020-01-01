@@ -47,6 +47,7 @@ export class CareersApplicationFormComponent implements OnInit {
   }
   apply() {
     let formData = new FormData();
+    
     formData.append('firstName', this.fullName.value.firstName);
     formData.append('lastName', this.fullName.value.lastName);
     formData.append('email', this.email.value.email);

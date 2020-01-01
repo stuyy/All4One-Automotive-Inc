@@ -1,5 +1,5 @@
 <div>
-    <mat-vertical-stepper  #stepper [linear]="true">
+    <mat-vertical-stepper  #stepper [linear]="false">
         <mat-step [stepControl]="fullName" errorMessage="Name is required.">
             <form [formGroup]="fullName">
             <ng-template matStepLabel>Your Name</ng-template>

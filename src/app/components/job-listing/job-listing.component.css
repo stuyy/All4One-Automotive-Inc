@@ -74,3 +74,9 @@ aside {
         margin-top: 20px;
     }
 }
+
+@media (min-width: 1250px) {
+    ::ng-deep .mat-menu-panel {
+        display: none;
+    }
+}

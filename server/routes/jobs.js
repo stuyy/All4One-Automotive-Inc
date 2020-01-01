@@ -53,7 +53,6 @@ router.get('/listings', async (req, res) => {
         .limit(10)
         .catch(err => res.status(500).json({ error: err }));
     if(jobs) {
-        console.log(jobs);
         res.json(jobs)
     }
     else res.send(403);
