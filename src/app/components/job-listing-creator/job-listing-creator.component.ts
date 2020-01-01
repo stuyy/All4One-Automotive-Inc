@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
+import { JobService } from 'src/app/services/job.service';
 interface Job {
   title: string;
   description: string;
@@ -34,7 +35,8 @@ export class JobListingCreatorComponent implements OnInit {
   constructor(
     private backendService : BackendService, 
     private router: Router,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private jobService: JobService) {
     
   }
   ngOnInit() {
@@ -55,9 +57,12 @@ export class JobListingCreatorComponent implements OnInit {
           jobTitle: this.jobListingForm.get('jobTitle').value,
           jobDeadline: this.jobListingForm.get('jobDeadline').value,
           jobDescription: this.jobListingForm.get('jobDescription').value
-        })
-        .subscribe((res : any) => console.log(res), 
-        err => {
+        }).subscribe((res : any) => {
+          console.log(res);
+          this.jobService.getJobEvents().emit({
+            name: 'jobSubmit'
+          });
+        }, err => {
           if(err.status === 403)
             this.router.navigate(['/'])
         });
