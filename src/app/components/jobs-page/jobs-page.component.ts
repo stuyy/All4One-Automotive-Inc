@@ -32,8 +32,10 @@ export class JobsPageComponent implements OnInit {
         this.snackbar.open('Job deleted', 'close', {
           duration: 5000
         })
-      } else if(event.name === 'jobEdit') {
-        
+      } 
+      else if(event.name === 'jobEdit') {
+        this.jobListingsMap.set(event.newJob._id, event.newJob);
+        this.snackbar.open('Job edited!', 'Close', { duration: 5000, verticalPosition: 'top'})
       }
     })
   }
