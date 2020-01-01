@@ -51,9 +51,18 @@ export class JobListingComponent implements OnInit {
     let dialog = this.dialog.open(JobEditorDialogComponent, {
       data: {
         component: JobListingCreatorComponent,
-        template: this.jobListing.jobDescription,
-        jobTitle: this.jobListing.jobTitle
-      }});
+        jobListing: this.jobListing
+      },
+      height: 'auto'
+    });
+    this.jobService.getJobEvents().subscribe(event => {
+      console.log(event)
+      if(event.name === 'jobEdit') {
+        dialog.close();
+        this.jobService.getJobEvents().unsubscribe();
+      }
+      
+    })
     /* 
     this.jobService.editJob(this.jobListing._id)
       .subscribe((res : any) => {
