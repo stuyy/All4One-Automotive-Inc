@@ -9,3 +9,7 @@
 ::ng-deep quill-editor {
     width: 50%;
 }
+
+.mat-form-field {
+    width: 100%;
+}
