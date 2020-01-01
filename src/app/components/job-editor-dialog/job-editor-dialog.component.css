@@ -1,0 +1,11 @@
+::ng-deep .ql-toolbar.ql-snow {
+    background-color: white;
+}
+
+::ng-deep .ql-editor {
+    min-height: 250px;
+}
+
+::ng-deep quill-editor {
+    width: 50%;
+}
