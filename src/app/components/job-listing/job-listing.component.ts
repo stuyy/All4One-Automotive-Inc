@@ -35,6 +35,7 @@ export class JobListingComponent implements OnInit {
     this.jobService.deleteJob(this.jobListing._id)
       .subscribe((res : any) => {
         console.log(res);
+        this.jobService.getJobEvents().emit({ name: 'jobDelete', id: this.jobListing._id});
       }, err => console.log(err));
   }
   archiveJob() {
