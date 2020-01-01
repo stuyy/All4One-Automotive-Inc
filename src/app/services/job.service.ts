@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import JobApplication from '../models/JobApplication';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,8 @@ export class JobService {
   }
   getJobEvents() {
     return this.events;
+  }
+  applyJob(formData) {
+    return this.http.post(`${environment.host}/careers/apply`, formData);
   }
 }
