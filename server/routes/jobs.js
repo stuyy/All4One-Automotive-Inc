@@ -67,7 +67,13 @@ router.delete('/delete/:id', verifyUser, (req, res) => {
 });
 
 router.put('/edit/:id', verifyUser, (req, res) => {
-    
+    let { edits } = req.body;
+    let { id } = req.params
+    JobListing.findByIdAndUpdate(id, {
+        jobTitle: edits.jobTitle,
+        jobDescription: edits.jobDescription
+    }, { new: true }).then(job => res.status(200).json({ status: 200, job }))
+    .catch(err => res.status(500).json({ status: 500, error: "Something went wrong."}));
 });
 
 router.put('/archive/:id', verifyUser, (req, res) => {
