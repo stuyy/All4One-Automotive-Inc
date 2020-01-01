@@ -38,6 +38,7 @@ import { SidenavService } from './services/sidenav.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { JobListingDialogComponent } from './components/job-listing-dialog/job-listing-dialog.component';
 import { ServiceRequestFormComponent } from './components/service-request-form/service-request-form.component';
+import { JobEditorDialogComponent } from './components/job-editor-dialog/job-editor-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ServiceRequestFormComponent } from './components/service-request-form/s
     SidenavComponent,
     JobListingDialogComponent,
     ServiceRequestFormComponent,
+    JobEditorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +108,6 @@ import { ServiceRequestFormComponent } from './components/service-request-form/s
           ['link', 'image', 'video']       
         ]
       },
-      placeholder: 'Job Description'
     })
     
   ],
@@ -116,7 +117,8 @@ import { ServiceRequestFormComponent } from './components/service-request-form/s
     DialogOverviewComponent,
     JobListingCreatorComponent,
     JobListingDialogComponent,
-    ServiceRequestFormComponent
+    ServiceRequestFormComponent,
+    JobEditorDialogComponent
   ]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ const JobListingSchema = new mongoose.Schema({
     jobDescription: { type: String, required: true },
     postedBy: { type: String, required: true },
     archived: { type: Boolean, default: false },
-    applicants: { type: Number, required: false },
+    applicants: { type: Number, required: false, default: 0 },
     revisions: { type: Array, required: false }
 }, { timestamps: { createdAt: 'postedOn' } });
 

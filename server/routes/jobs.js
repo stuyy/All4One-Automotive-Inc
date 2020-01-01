@@ -64,5 +64,13 @@ router.delete('/delete/:id', verifyUser, (req, res) => {
     JobListing.findByIdAndDelete(id)
         .then(job => res.status(200).json({ status: 200, message: "Succes", id }))
         .catch(err => res.status(422).json({ status: 422, message: "Job not found"}));
+});
+
+router.put('/edit/:id', verifyUser, (req, res) => {
+    
+});
+
+router.put('/archive/:id', verifyUser, (req, res) => {
+
 })
 module.exports = router;

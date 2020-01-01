@@ -17,6 +17,9 @@ export class JobService {
   archiveJob(id) {
     return this.http.put(`${environment.host}/jobs/archive/${id}`, { withCredentials: true });
   }
+  editJob(id) {
+    return this.http.put(`${environment.host}/jobs/edit/${id}`, { withCredentials: true });
+  }
   getJobEvents() {
     return this.events;
   }
