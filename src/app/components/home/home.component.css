@@ -66,6 +66,23 @@ mat-card-subtitle {
     overflow: hidden;
     transition: min-height .5s ease-in;
 }
+#request-btn {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+#request-btn:hover {
+    color: red;
+    transition: color .5s;
+    animation: rotatespinner 1s infinite ease-in-out;
+}
+
+@keyframes rotatespinner {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(180deg); }
+}
 .welcome-section {
     position: absolute;
     top: 50%;
@@ -87,7 +104,7 @@ mat-card-subtitle {
 .welcome-header-card {
     margin-top: 20px;
     padding: 0px;   
-    background-color: #D81E5B;
+    background-color: #DB162F;
     text-align: left;
     font-family: 'ABeeZee' !important;
 }
@@ -349,6 +366,12 @@ footer {
 @media (max-width: 1000px) {
     .image-parent {
         height: 400px;
+    }
+}
+@media (max-width: 1250px) {
+    #request-btn {
+        top: 14%;
+        transition: all .5s;
     }
 }
 @media (max-width: 1166px) {
