@@ -14,6 +14,7 @@ export class JobsPageComponent implements OnInit {
 
   public loaded: boolean = false;
   public jobListings: Array<JobListing>;
+  public jobListingsMap: Map<string, JobListing>;
   public displayJobApplication: boolean = false;
   public jobListing: JobListing;
   public auth: boolean = false;
@@ -27,17 +28,19 @@ export class JobsPageComponent implements OnInit {
     this.jobService.getJobEvents().subscribe(event => {
       console.log(event);
       if(event.name === 'jobDelete') {
-        this.jobListings = this.jobListings.filter(job => job._id !== event.id);
+        this.jobListingsMap.delete(event.id);
         this.snackbar.open('Job deleted', 'close', {
           duration: 5000
         })
+      } else if(event.name === 'jobEdit') {
+        
       }
     })
   }
   ngOnInit() {
     this.backendService.fetchJobListing()
       .subscribe((jobs : Array<JobListing>) => {
-        this.jobListings = jobs;
+        this.jobListingsMap = new Map<string, JobListing>(jobs.map(job => [job._id, job]));
       }, err => console.log(err),
       () => this.loaded = true);
 
@@ -59,5 +62,7 @@ export class JobsPageComponent implements OnInit {
       this.accountType = res.type;
     }, err => this.auth = false)
   }
-
+  get jobs () : Array<JobListing> {
+    return Array.from(this.jobListingsMap.values())
+  }
 }
