@@ -5,16 +5,36 @@
         </h1>
         <aside>
             <h3>Posted on: {{jobListing.postedOn | date}}</h3>
-            <div>
-                <button mat-icon-button (click)="deleteJob()">
-                    <mat-icon>delete</mat-icon>
+            <div class="job-buttons" *ngIf="accountType === 'admin'">
+                <mat-menu #settingsMenu="matMenu">
+                    <button mat-menu-item (click)="deleteJob()">
+                        <mat-icon>delete</mat-icon>
+                        Delete
+                    </button>
+                    <button mat-menu-item (click)="editJob()">
+                        <mat-icon>edit</mat-icon>
+                        Edit
+                    </button>
+                    <button mat-menu-item (click)="archiveJob()">
+                        <mat-icon>check</mat-icon>
+                        Archive
+                    </button>
+                </mat-menu>
+                  
+                <button mat-icon-button [matMenuTriggerFor]="settingsMenu" id="settings">
+                    <mat-icon>settings_applications</mat-icon>
                 </button>
-                <button mat-icon-button (click)="editJob()">
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <button mat-icon-button (click)="archiveJob()">
-                    <mat-icon>check</mat-icon>
-                </button>
+                <div class="settings-buttons">
+                    <button mat-icon-button (click)="deleteJob()">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="editJob()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="archiveJob()">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                </div>
             </div>
         </aside>
     </header>

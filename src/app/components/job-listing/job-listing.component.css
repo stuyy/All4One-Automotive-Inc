@@ -16,7 +16,6 @@ header {
     text-decoration: none;
 }
 
-
 .job-click:before {
     content: "";
     position: absolute;
@@ -45,6 +44,33 @@ header {
 aside {
     display: flex;
 }
-aside div {
+.job-buttons {
     margin-top: -10px;
+}
+#settings {
+    display: none;
+}
+
+#settings:hover .settings-buttons {
+    display: block;
+}
+@media (max-width: 1250px) {
+    .settings-buttons {
+        display: none;
+    }
+    #settings {
+        display: block;
+    }
+    header {
+        flex-direction: column;
+    }
+    .job-click:before {
+        width: 0%;
+    }
+    aside {
+        justify-content: space-between;
+    }
+    .job-click {
+        margin-top: 20px;
+    }
 }
