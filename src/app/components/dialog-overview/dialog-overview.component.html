@@ -11,6 +11,6 @@
 </ng-template>
 <quill-view *ngIf="data.quillTemplate" [content]="data.quillTemplate" format="text" theme="snow">
 </quill-view>
-<div mat-dialog-actions>
+<div mat-dialog-actions *ngIf="noShowButton">
   <button mat-button (click)="cancel()">OK</button>
 </div>

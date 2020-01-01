@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -37,6 +37,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidenavService } from './services/sidenav.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { JobListingDialogComponent } from './components/job-listing-dialog/job-listing-dialog.component';
+import { ServiceRequestFormComponent } from './components/service-request-form/service-request-form.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { JobListingDialogComponent } from './components/job-listing-dialog/job-l
     NavbarComponent,
     SidenavComponent,
     JobListingDialogComponent,
+    ServiceRequestFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,7 @@ import { JobListingDialogComponent } from './components/job-listing-dialog/job-l
     MaterialFileInputModule,
     TextFieldModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDQvn6kYmdaNCEbH5EmKwUZeA54qMUD2lE'
+      apiKey: 'AIzaSyCDnijNE3qiZ97fyfzngIciBlXaLs-9GUQ'
     }),
     CdkStepperModule,
     HttpClientModule,
@@ -89,6 +91,8 @@ import { JobListingDialogComponent } from './components/job-listing-dialog/job-l
     MatNativeDateModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatOptionModule,
+    MatSelectModule,
     QuillModule.forRoot({
       modules: {
         toolbar: [
@@ -111,7 +115,8 @@ import { JobListingDialogComponent } from './components/job-listing-dialog/job-l
   entryComponents: [
     DialogOverviewComponent,
     JobListingCreatorComponent,
-    JobListingDialogComponent
+    JobListingDialogComponent,
+    ServiceRequestFormComponent
   ]
 })
 export class AppModule { }
