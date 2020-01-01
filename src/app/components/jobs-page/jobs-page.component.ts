@@ -34,7 +34,6 @@ export class JobsPageComponent implements OnInit {
       }
     })
   }
-
   ngOnInit() {
     this.backendService.fetchJobListing()
       .subscribe((jobs : Array<JobListing>) => {

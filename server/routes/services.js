@@ -8,6 +8,12 @@ router.get('/', (req, res) => {
     res.send(200);
 }); 
 
+/**
+ * CURRENT BUG:
+ * If you make a request while logged in, your session will be destroyed and it will log you out. 
+ * To fix this, implement a Redis caching mechanism.
+ */
+
 router.post('/', [
     check('phoneNumber').custom((value, { req }) => {
         let phoneRegExp = new RegExp(/^([0-9]{3}-){2}[0-9]{4}$/);
@@ -27,7 +33,6 @@ async (req, res) => {
     }
     let errors = validationResult(req);
     if(!errors.isEmpty()) {
-        console.log(errors)
         res.status(422).json({
             error: 422,
             msg: "The server cannot process the sent entity."
@@ -35,32 +40,38 @@ async (req, res) => {
         return;
     }
     else {
-        let { name, phoneNumber, email, type } = req.body;
+        let { fullName, phoneNumber, email, type } = req.body;
         let transport = new MailTransporter();
-        let htmlTemplate = getEmailTemplate(name, phoneNumber, email, type);
+        let htmlTemplate = getEmailTemplate(fullName, phoneNumber, email, type);
         try {
             let mail = await transport.sendMail({
                 receiver: process.env.GMAIL_USER,
                 sender: process.env.EMAIL_USER,
-                subject: `Service Request from ${name}`,
+                subject: `Service Request from ${fullName}`,
                 html: htmlTemplate
             });
-            let service = new ServiceRequest({
-                serviceType: type,
-                name,
-                email,
-                phoneNumber
-            });
-            await service.save();
-            req.session.requested = true;
-            console.log("Success. Request saved.")
-            res.status(201).json({success: true, msg: "Success", data: service });
-            setTimeout(() => {
-                req.session.destroy();
-                console.log("Session destroyed.");
-            }, 10000)
+            if(mail) {
+                let service = new ServiceRequest({
+                    serviceType: type,
+                    name: fullName,
+                    email,
+                    phoneNumber
+                });
+                await service.save();
+                req.session.requested = true;
+                console.log("Success. Request saved.")
+                res.status(201).json({success: true, msg: "Success", data: service });
+                setTimeout(() => {
+                    req.session.destroy();
+                    console.log("Session destroyed.");
+                }, 10000)
+            }
+            else {
+                throw new Error("Something went wrong... :/");
+            }
         }
         catch(err) {
+            console.log(err)
             res.status(500).json({ error: 500, msg: "Something went wrong, please try again."})
         }
     }

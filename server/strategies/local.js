@@ -18,9 +18,11 @@ passport.deserializeUser(function(user, done) {
 
 passport.use(new LocalStrategy(async (username, password, done) => {
     const user = await User.findOne({ username: username });
+    console.log(user)
     if(user)
     {   
         let result = await user.comparePassword(password, user.password);
+        console.log(result)
         return result ? done(null, user) : done(null, false)
     } 
     else

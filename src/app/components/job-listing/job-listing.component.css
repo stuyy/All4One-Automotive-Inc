@@ -41,3 +41,10 @@ header {
 .job-click:hover {
     color: red;
 }
+
+aside {
+    display: flex;
+}
+aside div {
+    margin-top: -10px;
+}

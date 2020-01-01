@@ -1,12 +1,14 @@
 <div>
     <form [formGroup]="serviceForm">
         <mat-form-field>
-            <mat-select placeholder="Select a Service">
+            <mat-label>Serivce Type</mat-label>
+            <mat-select placeholder="Select a Service" formControlName="type">
               <mat-option value="towing">Emergency Towing</mat-option>
               <mat-option value="road">Roadside Assistance</mat-option>
               <mat-option value="lockout">Vehicle Lockouts</mat-option>
               <mat-option value="other">Other</mat-option>
             </mat-select>
+            <mat-error *ngIf="serviceForm.invalid">Please select an option</mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>First & Last Name</mat-label>
@@ -23,6 +25,7 @@
             <input type="email" matInput formControlName="email">
             <mat-error *ngIf="serviceForm.invalid">Please enter a valid E-Mail Address</mat-error>
         </mat-form-field>
-        <button mat-stroked-button>Request</button>
+        <button mat-stroked-button (click)="requestService()">Request</button>
     </form>
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 </div>

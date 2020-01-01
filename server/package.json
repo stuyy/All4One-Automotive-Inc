@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "pm2 start app.js --name=a41backend",
-    "dev" : "nodemon app.js"
+    "start": "pm2 start app.js --name=a41backend",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "express-session": "^1.17.0",
     "express-validator": "^6.3.0",
     "mongoose": "^5.8.3",
+    "nodemailer": "^6.3.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   }
