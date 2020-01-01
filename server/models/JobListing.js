@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 const JobListingSchema = new mongoose.Schema({
-    jobTitle: {
-        type: String,
-        required: true
-    },
+    jobTitle: { type: String, required: true },
     jobDeadline: { type: String, required: true },
     jobDescription: { type: String, required: true },
-    postedBy: { type: String, required: true }
+    postedBy: { type: String, required: true },
+    archived: { type: Boolean, default: false },
+    applicants: { type: Number, required: false },
+    revisions: { type: Array, required: false }
 }, { timestamps: { createdAt: 'postedOn' } });
-
 
 class JobListing {
     getJobTitle() {
