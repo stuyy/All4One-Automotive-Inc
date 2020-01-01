@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
 import { JobListingDialogComponent } from '../job-listing-dialog/job-listing-dialog.component';
 import { JobService } from 'src/app/services/job.service';
+import { JobListingCreatorComponent } from '../job-listing-creator/job-listing-creator.component';
+import { JobEditorDialogComponent } from '../job-editor-dialog/job-editor-dialog.component';
 
 @Component({
   selector: 'app-job-listing',
@@ -43,5 +45,20 @@ export class JobListingComponent implements OnInit {
       .subscribe((res : any) => {
         console.log(res);
       }, err => console.log(err));
+  }
+  editJob() {
+    // Display Job Editor Component inside modal
+    let dialog = this.dialog.open(JobEditorDialogComponent, {
+      data: {
+        component: JobListingCreatorComponent,
+        template: this.jobListing.jobDescription,
+        jobTitle: this.jobListing.jobTitle
+      }});
+    /* 
+    this.jobService.editJob(this.jobListing._id)
+      .subscribe((res : any) => {
+        console.log(res);
+      })
+    */
   }
 }
