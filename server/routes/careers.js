@@ -33,9 +33,10 @@ router.post('/apply', upload.single('resume'), [
         res.status(422).json({ status: 422, error: 'Unable to process entity'})
     }
     else {
-        let { firstName, lastName, email, phoneNumber, comments, jobId } = req.body;
+        let { firstName, lastName, email, phoneNumber, comments, jobId, questions } = req.body;
         let resume = req.file.path;
-        let jobApplication = new JobApplication({ firstName, lastName, email, phoneNumber, resume, comments, jobId });
+        let questionResponses = JSON.parse(questions);
+        let jobApplication = new JobApplication({ firstName, lastName, email, phoneNumber, resume, comments, jobId, questionResponses });
         try {
             await jobApplication.save();
             console.log("Saved Job Application");
