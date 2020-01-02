@@ -24,7 +24,8 @@ class MailTransporter {
                 from: opts.sender,
                 subject: opts.subject,
                 text: opts.message || '',
-                html: opts.html || ''
+                html: opts.html || '',
+                attachments: opts.attachments || ''
             });
             return mail;
         }
