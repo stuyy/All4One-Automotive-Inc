@@ -9,7 +9,8 @@ router.get('/coordinates/:lat/:lon', (req, res) => {
 });
 
 function check(req, res, next) {
-    let value = store.get(req.params.city);
+    let param = req.params.city || req.params.postal || req.params.coordinates;
+    let value = store.get(param);
     if(value) {
         console.log("Sending cached data.");
         res.send(value).end()
@@ -30,8 +31,17 @@ router.get('/city/:city', check, async (req, res) => {
     }
 });
 
-router.get('/postal/:postal', (req, res) => {
-    let url = parseUrl('postal', req.params.postal);
+router.get('/postal/:postal', check, async (req, res) => {
+    let url = parseUrl('postal', req.params.postal);    
+    try {
+        let weather = await (await fetch(url)).json();
+        if(weather.cod !== 200) throw new Error("Invalid request.");
+        store.put(req.params.postal, weather);
+        res.send(weather);
+    }
+    catch(err) {
+        res.status(400).json({ msg: "Invalid request."});
+    }
 });
 
 function parseUrl(type, ...args) {
