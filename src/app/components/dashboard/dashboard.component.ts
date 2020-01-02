@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
       });
   }
   ngOnInit() {
-   
   }
   openJobEditorModal() {
     this.dialog.open(DialogOverviewComponent, {

@@ -39,6 +39,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { JobListingDialogComponent } from './components/job-listing-dialog/job-listing-dialog.component';
 import { ServiceRequestFormComponent } from './components/service-request-form/service-request-form.component';
 import { JobEditorDialogComponent } from './components/job-editor-dialog/job-editor-dialog.component';
+import { WeatherComponent } from './components/weather/weather.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { JobEditorDialogComponent } from './components/job-editor-dialog/job-edi
     JobListingDialogComponent,
     ServiceRequestFormComponent,
     JobEditorDialogComponent,
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,7 +111,7 @@ import { JobEditorDialogComponent } from './components/job-editor-dialog/job-edi
           ['link', 'image', 'video']       
         ]
       },
-    })
+    }),
     
   ],
   providers: [SidenavService],

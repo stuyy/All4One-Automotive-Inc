@@ -5,6 +5,7 @@ const JobListing = require('../models/JobListing');
 const MailTransporter = require('../utils/MailTransporter');
 const HTMLTemplates = require('../utils/HTMLTemplates');
 const multer = require('multer');
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'C:\\Users\\Anson\\Desktop\\JobResumes')
@@ -108,4 +109,5 @@ router.post('/apply', upload.single('resume'), [
         }
     }
 });
+
 module.exports = router;

@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'jobs/:id', component: JobsPageComponent, data: { animation: 'JobsIdPage'} },
   { path: 'logout', component: LogoutComponent }, 
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { animation: 'SettingsPage'} },
-  { path: 'sidenav', component: SidenavComponent },
   { path: 'service', component: ServiceRequestFormComponent},
 ];
 

@@ -1,10 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-
 const PORT = process.env.PORT || 3000;
 const app = express();
-
 const db = require('./database/db')();
 
 db.on('error', () => console.log('connection error'));
