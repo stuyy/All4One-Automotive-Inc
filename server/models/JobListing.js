@@ -22,7 +22,11 @@ class JobListing {
     getPostedDate() {
         return this.postedOn;
     }
+    applied() {
+        console.log(this.applicants);
+        this.applicants++;
+        this.save();
+    }
 }
-
 JobListingSchema.loadClass(JobListing);
 module.exports = mongoose.model('JobListing', JobListingSchema);
