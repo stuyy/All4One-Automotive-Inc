@@ -2,9 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { JobService } from 'src/app/services/job.service';
-import JobApplication from 'src/app/models/JobApplication';
-import { FileUploadControl, FileUploadValidators } from '@iplab/ngx-file-upload';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { JobListing } from 'src/app/models/JobListing';
 
 @Component({
   selector: 'app-careers-application-form',
@@ -16,15 +15,19 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CareersApplicationFormComponent implements OnInit {
 
-  @Input() jobId: string;
+  @Input() jobListing: JobListing;
   public fullName: FormGroup;
   public email: FormGroup;
   public phoneNumber: FormGroup;
   public attachments: FormGroup;
   public comments: FormGroup;
+  public questionForm: FormGroup;
   public loading: boolean = false;
 
-  constructor(private _formBuilder: FormBuilder, private jobService: JobService, private snackbar: MatSnackBar) {}
+  constructor(private _formBuilder: FormBuilder, 
+    private jobService: JobService, 
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog) {}
 
   ngOnInit() {
     this.fullName = this._formBuilder.group({
@@ -42,30 +45,25 @@ export class CareersApplicationFormComponent implements OnInit {
     })
     this.comments = this._formBuilder.group({
       comments: ['', Validators.required]
-    })
-
+    });
+    this.questionForm = this._formBuilder.group({
+      questionOne: ['', Validators.required],
+      questionTwo: ['', Validators.required],
+      questionThree: ['', Validators.required]
+    });
   }
   apply() {
     this.loading = true;
     this.disableForm();
-    let formData = new FormData();
-    formData.append('firstName', this.fullName.value.firstName);
-    formData.append('lastName', this.fullName.value.lastName);
-    formData.append('email', this.email.value.email);
-    formData.append('phoneNumber', this.phoneNumber.value.phoneNumber);
-    formData.append('comments', this.comments.value.comments);
-    formData.append('jobId', this.jobId);
-    formData.append('resume', this.attachments.value.attachments._files[0], this.attachments.value.attachments._files[0].name);
-    this.jobService.applyJob(formData)
-      .subscribe(res => {
+    let formData = this.parseForm();
+    this.jobService.applyJob(formData).subscribe(res => {
         console.log(res)
         this.enableForm();
-        this.resetForm();
+        // this.resetForm();
         this.snackbar.open("We got your application!", "Close", {
           duration: 10000
         });
-      },
-      err => {
+      }, err => {
         this.loading = false;
         console.log(err)
         this.enableForm();
@@ -81,6 +79,33 @@ export class CareersApplicationFormComponent implements OnInit {
     let phoneNumber : string = phone.value;
     let regex = new RegExp(/^([0-9]{3}-){2}[0-9]{4}$/);
     return regex.test(phoneNumber) ? null : { invalidPhoneNumber: true }
+  }
+  parseForm() : FormData {
+    let formData = new FormData();
+    formData.append('firstName', this.fullName.value.firstName);
+    formData.append('lastName', this.fullName.value.lastName);
+    formData.append('email', this.email.value.email);
+    formData.append('phoneNumber', this.phoneNumber.value.phoneNumber);
+    formData.append('comments', this.comments.value.comments);
+    formData.append('jobId', this.jobListing._id);
+    formData.append('resume', this.attachments.value.attachments._files[0], this.attachments.value.attachments._files[0].name);
+
+    let questions = {
+      questionOne: {
+        question: `Tell us why you think you're a good candidiate for ${this.jobListing.jobTitle}`,
+        response: this.questionForm.value.questionOne
+      },
+      questionTwo: {
+        question: 'How many years of experience do you have in the automotive industry?',
+        response: this.questionForm.value.questionTwo
+      },
+      questionThree: {
+        question: 'What can you bring to the team?',
+        response: this.questionForm.value.questionThree
+      }
+    }
+    formData.append('questions', JSON.stringify(questions));
+    return formData;
   }
   disableForm() : void  {
     this.fullName.disable();
