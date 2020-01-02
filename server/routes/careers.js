@@ -2,7 +2,8 @@ const router = require('express').Router();
 const { check, validationResult } = require('express-validator');
 const JobApplication = require('../models/JobApplication');
 const JobListing = require('../models/JobListing');
-
+const MailTransporter = require('../utils/MailTransporter');
+const HTMLTemplates = require('../utils/HTMLTemplates');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -35,6 +36,7 @@ router.post('/apply', upload.single('resume'), [
     else {
         let { firstName, lastName, email, phoneNumber, comments, jobId, questions } = req.body;
         let resume = req.file.path;
+        console.log(req.file.originalname)
         let questionResponses = JSON.parse(questions);
         let jobApplication = new JobApplication({ firstName, lastName, email, phoneNumber, resume, comments, jobId, questionResponses });
         try {
@@ -42,7 +44,53 @@ router.post('/apply', upload.single('resume'), [
             console.log("Saved Job Application");
             let foundJobListing = await JobListing.findById(jobId);
             foundJobListing.applied();
-            res.status(201).json({ status: 201, message: "Job application received!"})
+            res.status(201).json({ status: 201, message: "Job application received!"});
+            let application = {
+                name: `${firstName} ${lastName}`,
+                email: `${email}`,
+                phone: `${phoneNumber}`,
+                questions: questionResponses,
+                job: foundJobListing
+            }
+            console.log(application);
+            let htmlTemplate = HTMLTemplates.jobApplicationReceived(application);
+            let transport = new MailTransporter();
+            let mail = await transport.sendMail({
+                receiver: process.env.GMAIL_USER,
+                sender: process.env.EMAIL_USER,
+                subject: `New Job Application - ${foundJobListing.jobTitle}`,
+                html: htmlTemplate,
+                attachments: [
+                    {
+                        filename: req.file.originalname,
+                        path: resume
+                    }
+                ]
+            });
+            if(mail) {
+                console.log("Message sent!");
+            }
+            else {
+                let i = 0;
+                do {
+                    console.log("Error occured, trying to send...");
+                    transport = new MailTransporter();
+                    mail = await transport.sendMail({
+                        receiver: process.env.GMAIL_USER,
+                        sender: process.env.EMAIL_USER,
+                        subject: `New Job Application - ${foundJobListing.jobTitle}`,
+                        html: htmlTemplate,
+                        attachments: [
+                            {
+                                filename: req.file.originalname,
+                                path: resume
+                            }
+                        ]
+                    });
+                    i++;
+                } while(!mail);
+                console.log("Sent, took " + i + " retries.")
+            }
         }
         catch(err) {
             console.log(err);
@@ -50,5 +98,4 @@ router.post('/apply', upload.single('resume'), [
         }
     }
 });
-
 module.exports = router;
