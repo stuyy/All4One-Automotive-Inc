@@ -23,7 +23,6 @@ class JobListing {
         return this.postedOn;
     }
     applied() {
-        console.log(this.applicants);
         this.applicants++;
         this.save();
     }
