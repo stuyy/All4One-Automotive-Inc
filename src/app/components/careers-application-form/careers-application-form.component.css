@@ -9,3 +9,7 @@
 .mat-stepper-horizontal, .mat-stepper-vertical {
     background-color: #303030;
 }
+
+.questions-form .mat-form-field {
+    width: 100%;
+}
