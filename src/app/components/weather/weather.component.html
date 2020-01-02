@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <mat-card-content *ngIf="weather">
+        <h1>Your Location: {{weather.name}}</h1>
+        <mat-list>
+            <mat-list-item *ngFor="let weather of weather.weather">
+                {{weather.main}} - {{weather.description}}
+                <i class="wi wi-day-cloudy"></i>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-content *ngIf="blocked">
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Your City</mat-label>
+                <input type="text" matInput [formControl]="weatherInput">
+            </mat-form-field>
+            <button mat-icon-button color="accent" (click)="getWeather()">
+                <i class="fas fa-check-circle fa-2x"></i>
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

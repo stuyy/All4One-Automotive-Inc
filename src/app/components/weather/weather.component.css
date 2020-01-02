@@ -1,0 +1,13 @@
+.mat-form-field {
+    width: 100%;
+}
+form {
+    display: flex;
+}
+form button i {
+    line-height: 50px;
+}
+
+mat-card mat-spinner {
+    margin: 0 auto;
+}
