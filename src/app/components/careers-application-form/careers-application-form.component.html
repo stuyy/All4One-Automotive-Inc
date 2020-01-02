@@ -1,5 +1,5 @@
 <div>
-    <mat-vertical-stepper  #stepper [linear]="false">
+    <mat-vertical-stepper  #stepper [linear]="true">
         <mat-step [stepControl]="fullName" errorMessage="Name is required.">
             <form [formGroup]="fullName">
             <ng-template matStepLabel>Your Name</ng-template>
@@ -57,6 +57,29 @@
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
                 </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="questionForm" errorMessage="Please fill out the small questionaire below">
+            <form [formGroup]="questionForm" class="questions-form">
+                <ng-template matStepLabel>Questions</ng-template>
+                <mat-form-field appearance="fill" hintLabel="Max 250 characters" [floatLabel]="'never'">
+                    <mat-label>Tell us why you think you're a good candidiate for {{jobListing.jobTitle}}.</mat-label>
+                    <textarea #inputOne matInput type="text" formControlName="questionOne" maxlength="250"></textarea>
+                    <mat-hint align="end">{{inputOne.value?.length || 0}}/250</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>How many years of experience do you have in the automotive industry?</mat-label>
+                    <input maxlength="2" matInput type="text" formControlName="questionTwo">
+                </mat-form-field>
+                <mat-form-field appearance="fill" hintLabel="Max 250 characters">
+                    <mat-label>What can you bring to the team?</mat-label>
+                    <textarea matInput #inputTwo type="text" formControlName="questionThree" maxlength="250"></textarea>
+                    <mat-hint align="end">{{inputTwo.value?.length || 0}}/250</mat-hint>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>  
             </form>
         </mat-step>
         <mat-step [stepControl]="comments">
