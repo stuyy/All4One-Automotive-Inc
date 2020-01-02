@@ -59,7 +59,7 @@ export class CareersApplicationFormComponent implements OnInit {
     this.jobService.applyJob(formData).subscribe(res => {
         console.log(res)
         this.enableForm();
-        // this.resetForm();
+        this.resetForm();
         this.snackbar.open("We got your application!", "Close", {
           duration: 10000
         });
@@ -113,6 +113,7 @@ export class CareersApplicationFormComponent implements OnInit {
     this.phoneNumber.disable();
     this.attachments.disable();
     this.comments.disable();
+    this.questionForm.disable();
   }
   enableForm() : void {
     this.fullName.enable();
@@ -120,6 +121,7 @@ export class CareersApplicationFormComponent implements OnInit {
     this.phoneNumber.enable();
     this.attachments.enable();
     this.comments.enable();
+    this.questionForm.enable();
     this.loading = false;
   }
   resetForm() : void {
@@ -128,5 +130,6 @@ export class CareersApplicationFormComponent implements OnInit {
     this.phoneNumber.reset();
     this.attachments.reset();
     this.comments.reset();
+    this.questionForm.reset();
   }
 }

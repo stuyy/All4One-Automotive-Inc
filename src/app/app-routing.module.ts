@@ -13,7 +13,6 @@ import { ServiceRequestFormComponent } from './components/service-request-form/s
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'HomePage'} },
-  { path: 'careers', component: CareersComponent, data: { animation: 'CareersPage'} },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: { animation: 'DashboardPage'} },
   { path: 'jobs', component: JobsPageComponent, data: { animation: 'JobsPage'} },

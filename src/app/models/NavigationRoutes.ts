@@ -8,7 +8,6 @@ export interface Route {
 
 export const NavigationRoutes : Array<Route> = [
     { name: 'Home', url: '/', protected: false, authorized: false },
-    { name: 'Careers', url: '/careers', protected: false, authorized: false },
     { name: 'Jobs', url: '/jobs', protected: false, authorized: false, childRoutes: [
     ] },
     { name: 'Dashboard', url: '/dashboard', protected: true, authorized: false },

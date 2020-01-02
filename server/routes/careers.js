@@ -44,7 +44,6 @@ router.post('/apply', upload.single('resume'), [
             console.log("Saved Job Application");
             let foundJobListing = await JobListing.findById(jobId);
             foundJobListing.applied();
-            res.status(201).json({ status: 201, message: "Job application received!"});
             let application = {
                 name: `${firstName} ${lastName}`,
                 email: `${email}`,
@@ -69,12 +68,13 @@ router.post('/apply', upload.single('resume'), [
             });
             if(mail) {
                 console.log("Message sent!");
+                res.status(201).json({ status: 201, message: "Job application received!"});
             }
             else {
+                let notSent = false;
                 let i = 0;
                 do {
                     console.log("Error occured, trying to send...");
-                    transport = new MailTransporter();
                     mail = await transport.sendMail({
                         receiver: process.env.GMAIL_USER,
                         sender: process.env.EMAIL_USER,
@@ -88,8 +88,18 @@ router.post('/apply', upload.single('resume'), [
                         ]
                     });
                     i++;
+                    if(i === 20) {
+                        console.log("20 times exceeded.")
+                        notSent = true;
+                        break;
+                    };
                 } while(!mail);
-                console.log("Sent, took " + i + " retries.")
+                if(notSent)
+                    res.status(500).json({ status: 500, message: "An unknown error occured. Please try again later" });
+                else {
+                    console.log("Sent, took " + i + " retries.")
+                    res.status(201).json({ status: 201, message: "Job application received!"});
+                }
             }
         }
         catch(err) {
