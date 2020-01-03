@@ -1,1 +1,4 @@
-<p>invoice-page works!</p>
+<div *ngIf="loaded">
+    hi
+    <app-invoice-item *ngFor="let invoice of invoices" [invoice]="invoice"></app-invoice-item>
+</div>
