@@ -6,7 +6,6 @@ import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.comp
 import { JobListingCreatorComponent } from '../job-listing-creator/job-listing-creator.component';
 import { JobService } from 'src/app/services/job.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

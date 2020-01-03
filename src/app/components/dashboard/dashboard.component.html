@@ -1,18 +1,6 @@
 
 <div class="dashboard-flexbox">
-    <mat-card class="dashboard">
-        <mat-card-content>
-            <button mat-button [matMenuTriggerFor]="dashboardMenu">Jobs</button>
-            <mat-menu #dashboardMenu="matMenu">
-                <button mat-menu-item (click)="openJobEditorModal()">Create Job Listing</button>
-                <button mat-menu-item>View Job Listings</button>
-                <button mat-menu-item>Edit Job Listings</button>
-            </mat-menu>
-            <button mat-button [matMenuTriggerFor]="settingsMenu">Settings</button>
-            <mat-menu #settingsMenu="matMenu">
-                <button mat-menu-item>Change Password</button>
-            </mat-menu>
-        </mat-card-content>
-    </mat-card>
-    <app-weather class="dashboard"></app-weather>
+    <app-dashboard-menu></app-dashboard-menu>
+    <app-daily-expenses></app-daily-expenses>
+    <app-weather></app-weather>
 </div>

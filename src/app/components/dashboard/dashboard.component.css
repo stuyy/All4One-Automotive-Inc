@@ -2,16 +2,21 @@
     padding: 5px 12px;
     font-size: 22px;
 }
-
-.dashboard {
-    width: 100% !important;
-    margin: 20px;
-}
-
 .dashboard-flexbox {
     display: flex;
-    padding: 20px;
-    width: 100%;
+    justify-content: space-evenly;
+}
+app-dashboard-menu {
+    width: 20%;
+    padding: 15px;
+}
+app-weather {
+    width: 20%;
+    padding: 15px;
+}
+app-daily-expenses {
+    width: 60%;
+    padding: 15px;
 }
 @media (min-width: 1920px) {
     .dashboard-flexbox {
