@@ -1,9 +1,10 @@
 export default interface Invoice {
-    id: string;
+    invoiceId: string;
     companyName: string;
     checkId: string;
     make: string;
     model: string;
     year: number;
+    amount: number;
     description: string;
 }
