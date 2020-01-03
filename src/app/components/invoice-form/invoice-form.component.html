@@ -1,14 +1,14 @@
 <mat-card>
-    <mat-card-title>Daily Company Expenses</mat-card-title>
+    <mat-card-title>Invoices</mat-card-title>
     <mat-card-content>
         <form [formGroup]="form" class="first-form">
             <mat-form-field appearance="outline">
                 <mat-label>Invoice ID</mat-label>
-                <input type="text" matInput formControlName="companyInvoiceID">
+                <input type="text" matInput formControlName="id">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Company Name</mat-label>
-                <input type="text" matInput formControlName="companyName">
+                <input type="text" matInput formControlName="name">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Check ID</mat-label>
@@ -31,10 +31,17 @@
         </form>
         <form [formGroup]="description" class="description">
             <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input type="number" matInput formControlName="amount"  class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <span matSuffix>.00</span>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Description</mat-label>
                 <textarea type="text" matInput formControlName="description"></textarea>
             </mat-form-field>
         </form>
-        <button mat-stroked-button (click)="submit()">Submit</button>
+        <button mat-stroked-button (click)="submit()" [disabled]="formSubmissionPending">Submit</button>
     </mat-card-content>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </mat-card>
