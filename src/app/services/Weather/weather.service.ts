@@ -16,6 +16,7 @@ export class WeatherService {
     return this.http.get<Weather>(`${environment.host}/weather/coordinates/${coords.lat}/${coords.lon}`);
   }
   getWeatherByCity(city) : Observable<Weather> {
+    console.log(city)
     return this.http.get<Weather>(`${environment.host}/weather/city/${city}`);
   }
 }

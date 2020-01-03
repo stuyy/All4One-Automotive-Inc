@@ -15,6 +15,7 @@ export class WeatherComponent implements OnInit {
   public weather: Weather;
   public blocked: boolean = false;
   public weatherInput: FormControl;
+  public showInput: boolean = false;
   constructor(private weatherService: WeatherService) {
     this.weatherInput = new FormControl('');
   }
@@ -57,5 +58,8 @@ export class WeatherComponent implements OnInit {
         this.blocked = false;
         this.loading = false;
       }, err => console.log(err));
+  }
+  changeLocation() : void {
+    this.showInput = !this.showInput;
   }
 }

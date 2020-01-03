@@ -11,3 +11,28 @@ form button i {
 mat-card mat-spinner {
     margin: 0 auto;
 }
+mat-card-title {
+    text-align: center;
+}
+.weather-temp {
+    font-size: 48px;
+    text-align: center;
+}
+.weather-conditions {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.mat-list-base .mat-list-item {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.card-section-top {
+    display: flex;
+    justify-content: space-between;
+}
+.card-section-top .mat-card-title {
+    line-height: 40px;
+}
