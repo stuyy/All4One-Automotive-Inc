@@ -10,6 +10,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ServiceRequestFormComponent } from './components/service-request-form/service-request-form.component';
+import { InvoicePageComponent } from './components/Invoices/invoice-page/invoice-page.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'HomePage'} },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent }, 
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { animation: 'SettingsPage'} },
   { path: 'service', component: ServiceRequestFormComponent},
+  { path: 'invoices', component: InvoicePageComponent, canActivate: [AuthGuard], data: { animation: 'InvoicePage' } }
 ];
 
 @NgModule({
