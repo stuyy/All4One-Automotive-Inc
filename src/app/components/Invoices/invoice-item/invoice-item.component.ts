@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Invoice from 'src/app/models/Invoice';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-invoice-item',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceItemComponent implements OnInit {
 
+  @Input() invoice: Invoice;
+
   constructor() { }
 
   ngOnInit() {
+    this.invoice.createdAt = formatDate(this.invoice.createdAt, 'dd-MM-yyyy hh:mm:ss a', 'en-US');
+    console.log(this.invoice)
   }
 
 }
