@@ -86,11 +86,11 @@ router.get('/id/:id', check, async (req, res) => {
 
 function parseUrl(type, ...args) {
     if(type === 'city') 
-        return `http://api.openweathermap.org/data/2.5/weather?q=${args[0]}&appid=${KEY}`;
+        return `http://api.openweathermap.org/data/2.5/weather?q=${args[0]}&units=imperial&appid=${KEY}`;
     else if(type === 'coordinates')
-        return `http://api.openweathermap.org/data/2.5/weather?lat=${args[0]}&lon=${args[1]}&appid=${KEY}`;
+        return `http://api.openweathermap.org/data/2.5/weather?lat=${args[0]}&lon=${args[1]}&units=imperial&appid=${KEY}`;
     else if(type === 'id')
-        return `http://api.openweathermap.org/data/2.5/weather?id=${args[0]}&appid=${KEY}`;
+        return `http://api.openweathermap.org/data/2.5/weather?id=${args[0]}&units=imperial&appid=${KEY}`;
     else if(type === 'postal')
-        return `http://api.openweathermap.org/data/2.5/weather?zip=${args[0]}&appid=${KEY}`;
+        return `http://api.openweathermap.org/data/2.5/weather?zip=${args[0]}&units=imperial&appid=${KEY}`;
 }
