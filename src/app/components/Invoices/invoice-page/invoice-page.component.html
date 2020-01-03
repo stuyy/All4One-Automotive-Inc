@@ -1,4 +1,6 @@
-<div *ngIf="loaded">
-    hi
-    <app-invoice-item *ngFor="let invoice of invoices" [invoice]="invoice"></app-invoice-item>
+<div *ngIf="loaded" class="main">
+    <h2>Your Invoices for {{ today | date }}</h2>
+    <mat-accordion multi="true">
+        <app-invoice-item *ngFor="let invoice of invoices" [invoice]="invoice"></app-invoice-item>
+    </mat-accordion>
 </div>

@@ -10,6 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class InvoicePageComponent implements OnInit {
 
+  public today: Date = new Date();
   public loaded: boolean = false;
   public invoices: Array<Invoice> = [];
   constructor(private invoiceService: InvoiceService) { }
