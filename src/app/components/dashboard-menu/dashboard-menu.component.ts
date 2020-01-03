@@ -8,6 +8,9 @@ import { JobListingCreatorComponent } from '../job-listing-creator/job-listing-c
 import { JobService } from 'src/app/services/job.service';
 import { ExpensesFormDialogComponent } from '../Expenses/expenses-form-dialog/expenses-form-dialog.component';
 import { ExpensesFormComponent } from '../Expenses/expenses-form/expenses-form.component';
+import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
+import Invoice from 'src/app/models/Invoice';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -16,7 +19,8 @@ import { ExpensesFormComponent } from '../Expenses/expenses-form/expenses-form.c
 })
 export class DashboardMenuComponent implements OnInit {
 
-  constructor(private dialog: MatDialog, private router: Router, private snackbar: MatSnackBar, private jobService: JobService) { 
+  public invoices: number;
+  constructor(private dialog: MatDialog, private router: Router, private snackbar: MatSnackBar, private jobService: JobService, private invoiceService: InvoiceService) { 
     this.jobService.getJobEvents().subscribe(event => {
       if(event.name === 'jobSubmit')
       {
@@ -27,7 +31,10 @@ export class DashboardMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.invoiceService.getInvoices().subscribe((invoice : Array<Invoice>) => {
+      this.invoices = invoice.length;
+      console.log(this.invoices)
+    }, (err : HttpErrorResponse) => console.log(err))
   }
   displayInvoiceForm() : void {
     this.dialog.open(InvoiceFormDialogComponent, {

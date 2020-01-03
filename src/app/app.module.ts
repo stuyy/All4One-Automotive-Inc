@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatRippleModule, MatExpansionModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatRippleModule, MatExpansionModule, MatBadgeModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -134,6 +134,7 @@ import { ExpensesFormDialogComponent } from './components/Expenses/expenses-form
     }),
     MatRippleModule,
     MatExpansionModule,
+    MatBadgeModule
 
   ],
   providers: [SidenavService],

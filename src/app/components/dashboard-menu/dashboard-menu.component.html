@@ -11,7 +11,7 @@
         <mat-card-title>Invoices</mat-card-title>
         <mat-card-content>
             <button mat-raised-button color="primary" (click)="displayInvoiceForm()">Enter Invoices</button>
-            <button mat-raised-button color="primary" (click)="viewInvoices()">View Invoices</button>
+            <button mat-raised-button color="primary" [matBadge]="invoices" matBadgeSize="large" matBadgePosition="before" matBadgeColor="accent" (click)="viewInvoices()">View Invoices</button>
         </mat-card-content>
     </mat-card>
     <mat-card>
