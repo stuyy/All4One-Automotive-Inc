@@ -1,1 +1,20 @@
-<p>invoice-item works!</p>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+        <span>Invoice #: {{invoice.invoiceId}}</span>
+        </mat-panel-title>
+        <mat-panel-description>
+        Created At {{invoice.createdAt}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card class="invoice-card">
+        <mat-card-title>Invoice #: {{invoice.invoiceId}}</mat-card-title>
+        <mat-card-subtitle>Company Name: {{invoice.companyName}}</mat-card-subtitle>
+        <mat-card-content>
+            {{invoice.createdAt}}
+        </mat-card-content>
+        <mat-card-footer>
+
+        </mat-card-footer>
+    </mat-card>
+</mat-expansion-panel>
