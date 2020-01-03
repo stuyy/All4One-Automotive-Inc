@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
+import Invoice from 'src/app/models/Invoice';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-invoice-page',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoicePageComponent implements OnInit {
 
-  constructor() { }
+  public loaded: boolean = false;
+  public invoices: Array<Invoice> = [];
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
+    this.invoiceService.getInvoices().subscribe((invoices : Array<Invoice>) => {
+      console.log("Hello?")
+      this.loaded = true;
+      this.invoices = invoices;
+    }, (err: HttpErrorResponse) => {
+      console.log(err);
+    })
   }
 
 }
