@@ -32,7 +32,7 @@ export class WeatherComponent implements OnInit {
         this.weatherService.getWeatherByCoords({ lat: this.latitude, lon: this.longitude})
           .subscribe((data : Weather) => {
             this.weather = data;
-            console.log(this.weather)
+            this.appendIcons();
             this.loading = false;
           }, err => {
             console.log(err);
@@ -54,12 +54,41 @@ export class WeatherComponent implements OnInit {
     this.loading = true;
     this.weatherService.getWeatherByCity(city)
       .subscribe((data : Weather) => {
-        this.weather = data;
+        setTimeout(() => {
+          this.weather = data;
+        this.appendIcons();
         this.blocked = false;
         this.loading = false;
+        }, 1000)
       }, err => console.log(err));
   }
   changeLocation() : void {
     this.showInput = !this.showInput;
+  }
+  private appendIcons () : void {
+    this.weather.weather = this.weather.weather.map((w : any)=> {
+      if(w.main === 'Rain') {
+        w.icon = 'wi wi-rain weather-icon'
+        return w;
+      } else if(w.main === 'Snow') {
+        w.icon = 'wi wi-snow weather-icon';
+        return w;
+      } else if(w.main === 'Clear') {
+        w.icon = 'wi day-sunny weather-icon';
+        return w;
+      } else if(w.main === 'Clouds') {
+        w.icon = 'wi wi-day-cloudy weather-icon';
+        return w;
+      } else if(w.main === 'Mist') {
+        w.icon = 'wi wi-fog weather-icon';
+        return w;
+      } else if(w.main === 'Drizzle') {
+        w.icon = 'wi wi-day-showers weather-icon';
+        return w;
+      } else if(w.main === 'Thunderstorm') {
+        w.icon = 'wi-day-thunderstorm weather-icon';
+        return w;
+      }
+    })
   }
 }

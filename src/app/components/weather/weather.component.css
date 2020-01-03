@@ -7,7 +7,6 @@ form {
 form button i {
     line-height: 50px;
 }
-
 mat-card mat-spinner {
     margin: 0 auto;
 }
@@ -22,8 +21,9 @@ mat-card-title {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    text-align: center;
+    margin: 25px;
 }
-
 .mat-list-base .mat-list-item {
     margin-top: 25px;
     text-align: center;
@@ -35,4 +35,7 @@ mat-card-title {
 }
 .card-section-top .mat-card-title {
     line-height: 40px;
+}
+.weather-icon {
+    font-size: 44px;
 }

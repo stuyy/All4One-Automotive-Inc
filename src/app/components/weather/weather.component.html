@@ -1,30 +1,27 @@
-
-<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-spinner *ngIf="loading && !weather"></mat-spinner>
 <mat-card *ngIf="weather">
+    <mat-spinner *ngIf="loading"></mat-spinner>
     <mat-card-content>
-        <section class="card-section-top">
-            <mat-card-title>{{weather.name}}</mat-card-title>
+        <section class="card-section-top"  *ngIf="!loading">
+            <mat-card-title>Weather Status</mat-card-title>
             <button mat-icon-button (click)="changeLocation()">
                 <mat-icon>settings</mat-icon>
             </button>
         </section>
-        <section class="weather-temp">
+        <section class="weather-temp"  *ngIf="!loading">
+            <h1>{{weather.name}}</h1>
             <i class="fas fa-temperature-high"></i> 
-            <span>&nbsp;&nbsp;{{weather.main.temp | number:'1.0-0'}}&#8457;</span>
+            <span>&nbsp;&nbsp;{{weather.main.temp | number:'1.0-0'}}<i class="wi wi-fahrenheit"></i></span>
         </section>
     </mat-card-content>
-    <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let weather of weather.weather">
-                <div class="weather-conditions">
-                    <h1>{{weather.main}}</h1>
-                    <p>{{weather.description}}</p>
-                </div>
-            </mat-list-item>
-        </mat-list>
+    <mat-card-content  *ngIf="!loading">
+        <section *ngFor="let weather of weather.weather">
+            <div class="weather-conditions">
+                <h1>{{weather.main}}</h1>
+                <i [ngClass]="weather.icon"></i>
+            </div>
+        </section>
     </mat-card-content>
-    <mat-card-footer>
-    </mat-card-footer>
 </mat-card>
 <mat-card *ngIf="blocked || showInput">
     <mat-card-content>
