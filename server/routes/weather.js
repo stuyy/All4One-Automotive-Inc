@@ -94,3 +94,4 @@ function parseUrl(type, ...args) {
     else if(type === 'postal')
         return `http://api.openweathermap.org/data/2.5/weather?zip=${args[0]}&units=imperial&appid=${KEY}`;
 }
+

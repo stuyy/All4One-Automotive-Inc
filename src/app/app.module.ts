@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatRippleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -40,6 +40,10 @@ import { JobListingDialogComponent } from './components/job-listing-dialog/job-l
 import { ServiceRequestFormComponent } from './components/service-request-form/service-request-form.component';
 import { JobEditorDialogComponent } from './components/job-editor-dialog/job-editor-dialog.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { DashboardMenuComponent } from './components/dashboard-menu/dashboard-menu.component';
+import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
+import { DailyExpensesComponent } from './components/daily-expenses/daily-expenses.component';
+import { InvoiceFormDialogComponent } from './dialogs/invoice-form-dialog/invoice-form-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +67,10 @@ import { WeatherComponent } from './components/weather/weather.component';
     ServiceRequestFormComponent,
     JobEditorDialogComponent,
     WeatherComponent,
+    DashboardMenuComponent,
+    InvoiceFormComponent,
+    DailyExpensesComponent,
+    InvoiceFormDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +90,7 @@ import { WeatherComponent } from './components/weather/weather.component';
     MaterialFileInputModule,
     TextFieldModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCDnijNE3qiZ97fyfzngIciBlXaLs-9GUQ'
+      apiKey: 'AIzaSyB135RGRyZ9wmHSC2j143eopkvO4oZroAk'
     }),
     CdkStepperModule,
     HttpClientModule,
@@ -112,7 +120,7 @@ import { WeatherComponent } from './components/weather/weather.component';
         ]
       },
     }),
-    
+    MatRippleModule
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent], 
@@ -121,7 +129,9 @@ import { WeatherComponent } from './components/weather/weather.component';
     JobListingCreatorComponent,
     JobListingDialogComponent,
     ServiceRequestFormComponent,
-    JobEditorDialogComponent
+    JobEditorDialogComponent,
+    InvoiceFormDialogComponent,
+    InvoiceFormComponent
   ]
 })
 export class AppModule { }
