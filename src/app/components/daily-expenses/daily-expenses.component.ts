@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
+import Invoice from 'src/app/models/Invoice';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-daily-expenses',
@@ -9,19 +12,33 @@ import Chart from 'chart.js';
 export class DailyExpensesComponent implements OnInit {
 
   public chart: Chart;
-
-  constructor() {
+  public profit: number;
+  constructor(private invoiceService: InvoiceService) {
     
   }
 
   ngOnInit() {
+
+    // Fetch invoices first
+
+    this.invoiceService.getInvoices()
+      .subscribe((invoices : Array<Invoice>) => {
+        let reducer = (sum : number, invoice : Invoice) => sum + invoice.amount;
+        this.profit = invoices.reduce(reducer, 0);
+        this.initializeChart();
+    }, (err: HttpErrorResponse) => {
+      console.log(err);
+    })
+
+  }
+  initializeChart() : void {
     let chartDoc = document.getElementById('chart');
     this.chart = new Chart(chartDoc, {
       type: 'pie',
       data: {
           labels: ['Income', 'Expenses'],
           datasets: [{
-              data: [1200, 200],
+              data: [this.profit, 0],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
