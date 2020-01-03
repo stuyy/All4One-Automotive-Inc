@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-title>Daily Company Expenses</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" class="first-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Invoice ID</mat-label>
+                <input type="text" matInput formControlName="companyInvoiceID">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Company Name</mat-label>
+                <input type="text" matInput formControlName="companyName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Check ID</mat-label>
+                <input type="text" matInput formControlName="checkID">
+            </mat-form-field>
+        </form>
+        <form [formGroup]="carForm" class="car-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Make</mat-label>
+                <input type="text" matInput formControlName="make">
+            </mat-form-field >
+            <mat-form-field appearance="outline">
+                <mat-label>Model</mat-label>
+                <input type="text" matInput formControlName="model">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <input type="text" matInput formControlName="year">
+            </mat-form-field>
+        </form>
+        <form [formGroup]="description" class="description">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea type="text" matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </form>
+        <button mat-stroked-button (click)="submit()">Submit</button>
+    </mat-card-content>
+</mat-card>

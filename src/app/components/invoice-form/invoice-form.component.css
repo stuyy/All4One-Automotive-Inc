@@ -1,0 +1,19 @@
+.first-form .mat-form-field {
+    width: 100%;
+    padding: 5px;
+}
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+}
+.car-form {
+    display: flex;
+}
+.car-form .mat-form-field {
+    width: 100%;
+    padding: 5px;
+}
+
+.description .mat-form-field {
+    width: 100%;
+    padding: 5px;
+}
