@@ -10,8 +10,31 @@
     <mat-card class="invoice-card">
         <mat-card-title>Invoice #: {{invoice.invoiceId}}</mat-card-title>
         <mat-card-subtitle>Company Name: {{invoice.companyName}}</mat-card-subtitle>
-        <mat-card-content>
-            {{invoice.createdAt}}
+        <mat-card-content class="invoice-card-content">
+            <mat-list>
+                <mat-list-item>
+                    <h3>Company</h3>: {{invoice.companyName}}
+                </mat-list-item>
+                <mat-list-item>
+                    <h3>Check ID:</h3> {{invoice.checkId}}
+                </mat-list-item>
+            </mat-list>
+            <mat-list>
+                <mat-list-item>
+                    <h3>Make: {{invoice.make}}</h3>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3>Model: {{invoice.model}}</h3>
+                </mat-list-item>
+                <mat-list-item>
+                    <h3>Year: {{invoice.year}}</h3>
+                </mat-list-item>
+            </mat-list>
+            <mat-list>
+                <mat-list-item>
+                    <h3>{{invoice.description}}</h3>
+                </mat-list-item>
+            </mat-list>
         </mat-card-content>
         <mat-card-footer>
 

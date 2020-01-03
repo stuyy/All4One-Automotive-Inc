@@ -6,3 +6,9 @@ mat-expansion-panel {
     background-color: #C65B7C;
     margin: 20px;
 }
+
+.invoice-card-content {
+    display: flex;
+    justify-content: flex-start;
+}
+
