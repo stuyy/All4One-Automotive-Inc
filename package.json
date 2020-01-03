@@ -29,6 +29,7 @@
     "ngx-socket-io": "^3.0.1",
     "quill": "^1.3.7",
     "rxjs": "~6.4.0",
+    "serialize-javascript": "^2.1.2",
     "tslib": "^1.10.0",
     "typed.js": "^2.0.11",
     "weather-icons": "^1.3.2",
