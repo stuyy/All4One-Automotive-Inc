@@ -28,3 +28,14 @@ router.post('/create', verify, async (req, res) => {
         res.status(500).json({ status: 500, message: "Error."})
     }
 });
+
+router.get('/', verify, async (req, res) => {
+    let startDate = new Date();
+    let date = startDate.getDate();
+    let month = startDate.getMonth();
+    let year = startDate.getFullYear();
+    startDate = new Date(year, month, date, 0, 0, 0).toISOString().substring(0, 10);
+    let endDate = new Date(year, month, date+1, 0, 0, 0).toISOString().substring(0, 10);
+    let invoices = await Invoice.find({ "createdAt" : { $gte: startDate, $lt: endDate }});
+    res.json(invoices)
+})
