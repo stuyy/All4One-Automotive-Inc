@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material';
+import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
+import Invoice from 'src/app/models/Invoice';
 
 @Component({
   selector: 'app-invoice-form',
@@ -12,10 +14,11 @@ export class InvoiceFormComponent implements OnInit {
   public form: FormGroup;
   public carForm: FormGroup;
   public description: FormGroup;
-  constructor(private fb: FormBuilder) { 
+  public formSubmissionPending: boolean = false;
+  constructor(private fb: FormBuilder, private invoiceService: InvoiceService) { 
     this.form = this.fb.group({
-      companyInvoiceID: new FormControl('', Validators.required),
-      companyName: new FormControl('', Validators.required),
+      id: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
       checkID: new FormControl('', Validators.required)
     });
     this.carForm = this.fb.group({
@@ -50,11 +53,11 @@ export class InvoiceFormComponent implements OnInit {
         this.description.get('description').markAsTouched();
         throw new Error("Form field required")
       }
-      if(this.form.get('companyInvoiceID').errors) {
+      if(this.form.get('id').errors) {
         this.form.get('companyInvoiceID').markAsTouched();
         throw new Error("Form field required")
       }
-      if(this.form.get('companyName').errors) {
+      if(this.form.get('name').errors) {
         this.form.get('companyName').markAsTouched();
         throw new Error("Form field required")
       }
@@ -62,7 +65,22 @@ export class InvoiceFormComponent implements OnInit {
         this.form.get('checkID').markAsTouched();
         throw new Error("Form field required")
       }
-      console.log("Submitting")
+      this.carForm.disable();
+      this.description.disable();
+      this.form.disable();
+      let invoice : Invoice = {
+        id: this.form.get('id').value,
+        companyName: this.form.get('name').value,
+        checkId: this.form.get('checkID').value,
+        make: this.carForm.get('make').value,
+        model: this.carForm.get('model').value,
+        year: this.carForm.get('year').value,
+        description: this.carForm.get('description').value
+      }
+      this.invoiceService.postInvoice(invoice)
+        .subscribe((res : any) => {
+          console.log(res);
+        }, err => console.log(err))
     }
     catch(err) {
       console.log(err);
