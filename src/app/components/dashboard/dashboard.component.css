@@ -24,3 +24,19 @@ app-daily-expenses {
         margin: 0 auto;
     }
 }
+
+@media (max-width: 1332px) {
+    .dashboard-flexbox {
+        flex-direction: column;
+    }
+    .dashboard-flexbox > * {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 787px) {
+    .dashboard-flexbox > * {
+        width: 100%;
+    }
+}

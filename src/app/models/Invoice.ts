@@ -7,4 +7,5 @@ export default interface Invoice {
     year: number;
     amount: number;
     description: string;
+    createdAt?: any;
 }

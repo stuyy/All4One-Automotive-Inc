@@ -12,9 +12,12 @@ export class InvoiceService {
   constructor(private http: HttpClient) { }
 
   postInvoice(invoice : Invoice) : Observable<any> {
-    return this.http.post<Invoice>(`${environment.host}/invoice/create`, invoice, { withCredentials: true });
+    return this.http.post<Invoice>(`${environment.host}/invoices/create`, invoice, { withCredentials: true });
   }
   getInvoice(id) : Observable<Invoice> {
-    return this.http.get<Invoice>(`${environment.host}/invoice/${id}`, { withCredentials: true });
+    return this.http.get<Invoice>(`${environment.host}/invoices/${id}`, { withCredentials: true });
+  }
+  getInvoices() : Observable<Array<Invoice>> {
+    return this.http.get<Array<Invoice>>(`${environment.host}/invoices`, { withCredentials: true });
   }
 }

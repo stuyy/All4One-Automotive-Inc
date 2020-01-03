@@ -83,7 +83,8 @@ export class InvoiceFormComponent implements OnInit {
         model: this.carForm.get('model').value,
         year: this.carForm.get('year').value,
         amount: this.description.get('amount').value,
-        description: this.description.get('description').value
+        description: this.description.get('description').value,
+        
       }
       this.invoiceService.postInvoice(invoice)
         .subscribe((res : any) => {
@@ -104,11 +105,5 @@ export class InvoiceFormComponent implements OnInit {
     catch(err) {
       console.log(err);
     }
-  }
-}
-
-export class CustomErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null) : boolean {
-
   }
 }
