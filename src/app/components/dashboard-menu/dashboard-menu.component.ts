@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { InvoiceFormDialogComponent } from 'src/app/dialogs/invoice-form-dialog/invoice-form-dialog.component';
 import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -10,7 +11,7 @@ import { InvoiceFormComponent } from '../invoice-form/invoice-form.component';
 })
 export class DashboardMenuComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
 
@@ -21,5 +22,8 @@ export class DashboardMenuComponent implements OnInit {
         component: InvoiceFormComponent
       }
     })
+  }
+  viewInvoices() : void {
+    this.router.navigate(['/invoices'])
   }
 }
