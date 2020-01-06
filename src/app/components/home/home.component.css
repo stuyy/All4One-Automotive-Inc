@@ -315,6 +315,9 @@ footer {
     .services {
         background-color: #C2185B;
     }
+    .mat-card-image {
+        width: calc(100% + 32px)
+    }
 }
 @media (max-height: 605px) {
     .top-content {

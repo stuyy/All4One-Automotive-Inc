@@ -33,7 +33,6 @@ export class SidenavComponent implements OnInit {
   public routes = NavigationRoutes;
 
   ngOnInit() {
-    console.log("Loading...");
     this.auth.isAuthorized().subscribe((res : any) => {
       this.name = res.name;
       console.log("Protected Routes.", this.routes);

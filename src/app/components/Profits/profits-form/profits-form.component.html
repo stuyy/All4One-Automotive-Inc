@@ -1,0 +1,32 @@
+<div>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <mat-label>Quote ID</mat-label>
+            <input type="text" matInput formControlName="quoteId">
+            <mat-error *ngIf="form.invalid">Please enter a Quote ID</mat-error>
+        </mat-form-field>
+        <mat-radio-group formControlName="type" class="example-radio-group" (change)="radioChanged($event)" required="true">
+            <mat-label>Payment Method</mat-label>
+            <mat-radio-button class="example-radio-button" value="cash">Cash</mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="credit">Credit</mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="both">Both</mat-radio-button>
+        </mat-radio-group>
+        <section *ngIf="form.get('credit').enabled || form.get('cash').enabled || form.get('both').enabled">
+            <mat-label>Tax Rate <span>{{form.get('taxRate').value}} %</span></mat-label>
+            <mat-slider formControlName="taxRate" value="form.get('taxRate').value" min="0" max="100" thumbLabel></mat-slider>
+        </section>
+        <mat-form-field *ngIf="form.get('cash').enabled || form.get('both').enabled">
+            <mat-label>Enter Cash Amount</mat-label>
+            <input type="number" matInput formControlName="cash">
+        </mat-form-field>
+        <mat-form-field *ngIf="form.get('credit').enabled || form.get('both').enabled">
+            <mat-label>Enter Credit Amount</mat-label>
+            <input type="number" matInput formControlName="credit">
+        </mat-form-field>
+        <mat-form-field *ngIf="form.get('credit').enabled || form.get('cash').enabled || form.get('both').enabled">
+            <mat-label>Enter Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <button mat-stroked-button (click)="submitProfitsForm()">Submit</button>
+    </form>
+</div>

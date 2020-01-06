@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
 import { JobListingCreatorComponent } from '../job-listing-creator/job-listing-creator.component';
 import { JobService } from 'src/app/services/job.service';
-import { ExpensesFormDialogComponent } from '../Expenses/expenses-form-dialog/expenses-form-dialog.component';
-import { ExpensesFormComponent } from '../Expenses/expenses-form/expenses-form.component';
 import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
 import Invoice from 'src/app/models/Invoice';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ProfitsFormDialogComponent } from '../Profits/profits-form-dialog/profits-form-dialog.component';
+import { ProfitsFormComponent } from '../Profits/profits-form/profits-form.component';
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -40,11 +40,17 @@ export class DashboardMenuComponent implements OnInit {
     this.dialog.open(InvoiceFormDialogComponent, {
       data: { component: InvoiceFormComponent }});
   }
-  displayExpensesForm = () => this.dialog.open(ExpensesFormDialogComponent,  
-    { data: { component: ExpensesFormComponent }});
-    
+  displayProfitsForm() : void {
+    this.dialog.open(ProfitsFormDialogComponent, {
+      data: { component: ProfitsFormComponent },
+      width: '550px'
+    })
+  }
+
   viewInvoices = () => this.router.navigate(['/invoices']);
+  viewProfits = () => this.router.navigate(['/profits']);
   openJobListings = () => this.router.navigate(['/jobs']);
+
   openJobEditorModal = () => this.dialog.open(DialogOverviewComponent, 
     { width: '1000px', data: { component: JobListingCreatorComponent }});
   viewJobApplications = () => {

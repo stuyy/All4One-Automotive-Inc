@@ -1,0 +1,21 @@
+::ng-deep mat-form-field {
+    width: 100%;
+}
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+  
+.example-radio-button {
+    margin: 5px;
+}
+
+textarea {
+    resize: none !important;
+    overflow: hidden !important;
+}
+
+.mat-slider-horizontal {
+    width: 100%;
+}

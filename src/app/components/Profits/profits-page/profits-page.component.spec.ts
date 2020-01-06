@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpensesFormDialogComponent } from './expenses-form-dialog.component';
+import { ProfitsPageComponent } from './profits-page.component';
 
-describe('ExpensesFormDialogComponent', () => {
-  let component: ExpensesFormDialogComponent;
-  let fixture: ComponentFixture<ExpensesFormDialogComponent>;
+describe('ProfitsPageComponent', () => {
+  let component: ProfitsPageComponent;
+  let fixture: ComponentFixture<ProfitsPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpensesFormDialogComponent ]
+      declarations: [ ProfitsPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExpensesFormDialogComponent);
+    fixture = TestBed.createComponent(ProfitsPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

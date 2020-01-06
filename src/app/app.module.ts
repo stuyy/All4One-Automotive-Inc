@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatRippleModule, MatExpansionModule, MatBadgeModule } from '@angular/material';
+import { MatStepperModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatProgressSpinnerModule, MatDialogModule, MatNativeDateModule, MatMenuModule, MatRadioModule, MatSnackBarModule, MatOptionModule, MatSelectModule, MatDividerModule, MatListModule, MatRippleModule, MatExpansionModule, MatBadgeModule, MatSliderModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -46,10 +46,9 @@ import { DailyExpensesComponent } from './components/daily-expenses/daily-expens
 import { InvoiceFormDialogComponent } from './dialogs/invoice-form-dialog/invoice-form-dialog.component';
 import { InvoicePageComponent } from './components/Invoices/invoice-page/invoice-page.component';
 import { InvoiceItemComponent } from './components/Invoices/invoice-item/invoice-item.component';
-import { ExpensesFormComponent } from './components/Expenses/expenses-form/expenses-form.component';
-import { ExpensesPageComponent } from './components/Expenses/expenses-page/expenses-page.component';
-import { ExpensesItemComponent } from './components/Expenses/expenses-item/expenses-item.component';
-import { ExpensesFormDialogComponent } from './components/Expenses/expenses-form-dialog/expenses-form-dialog.component';
+import { ProfitsPageComponent } from './components/Profits/profits-page/profits-page.component';
+import { ProfitsFormComponent } from './components/Profits/profits-form/profits-form.component';
+import { ProfitsFormDialogComponent } from './components/Profits/profits-form-dialog/profits-form-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,10 +78,9 @@ import { ExpensesFormDialogComponent } from './components/Expenses/expenses-form
     InvoiceFormDialogComponent,
     InvoicePageComponent,
     InvoiceItemComponent,
-    ExpensesFormComponent,
-    ExpensesPageComponent,
-    ExpensesItemComponent,
-    ExpensesFormDialogComponent,
+    ProfitsPageComponent,
+    ProfitsFormComponent,
+    ProfitsFormDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -134,7 +132,8 @@ import { ExpensesFormDialogComponent } from './components/Expenses/expenses-form
     }),
     MatRippleModule,
     MatExpansionModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSliderModule
 
   ],
   providers: [SidenavService],
@@ -147,8 +146,8 @@ import { ExpensesFormDialogComponent } from './components/Expenses/expenses-form
     JobEditorDialogComponent,
     InvoiceFormDialogComponent,
     InvoiceFormComponent,
-    ExpensesFormComponent,
-    ExpensesFormDialogComponent
+    ProfitsFormComponent,
+    ProfitsFormDialogComponent
   ]
 })
 export class AppModule { }
