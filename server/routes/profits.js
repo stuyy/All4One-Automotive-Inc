@@ -12,10 +12,6 @@ function verify(req, res, next) {
     }
 }
 
-router.get('/', (req, res) => {
-    res.send(200);
-});
-
 router.post('/create', verify, (req, res) => {
     let { quoteId, type, taxRate, description } = req.body;
     let cashAmount, creditAmount, totalAmount;
@@ -48,9 +44,19 @@ router.post('/create', verify, (req, res) => {
     }
 });
 
+router.get('/', verify, async (req, res) => {
+    let startDate = new Date();
+    let date = startDate.getDate();
+    let month = startDate.getMonth();
+    let year = startDate.getFullYear();
+    startDate = new Date(year, month, date, 0, 0, 0).toISOString().substring(0, 10);
+    let endDate = new Date(year, month, date+1, 0, 0, 0).toISOString().substring(0, 10);
+    let profits = await Profit.find({ "createdOn" : { $gte: startDate, $lt: endDate }});
+    res.json(profits)
+});
+
 router.get('/:id', verify, (req, res) => {
     Profit.findById(req.params.id).then(profit => {
-        console.log(profit);
         res.send(profit);
     }).catch(err => res.send(err))
 });
