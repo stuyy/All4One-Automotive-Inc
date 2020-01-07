@@ -1,1 +1,14 @@
-<p>invoice-search-form works!</p>
+<div>
+    <form [formGroup]="searchInvoiceForm">
+        <mat-radio-group (change)="checkRadioValue($event)">
+            <mat-radio-button value="quote">Quote ID</mat-radio-button>
+            <mat-radio-button value="date">Date</mat-radio-button>
+            <mat-radio-button value="daterange">Date Range</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field>
+            <input matInput [matDatepickerFilter]="filter" [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+</div>
