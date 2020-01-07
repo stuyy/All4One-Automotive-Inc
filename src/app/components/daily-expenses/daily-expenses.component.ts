@@ -3,6 +3,7 @@ import Chart from 'chart.js';
 import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
 import Invoice from 'src/app/models/Invoice';
 import { HttpErrorResponse } from '@angular/common/http';
+import Profit from 'src/app/models/Profit';
 
 @Component({
   selector: 'app-daily-expenses',
@@ -13,6 +14,7 @@ export class DailyExpensesComponent implements OnInit {
 
   public chart: Chart;
   public profit: number;
+  public expenses: number;
   constructor(private invoiceService: InvoiceService) {
     
   }
@@ -20,7 +22,7 @@ export class DailyExpensesComponent implements OnInit {
   ngOnInit() {
 
     // Fetch invoices first
-
+    /*
     this.invoiceService.getInvoices()
       .subscribe((invoices : Array<Invoice>) => {
         let reducer = (sum : number, invoice : Invoice) => sum + invoice.amount;
@@ -29,7 +31,16 @@ export class DailyExpensesComponent implements OnInit {
     }, (err: HttpErrorResponse) => {
       console.log(err);
     })
-
+ */
+    this.invoiceService.getExpenses().subscribe((res : any) => {
+      let invoices = res.invoices;
+      let profits = res.profits;
+      let reducer = (sum : number, invoice : Invoice) => sum + invoice.amount;
+      this.expenses = invoices.reduce(reducer, 0);
+      let profitReducer = (sum: number, profit: Profit) => sum + profit.totalAmount;
+      this.profit = profits.reduce(profitReducer, 0);
+      this.initializeChart();
+    })
   }
   initializeChart() : void {
     let chartDoc = document.getElementById('chart');
@@ -38,7 +49,7 @@ export class DailyExpensesComponent implements OnInit {
       data: {
           labels: ['Income', 'Expenses'],
           datasets: [{
-              data: [this.profit, 0],
+              data: [this.profit, this.expenses],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
