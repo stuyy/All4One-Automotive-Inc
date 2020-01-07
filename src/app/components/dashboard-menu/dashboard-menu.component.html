@@ -4,7 +4,7 @@
         <mat-card-content>
             <button mat-raised-button color="primary" (click)="openJobEditorModal()">Create Job Listing</button>
             <button mat-raised-button color="primary" (click)="openJobListings()">View Job Listings</button>
-            <button mat-raised-button color="primary" (click)="viewJobApplications()">View Job Applications</button>
+            <button mat-raised-button color="primary">View Job Applications</button>
         </mat-card-content>
     </mat-card>
     <mat-card>
@@ -12,6 +12,7 @@
         <mat-card-content>
             <button mat-raised-button color="primary" (click)="displayInvoiceForm()">Enter Invoices</button>
             <button mat-raised-button color="primary" [matBadge]="invoices" matBadgeSize="large" matBadgePosition="before" matBadgeColor="accent" (click)="viewInvoices()">View Invoices</button>
+            <button mat-raised-button color="primary" (click)="searchInvoices()">Search Invoices</button>
         </mat-card-content>
     </mat-card>
     <mat-card>

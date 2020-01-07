@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
-import { InvoiceFormDialogComponent } from 'src/app/dialogs/invoice-form-dialog/invoice-form-dialog.component';
+import { InvoiceFormDialogComponent } from 'src/app/components/Invoices/invoice-form-dialog/invoice-form-dialog.component';
 import { InvoiceFormComponent } from '../Invoices/invoice-form/invoice-form.component';
 import { Router } from '@angular/router';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
@@ -11,6 +11,7 @@ import Invoice from 'src/app/models/Invoice';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ProfitsFormDialogComponent } from '../Profits/profits-form-dialog/profits-form-dialog.component';
 import { ProfitsFormComponent } from '../Profits/profits-form/profits-form.component';
+import { InvoiceSearchFormComponent } from '../Invoices/invoice-search-form/invoice-search-form.component';
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -53,7 +54,10 @@ export class DashboardMenuComponent implements OnInit {
 
   openJobEditorModal = () => this.dialog.open(DialogOverviewComponent, 
     { width: '1000px', data: { component: JobListingCreatorComponent }});
-  viewJobApplications = () => {
 
+  searchInvoices() : void {
+    this.dialog.open(InvoiceFormDialogComponent, {
+      data: { component: InvoiceSearchFormComponent }
+    })
   }
 }
