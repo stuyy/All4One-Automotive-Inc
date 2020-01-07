@@ -47,3 +47,10 @@ router.post('/create', verify, (req, res) => {
         }
     }
 });
+
+router.get('/:id', verify, (req, res) => {
+    Profit.findById(req.params.id).then(profit => {
+        console.log(profit);
+        res.send(profit);
+    }).catch(err => res.send(err))
+});
