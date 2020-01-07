@@ -1,5 +1,5 @@
 export default interface Profit {
-    quoteId: string;
+    _id: string;
     type: string;
     cashAmount: number;
     creditAmount: number;

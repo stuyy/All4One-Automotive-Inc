@@ -54,7 +54,8 @@ export class ProfitsFormComponent implements OnInit {
       throw new Error("Invalid form field.")
     }
     else {
-      let { quoteId, type, description, taxRate } = this.form.value;
+      let { type, description, taxRate } = this.form.value;
+      let _id = this.form.get('quoteId').value;
       let creditAmount, cashAmount, totalAmount;
       if(type === 'credit') 
         creditAmount = totalAmount = this.form.get('credit').value;
@@ -66,7 +67,7 @@ export class ProfitsFormComponent implements OnInit {
         totalAmount = creditAmount + cashAmount;
       }
       let profit: Profit = { 
-        quoteId, type, cashAmount, creditAmount, totalAmount, taxRate, description
+        _id, type, cashAmount, creditAmount, totalAmount, taxRate, description
       };
       this.profitsService.postProfits(profit)
         .subscribe((response: any) => {
