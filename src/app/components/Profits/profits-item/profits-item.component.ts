@@ -12,6 +12,7 @@ export class ProfitsItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

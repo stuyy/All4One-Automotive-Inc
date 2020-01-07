@@ -12,7 +12,7 @@ export class ProfitsPageComponent implements OnInit {
 
   public loading: boolean = false;
   public profits: Array<Profit> = [];
-
+  public today: Date = new Date();
   constructor(private profitsService: ProfitsService) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class ProfitsPageComponent implements OnInit {
       }, (err: HttpErrorResponse) => {
         console.log(err);
         this.loading = false;
-      })
+      });
   }
 
 }

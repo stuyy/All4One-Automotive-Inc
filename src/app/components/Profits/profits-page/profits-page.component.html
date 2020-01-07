@@ -1,1 +1,6 @@
-<p>profits-page works!</p>
+<div *ngIf="!loading" class="main">
+    <h2>Your Profits for {{ today | date }}</h2>
+    <mat-accordion multi="true">
+        <app-profits-item *ngFor="let profit of profits" [profit]="profit"></app-profits-item>
+    </mat-accordion>
+</div>

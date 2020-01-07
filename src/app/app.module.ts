@@ -49,6 +49,7 @@ import { InvoiceItemComponent } from './components/Invoices/invoice-item/invoice
 import { ProfitsPageComponent } from './components/Profits/profits-page/profits-page.component';
 import { ProfitsFormComponent } from './components/Profits/profits-form/profits-form.component';
 import { ProfitsFormDialogComponent } from './components/Profits/profits-form-dialog/profits-form-dialog.component';
+import { ProfitsItemComponent } from './components/Profits/profits-item/profits-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { ProfitsFormDialogComponent } from './components/Profits/profits-form-di
     ProfitsPageComponent,
     ProfitsFormComponent,
     ProfitsFormDialogComponent,
+    ProfitsItemComponent,
   ],
   imports: [
     BrowserModule,
