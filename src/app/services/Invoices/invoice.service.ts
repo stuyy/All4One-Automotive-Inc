@@ -20,4 +20,7 @@ export class InvoiceService {
   getInvoices() : Observable<Array<Invoice>> {
     return this.http.get<Array<Invoice>>(`${environment.host}/invoices`, { withCredentials: true });
   }
+  getExpenses() : Observable<any> {
+    return this.http.get(`${environment.host}/expenses`, { withCredentials: true });
+  }
 }
