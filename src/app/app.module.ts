@@ -43,13 +43,14 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { DashboardMenuComponent } from './components/dashboard-menu/dashboard-menu.component';
 import { InvoiceFormComponent } from './components/Invoices/invoice-form/invoice-form.component';
 import { DailyExpensesComponent } from './components/daily-expenses/daily-expenses.component';
-import { InvoiceFormDialogComponent } from './dialogs/invoice-form-dialog/invoice-form-dialog.component';
+import { InvoiceFormDialogComponent } from './components/Invoices/invoice-form-dialog/invoice-form-dialog.component';
 import { InvoicePageComponent } from './components/Invoices/invoice-page/invoice-page.component';
 import { InvoiceItemComponent } from './components/Invoices/invoice-item/invoice-item.component';
 import { ProfitsPageComponent } from './components/Profits/profits-page/profits-page.component';
 import { ProfitsFormComponent } from './components/Profits/profits-form/profits-form.component';
 import { ProfitsFormDialogComponent } from './components/Profits/profits-form-dialog/profits-form-dialog.component';
 import { ProfitsItemComponent } from './components/Profits/profits-item/profits-item.component';
+import { InvoiceSearchFormComponent } from './components/Invoices/invoice-search-form/invoice-search-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { ProfitsItemComponent } from './components/Profits/profits-item/profits-
     ProfitsFormComponent,
     ProfitsFormDialogComponent,
     ProfitsItemComponent,
+    InvoiceSearchFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -149,7 +151,8 @@ import { ProfitsItemComponent } from './components/Profits/profits-item/profits-
     InvoiceFormDialogComponent,
     InvoiceFormComponent,
     ProfitsFormComponent,
-    ProfitsFormDialogComponent
+    ProfitsFormDialogComponent,
+    InvoiceSearchFormComponent
   ]
 })
 export class AppModule { }
