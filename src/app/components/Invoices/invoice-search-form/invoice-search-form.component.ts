@@ -9,19 +9,25 @@ import { MatRadioChange } from '@angular/material';
 })
 export class InvoiceSearchFormComponent implements OnInit {
 
-  public searchInvoiceForm: FormGroup;
-  public choiceRadioForm: FormGroup;
+  public invoiceId: FormControl;
+  public date: FormControl;
+  public dateRange: FormGroup;
+
   public filter = (date: Date) => {
     return date <= new Date()
   }
   constructor(private fb: FormBuilder) {
-    this.choiceRadioForm = this.fb.group({
+    this.invoiceId = new FormControl('', Validators.required)
+    this.invoiceId.disable();
 
-    })
-    this.searchInvoiceForm = this.fb.group({
-      invoiceID: new FormControl(''),
-      date: new FormControl('', Validators.required)
-    })
+    this.date = new FormControl('', Validators.required);
+    this.date.disable();
+    
+    this.dateRange = this.fb.group({
+      startDate: new FormControl('', Validators.required),
+      endDate: new FormControl('', Validators.required)
+    });
+    this.dateRange.disable();
   }
 
   ngOnInit() {
@@ -30,12 +36,29 @@ export class InvoiceSearchFormComponent implements OnInit {
   checkRadioValue(event : MatRadioChange) : void {
     let value = event.value;
     if(value === 'quote') {
-
+      this.invoiceId.enable();
+      this.date.disable();
+      this.dateRange.disable();
     }
     else if(value === 'date') {
-
+      this.date.enable();
+      this.invoiceId.disable();
+      this.dateRange.disable();
     }
     else if(value === 'daterange') {
+      this.dateRange.enable();
+      this.invoiceId.disable();
+      this.date.disable();
+    }
+  }
+  searchInvoice(type) : void {
+    if(type === 'id') {
+      
+    }
+    else if(type === 'date') {
+
+    }
+    else if(type === 'daterange') {
 
     }
   }
