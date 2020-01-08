@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatRadioChange } from '@angular/material';
+import { InvoiceService } from 'src/app/services/Invoices/invoice.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-invoice-search-form',
@@ -16,7 +18,7 @@ export class InvoiceSearchFormComponent implements OnInit {
   public filter = (date: Date) => {
     return date <= new Date()
   }
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private invoiceService: InvoiceService) {
     this.invoiceId = new FormControl('', Validators.required)
     this.invoiceId.disable();
 
@@ -53,10 +55,22 @@ export class InvoiceSearchFormComponent implements OnInit {
   }
   searchInvoice(type) : void {
     if(type === 'id') {
-      
+      console.log(this.invoiceId.value)
+      this.invoiceService.getInvoice(this.invoiceId.value)
+        .subscribe((res : any) => {
+          console.log(res);
+        }, (err: HttpErrorResponse) => {
+          console.log(err);
+        })
     }
     else if(type === 'date') {
-
+      let date: Date = this.date.value;
+      this.invoiceService.getInvoiceByDate(date.toJSON().substring(0, 10))
+      .subscribe((res : any) => {
+        console.log(res);
+      }, (err: HttpErrorResponse) => {
+        console.log(err);
+      })
     }
     else if(type === 'daterange') {
 

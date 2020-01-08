@@ -1,44 +1,21 @@
 <mat-expansion-panel>
     <mat-expansion-panel-header>
         <mat-panel-title>
-        <span>Invoice #: {{invoice.invoiceId}}</span>
+        <span># {{invoice.invoiceId}}</span>
         </mat-panel-title>
         <mat-panel-description>
-        Created At {{invoice.createdAt}}
+        Created on {{invoice.createdAt}}
         </mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-card class="invoice-card">
-        <mat-card-title>Invoice #: {{invoice.invoiceId}}</mat-card-title>
-        <mat-card-subtitle>Company Name: {{invoice.companyName}}</mat-card-subtitle>
-        <mat-card-content class="invoice-card-content">
-            <mat-list>
-                <mat-list-item>
-                    <h3>Company</h3>: {{invoice.companyName}}
-                </mat-list-item>
-                <mat-list-item>
-                    <h3>Check ID:</h3> {{invoice.checkId}}
-                </mat-list-item>
-            </mat-list>
-            <mat-list>
-                <mat-list-item>
-                    <h3>Make: {{invoice.make}}</h3>
-                </mat-list-item>
-                <mat-list-item>
-                    <h3>Model: {{invoice.model}}</h3>
-                </mat-list-item>
-                <mat-list-item>
-                    <h3>Year: {{invoice.year}}</h3>
-                </mat-list-item>
-            </mat-list>
-            <mat-list>
-                <mat-list-item>
-                    {{invoice.amount}}
-                    <h3>{{invoice.description}}</h3>
-                </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-        <mat-card-footer>
-
-        </mat-card-footer>
-    </mat-card>
+    <div>
+        <h1>Company: {{invoice.companyName}}</h1>
+        <h5>Vehicle: {{invoice.make}} {{invoice.model}} {{invoice.year}}</h5>
+        <h5>Cost: ${{invoice.amount}}</h5>
+        <h1>Comments</h1>
+        <p>{{invoice.description}}</p>
+    </div>
+    <mat-action-row>
+        <button mat-stroked-button color="warn">Print</button>
+        <button mat-stroked-button color="warn">Share</button>
+    </mat-action-row>
 </mat-expansion-panel>

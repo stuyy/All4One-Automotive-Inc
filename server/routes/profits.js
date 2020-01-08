@@ -13,18 +13,19 @@ function verify(req, res, next) {
 }
 
 router.post('/create', verify, (req, res) => {
-    let { quoteId, type, taxRate, description } = req.body;
+    let { _id, type, taxRate, description } = req.body;
     let cashAmount, creditAmount, totalAmount;
     if(type === 'cash') {
         cashAmount = totalAmount = req.body.cashAmount;
-        new Profit({ _id: quoteId, type, taxRate, description, cashAmount, totalAmount })
+        new Profit({ _id, type, taxRate, description, cashAmount, totalAmount })
             .save()
             .then(profit => res.status(201).json({ status: 201, message: "Success. Created Profit." }))
             .catch(err => res.status(500).json({ status: 500,message: "Error.", error: err }))
     }
     else if(type === 'credit') {
+        console.log(_id)
         creditAmount = totalAmount = req.body.creditAmount;
-        new Profit({ _id: quoteId, type, taxRate, description, creditAmount, totalAmount })
+        new Profit({ _id, type, taxRate, description, creditAmount, totalAmount })
             .save()
             .then(profit => res.status(201).json({ status: 201, message: "Success. Created Profit." }))
             .catch(err => res.status(500).json({ status: 500,message: "Error.", error: err  }))
@@ -36,7 +37,7 @@ router.post('/create', verify, (req, res) => {
         if(totalAmount != (cashAmount + creditAmount)) 
             throw new Error("Total amount does not match sum of cash and credit amount");
         else {
-            new Profit({ _id: quoteId, type, taxRate, description, cashAmount, creditAmount, totalAmount })
+            new Profit({ _id, type, taxRate, description, cashAmount, creditAmount, totalAmount })
                 .save()
                 .then(profit => res.status(201).json({ status: 201, message: "Success. Created Profit."}))
                 .catch(err => res.status(500).json({ status: 500, message: "Error.", error: err}))

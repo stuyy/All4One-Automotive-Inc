@@ -15,7 +15,13 @@ export class InvoiceService {
     return this.http.post<Invoice>(`${environment.host}/invoices/create`, invoice, { withCredentials: true });
   }
   getInvoice(id) : Observable<Invoice> {
-    return this.http.get<Invoice>(`${environment.host}/invoices/${id}`, { withCredentials: true });
+    return this.http.get<Invoice>(`${environment.host}/invoices/id/${id}`, { withCredentials: true });
+  }
+  getInvoiceByDate(date): Observable<Invoice> {
+    return this.http.get<Invoice>(`${environment.host}/invoices/date/${date}`, { withCredentials: true });
+  }
+  getInvoiceByDateRange(start, end): Observable<Invoice> {
+    return this.http.get<Invoice>(`${environment.host}/invoices/date/${start}/${end}`, { withCredentials: true });
   }
   getInvoices() : Observable<Array<Invoice>> {
     return this.http.get<Array<Invoice>>(`${environment.host}/invoices`, { withCredentials: true });

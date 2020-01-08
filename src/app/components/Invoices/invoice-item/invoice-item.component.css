@@ -1,14 +1,12 @@
 
-.invoice-card {
+/* .invoice-card {
     background-color: #B44550;
-}
-mat-expansion-panel {
+} */
+/* mat-expansion-panel {
     background-color: #C65B7C;
     margin: 20px;
-}
+} */
 
-.invoice-card-content {
-    display: flex;
-    justify-content: flex-start;
+::ng-deep .mat-expansion-panel-content {
+    font: unset;
 }
-
