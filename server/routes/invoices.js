@@ -57,7 +57,6 @@ router.get('/date/:date', verify, async (req, res) => {
     res.send(200);
 
 });
-z
 router.get('/daterange/:start/:end', verify, (req, res) => {
 
 });

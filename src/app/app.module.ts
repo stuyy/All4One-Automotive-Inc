@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
+import { HomeTempComponent } from './components/home-temp/home-temp.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -54,7 +54,7 @@ import { InvoiceSearchFormComponent } from './components/Invoices/invoice-search
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    HomeTempComponent,
     GoogleMapsComponent,
     CareersComponent,
     CareersApplicationFormComponent,

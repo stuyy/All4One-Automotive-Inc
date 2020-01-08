@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CareersComponent } from './components/careers/careers.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeTempComponent } from './components/home-temp/home-temp.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
@@ -14,7 +14,7 @@ import { InvoicePageComponent } from './components/Invoices/invoice-page/invoice
 import { ProfitsPageComponent } from './components/Profits/profits-page/profits-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'HomePage'} },
+  { path: '', component: HomeTempComponent, pathMatch: 'full', data: { animation: 'HomePage'} },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], data: { animation: 'DashboardPage'} },
   { path: 'jobs', component: JobsPageComponent, data: { animation: 'JobsPage'} },

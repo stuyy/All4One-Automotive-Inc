@@ -12,9 +12,9 @@ import { MatDialog } from '@angular/material';
 import { DialogOverviewComponent } from '../dialog-overview/dialog-overview.component';
 import { ServiceRequestFormComponent } from '../service-request-form/service-request-form.component';
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-home-temp',
+  templateUrl: './home-temp.component.html',
+  styleUrls: ['./home-temp.component.css'],
   animations: [
     trigger('openCard', [
       state('closed', style({
@@ -34,7 +34,7 @@ import { ServiceRequestFormComponent } from '../service-request-form/service-req
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeTempComponent implements OnInit {
 
   private typed: Typed;
   public showCard: boolean = false;
