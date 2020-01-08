@@ -1,14 +1,35 @@
 <div>
-    <form [formGroup]="searchInvoiceForm">
-        <mat-radio-group (change)="checkRadioValue($event)">
-            <mat-radio-button value="quote">Quote ID</mat-radio-button>
-            <mat-radio-button value="date">Date</mat-radio-button>
-            <mat-radio-button value="daterange">Date Range</mat-radio-button>
-        </mat-radio-group>
+    <mat-radio-group (change)="checkRadioValue($event)">
+        <mat-radio-button value="quote">Quote ID</mat-radio-button>
+        <mat-radio-button value="date">Date</mat-radio-button>
+        <mat-radio-button value="daterange">Date Range</mat-radio-button>
+    </mat-radio-group>
+    <form *ngIf="invoiceId.enabled">
+        <mat-form-field appearance="fill">
+            <mat-label>Invoice ID</mat-label>
+            <input type="text" matInput [formControl]="invoiceId">
+        </mat-form-field>
+        <button mat-stroked-button (click)="searchInvoice('id')">Submit</button>
+    </form>
+    <form *ngIf="date.enabled">
         <mat-form-field>
-            <input matInput [matDatepickerFilter]="filter" [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <input matInput [matDatepickerFilter]="filter" [matDatepicker]="picker" placeholder="Choose a date" [formControl]="date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+        <button mat-stroked-button (click)="searchInvoice('date')">Submit</button>
+    </form>
+    <form *ngIf="dateRange.enabled" [formGroup]="dateRange">
+        <mat-form-field>
+            <input matInput [matDatepickerFilter]="filter" [matDatepicker]="startDatePicker" placeholder="Start Date" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepickerFilter]="filter" [matDatepicker]="endDatePicker" placeholder="End Date" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+        <button mat-stroked-button (click)="searchInvoice('daterange')">Submit</button>
     </form>
 </div>
