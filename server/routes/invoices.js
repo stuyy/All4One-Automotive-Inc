@@ -11,9 +11,6 @@ function verify(req, res, next) {
         res.status(403).json({ status: 403, message: "Forbidden"})
     }
 }
-router.get('/:id', (req, res) => {
-
-});
 
 router.post('/create', verify, async (req, res) => {
     let invoice = { invoiceId, companyName, checkId, make, model, year, description } = req.body;
@@ -38,4 +35,16 @@ router.get('/', verify, async (req, res) => {
     let endDate = new Date(year, month, date+1, 0, 0, 0).toISOString().substring(0, 10);
     let invoices = await Invoice.find({ "createdAt" : { $gte: startDate, $lt: endDate }});
     res.json(invoices)
-})
+});
+
+router.get('/id/:id', verify, (req, res) => {
+
+});
+
+router.get('/date/:date', verify, (req, res) => {
+
+});
+
+router.get('/daterange/:start/:end', verify, (req, res) => {
+
+});
