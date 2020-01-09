@@ -12,17 +12,18 @@
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!--
+     <!--
     <mat-toolbar color="primary">
       <button mat-icon-button class="menu-button" (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span class="example-fill-remaining-space"></span>
       <span *ngIf="name">Welcome back, {{name}}</span>
-    </mat-toolbar> -->
-    <div [@routeAnimations]="prepareRoute(outlet)">
-      <app-navbar></app-navbar>
-      <router-outlet #outlet="outlet"></router-outlet>
-    </div>
+    </mat-toolbar>
+  -->
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <app-navbar></app-navbar>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
   </mat-sidenav-content>
 </mat-sidenav-container>

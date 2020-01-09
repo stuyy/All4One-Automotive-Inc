@@ -15,13 +15,14 @@ export class HomePageComponent implements OnInit {
     let i = 0;
     let index = (i % 5) + 1;
     document.getElementsByClassName(`bg-${index}`)[0].classList.toggle('toggle');
-    console.log(`Setting bg-${index}'s opacity to 1.`)
+    //console.log(`Setting bg-${index}'s opacity to 1.`)
     setInterval(() => {
       document.getElementsByClassName(`bg-${index}`)[0].classList.toggle('toggle');
-      console.log(`Setting bg-${index}'s opacity to 0.`)
+      //console.log(`Setting bg-${index}'s opacity to 0.`)
       index = (++i % 5) + 1;
       document.getElementsByClassName(`bg-${index}`)[0].classList.toggle('toggle');
-      console.log(`Setting bg-${index}'s opacity to 1.`)
+      //console.log(`Setting bg-${index}'s opacity to 1.`)
+      if(i === 5) i = 0;
     }, TIME);
   }
 

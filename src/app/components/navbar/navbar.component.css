@@ -1,5 +1,5 @@
 .mat-toolbar {
-    font-family: 'ABeeZee'
+    font-family: 'ABeeZee';
 }
 .fill {
     flex: 1 1 auto;
@@ -37,8 +37,6 @@ app-sidenav {
     transition: background-color 1s;
     border-bottom: 1px solid #DB162F;
 }
-
-
 .toolbar-row-one {
     min-height: 130px;
     display: flex;

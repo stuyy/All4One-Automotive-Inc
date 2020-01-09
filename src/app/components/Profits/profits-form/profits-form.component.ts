@@ -30,7 +30,7 @@ export class ProfitsFormComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
   radioChanged(event: MatRadioChange) {
     let value = event.value;
