@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import AOS from 'aos';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -10,6 +10,7 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    AOS.init();
     const TIME = 5000;
     let i = 0;
     let index = (i % 5) + 1;
