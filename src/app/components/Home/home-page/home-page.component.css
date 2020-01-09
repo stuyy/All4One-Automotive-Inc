@@ -1,0 +1,67 @@
+
+
+main {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0,0, 0,0.1)
+    ), url('../../../../assets/albany_view.jpg');
+    background-position-y: 60%;
+    background-repeat: no-repeat;
+    height: 70vh;
+    position: relative;
+    transition: background-image 0.2s ease-in-out;
+}
+
+.overlay {
+    height: 70vh;
+    width: 40%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.overlay-info-card {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 150px;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+
+.bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    width: 100%;
+    position: absolute;
+    background-attachment: fixed;
+}
+
+.bg-1 {
+    background-image: url('../../../../assets/albany_view.jpg');
+    opacity: 0;
+    transition: opacity 1s;
+}
+.bg-2 {
+    background-image: url('../../../../assets/bay.jpg');
+    opacity: 0;
+    transition: opacity 1s;
+}
+.bg-3 {
+    background-image: url('../../../../assets/city.jpg');
+    opacity: 0;
+    transition: opacity 1s;
+}
+.bg-4 {
+    background-image: url('../../../../assets/city_2.jpg');
+    opacity: 0;
+    transition: opacity 1s;
+}
+.bg-5 {
+    background-image: url('../../../../assets/city_3.jpg');
+    opacity: 0;
+    transition: opacity 1s;
+}
+.toggle {
+    opacity: 1;
+}
