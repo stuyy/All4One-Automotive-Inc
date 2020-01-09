@@ -7,6 +7,8 @@ import AOS from 'aos';
 })
 export class HomePageComponent implements OnInit {
 
+  f;
+
   constructor() { }
 
   ngOnInit() {
@@ -16,7 +18,7 @@ export class HomePageComponent implements OnInit {
     let index = (i % 5) + 1;
     document.getElementsByClassName(`bg-${index}`)[0].classList.toggle('toggle');
     //console.log(`Setting bg-${index}'s opacity to 1.`)
-    setInterval(() => {
+    this.f = setInterval(() => {
       document.getElementsByClassName(`bg-${index}`)[0].classList.toggle('toggle');
       //console.log(`Setting bg-${index}'s opacity to 0.`)
       index = (++i % 5) + 1;
@@ -25,5 +27,7 @@ export class HomePageComponent implements OnInit {
       if(i === 5) i = 0;
     }, TIME);
   }
-
+  ngOnDestroy() {
+    clearInterval(this.f);
+  }
 }
