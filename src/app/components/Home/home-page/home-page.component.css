@@ -1,5 +1,4 @@
-
-
+@import url('https://fonts.googleapis.com/css?family=Sura&display=swap');
 main {
     background: linear-gradient(
         rgba(0, 0, 0, 0.1),
@@ -7,13 +6,13 @@ main {
     ), url('../../../../assets/albany_view.jpg');
     background-position-y: 60%;
     background-repeat: no-repeat;
-    height: 70vh;
+    height: 60vh;
     position: relative;
     transition: background-image 0.2s ease-in-out;
 }
 
 .overlay {
-    height: 70vh;
+    height: 60vh;
     width: 40%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
@@ -21,7 +20,7 @@ main {
 }
 
 .overlay-info-card {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 150px;
     background-color:rgba(0, 0, 0, 0.4);
@@ -31,7 +30,7 @@ main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 70vh;
+    height: 60vh;
     width: 100%;
     position: absolute;
     background-attachment: fixed;
@@ -64,4 +63,41 @@ main {
 }
 .toggle {
     opacity: 1;
+}
+
+.main-bottom-section {
+    display: flex;
+}
+.truck {
+    background-image: url('../../../../assets/a41truck.jpg');
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 65%;
+    background-size: 100%;
+    height: 30vh;
+    width: 40%;
+}
+.side {
+    background-color: rgba(214, 40, 40, 0.8);
+    height: 30vh;
+    width: 60%;
+    font-family: 'Sura';
+}
+
+.side h1 {
+    font-size: 64px;
+    padding: 50px 0 0 75px;
+}
+.side h3 {
+    font-size: 48px;
+    padding: 2px 0 25px 75px;
+}
+.side button {
+    padding: 25px 75px;
+    font-size: 48px;
+    margin-left: 75px;
+}
+
+.mat-stroked-button:not([disabled]) {
+    border-color: rgba(255,255,255, 1);
 }
