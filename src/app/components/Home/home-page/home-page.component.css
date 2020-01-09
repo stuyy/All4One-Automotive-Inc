@@ -6,24 +6,26 @@ main {
     ), url('../../../../assets/albany_view.jpg');
     background-position-y: 60%;
     background-repeat: no-repeat;
-    height: 60vh;
+    min-height: 60vh;
     position: relative;
     transition: background-image 0.2s ease-in-out;
 }
 
 .overlay {
-    height: 60vh;
+    min-height: 60vh;
     width: 40%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+    transition: width 1s;
 }
 
 .overlay-info-card {
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 150px;
+    width: 80%;
     background-color:rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 15%;
+    left: 10%;
 }
 
 .bg {
@@ -100,4 +102,104 @@ main {
 
 .mat-stroked-button:not([disabled]) {
     border-color: rgba(255,255,255, 1);
+}
+
+.welcome-section {
+    display: flex;
+    font-family: 'Sura';
+}
+.welcome-section-intro {
+    padding: 150px;
+    width: 60%;
+    transition: padding .5s;
+}
+
+.welcome-section-intro h1 {
+    font-size: 64px;
+}
+
+.welcome-section-intro p {
+    font-size: 22px;
+}
+
+app-home-gallery {
+    width: 40%;
+    transition: width .5s;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-height: 1200px) {
+    .overlay, main, .bg {
+        height: 100vh;
+    }
+    .truck, .side {
+        height: 400px;
+    }
+}
+
+@media (max-height: 797px) {
+    .overlay, main, .bg {
+        height: 700px;
+    }
+}
+
+/* WIDTH MEDIA QUERIES */
+
+@media (max-width: 1920px) {
+    app-home-gallery {
+        width: 60%;
+    }
+    .welcome-section-intro {
+        padding: 50px;
+        width: 60%;
+    }
+}
+
+@media (max-width: 1427px) {
+    .truck {
+        background-size: cover;
+    }
+}
+@media (max-width: 1330px) {
+    .truck {
+        height: 350px;
+    }
+    .side {
+        height: 350px;
+    }
+    .side h1 {
+        font-size: 56px;
+        padding: 20px 0 0 45px;
+    }
+    .side h3 {
+        font-size: 40px;
+        padding: 2px 0 25px 45px;
+    }
+    .side button {
+        padding: 25px 45px;
+        font-size: 28px;
+        margin-left: 45px;
+    }
+    .overlay {
+        width: 60%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .overlay {
+        width: 100%;
+    }
+    .truck, .side {
+        height: 450px;
+    }
+    .welcome-section {
+        flex-direction: column;
+    }
+    .welcome-section-intro {
+        width: 100%;
+    }
+    app-home-gallery {
+        width: 100%;
+    }
 }
