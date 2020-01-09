@@ -1,0 +1,99 @@
+.gallery {
+    display: grid;
+    grid-template-columns: auto auto;
+    overflow: hidden;
+}
+.bg {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    cursor: pointer;
+}
+
+.image1 {
+    background-image: url('../../../../assets/office.png');
+    background-size: cover;
+}
+
+.image2 {
+    background-image: url('../../../../assets/car.jpg');
+    background-size: cover;
+}
+
+.image3 {
+    background-image: url('../../../../assets/car_2.jpg');
+    background-size: cover;
+}
+
+.image4 {
+    background-image: url('../../../../assets/car_3.jpg');
+    background-size: cover;
+}
+
+.inner1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all .5s;
+}
+.inner1 button, .inner2 button, .inner3 button, .inner4 button {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 25px 75px;
+    font-size: 48px;
+}
+.image1:hover .inner1 {
+    height: 100%;
+    opacity: 1;
+}
+.inner2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.image2:hover .inner2 {
+    width: 100%;
+    opacity: 1;
+}
+.inner3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.image3:hover .inner3 {
+    width: 100%;
+    opacity: 1;
+}
+
+.inner4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.image4:hover .inner4 {
+    height: 100%;
+    opacity: 1;
+}
