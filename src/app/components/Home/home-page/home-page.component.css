@@ -39,27 +39,27 @@ main {
 }
 
 .bg-1 {
-    background-image: url('../../../../assets/albany_view.jpg');
+    background-image: url('../../../../assets/compressed/albany_view.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-2 {
-    background-image: url('../../../../assets/bay.jpg');
+    background-image: url('../../../../assets/compressed/bay.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-3 {
-    background-image: url('../../../../assets/city.jpg');
+    background-image: url('../../../../assets/compressed/city.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-4 {
-    background-image: url('../../../../assets/city_2.jpg');
+    background-image: url('../../../../assets/compressed/city_2.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-5 {
-    background-image: url('../../../../assets/city_3.jpg');
+    background-image: url('../../../../assets/compressed/city_3.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
@@ -126,6 +126,9 @@ app-home-gallery {
     width: 40%;
     transition: width .5s;
 }
+
+
+
 
 /* MEDIA QUERIES */
 
