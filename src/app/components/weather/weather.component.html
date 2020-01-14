@@ -30,7 +30,7 @@
                 <mat-label>Enter Your City</mat-label>
                 <input type="text" matInput [formControl]="weatherInput">
             </mat-form-field>
-            <button mat-icon-button color="accent" (click)="getWeather($event)">
+            <button mat-icon-button color="accent" (click)="getWeather($event, null)">
                 <i class="fas fa-check-circle fa-2x"></i>
             </button>
         </form>

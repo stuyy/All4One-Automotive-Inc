@@ -2,7 +2,7 @@ export default interface Weather {
     coords: Object;
     weather: Array<Object>;
     base: string;
-    main: Object;
+    main: any;
     visibility: number;
     wind: Object;
     rain: Object;

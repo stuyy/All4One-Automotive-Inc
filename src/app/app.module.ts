@@ -51,6 +51,9 @@ import { ProfitsFormComponent } from './components/Profits/profits-form/profits-
 import { ProfitsFormDialogComponent } from './components/Profits/profits-form-dialog/profits-form-dialog.component';
 import { ProfitsItemComponent } from './components/Profits/profits-item/profits-item.component';
 import { InvoiceSearchFormComponent } from './components/Invoices/invoice-search-form/invoice-search-form.component';
+import { HomePageComponent } from './components/Home/home-page/home-page.component';
+import { HomeGalleryComponent } from './components/Home/home-gallery/home-gallery.component';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +88,8 @@ import { InvoiceSearchFormComponent } from './components/Invoices/invoice-search
     ProfitsFormDialogComponent,
     ProfitsItemComponent,
     InvoiceSearchFormComponent,
+    HomePageComponent,
+    HomeGalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +109,7 @@ import { InvoiceSearchFormComponent } from './components/Invoices/invoice-search
     MaterialFileInputModule,
     TextFieldModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB135RGRyZ9wmHSC2j143eopkvO4oZroAk'
+      apiKey: environment.GOOGLE_MAP_KEY
     }),
     CdkStepperModule,
     HttpClientModule,

@@ -47,3 +47,6 @@ Thumbs.db
 
 node_modules
 .env
+
+src/assets/compressed
+src/environments

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Sura&display=swap');
+.body {
+    position: relative;
+}
 main {
     background: linear-gradient(
         rgba(0, 0, 0, 0.1),
@@ -39,27 +42,27 @@ main {
 }
 
 .bg-1 {
-    background-image: url('../../../../assets/compressed/albany_view.jpg');
+    background-image: url('../../../../assets/albany_view.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-2 {
-    background-image: url('../../../../assets/compressed/bay.jpg');
+    background-image: url('../../../../assets/bay.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-3 {
-    background-image: url('../../../../assets/compressed/city.jpg');
+    background-image: url('../../../../assets/city.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-4 {
-    background-image: url('../../../../assets/compressed/city_2.jpg');
+    background-image: url('../../../../assets/city_2.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
 .bg-5 {
-    background-image: url('../../../../assets/compressed/city_3.jpg');
+    background-image: url('../../../../assets/city_3.jpg');
     opacity: 0;
     transition: opacity 1s;
 }
@@ -109,7 +112,7 @@ main {
     font-family: 'Sura';
 }
 .welcome-section-intro {
-    padding: 150px;
+    padding: 250px;
     width: 60%;
     transition: padding .5s;
 }
@@ -127,9 +130,36 @@ app-home-gallery {
     transition: width .5s;
 }
 
-
-
-
+.other {
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: #8C271E;
+}
+.icons-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.icons-wrapper > i {
+    font-size: 44px;
+    padding: 10px;
+    border-left: 2px solid red;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+.icons-wrapper i:hover {
+    background-color: red;
+}
+.icons-wrapper i:nth-child(2) {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.icons-wrapper i:nth-child(1) {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.icons-wrapper i:last-child {
+    border-right: 2px solid red;
+}
 /* MEDIA QUERIES */
 
 @media (max-height: 1200px) {

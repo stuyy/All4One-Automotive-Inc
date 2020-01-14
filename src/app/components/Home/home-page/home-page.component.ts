@@ -8,7 +8,6 @@ import AOS from 'aos';
 export class HomePageComponent implements OnInit {
 
   f;
-
   constructor() { }
 
   ngOnInit() {
